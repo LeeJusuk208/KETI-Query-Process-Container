@@ -1,3 +1,4 @@
+#pragma once
 #include <grpcpp/grpcpp.h>
 #include <google/protobuf/empty.pb.h>
 #include "snippet_sample.grpc.pb.h"
