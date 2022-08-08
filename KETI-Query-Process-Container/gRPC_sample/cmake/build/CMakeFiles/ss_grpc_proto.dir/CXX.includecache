@@ -2370,11 +2370,11 @@ grpc/impl/codegen/grpc_types.h
 grpcpp/impl/codegen/config.h
 -
 
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.grpc.pb.cc
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.grpc.pb.cc
 snippet_sample.pb.h
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.h
 snippet_sample.grpc.pb.h
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.grpc.pb.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.grpc.pb.h
 functional
 -
 grpcpp/impl/codegen/async_stream.h
@@ -2404,9 +2404,9 @@ grpcpp/impl/codegen/service_type.h
 grpcpp/impl/codegen/sync_stream.h
 -
 
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.grpc.pb.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.grpc.pb.h
 snippet_sample.pb.h
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.h
 functional
 -
 grpcpp/impl/codegen/async_generic_service.h
@@ -2444,9 +2444,9 @@ grpcpp/impl/codegen/stub_options.h
 grpcpp/impl/codegen/sync_stream.h
 -
 
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.cc
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.cc
 snippet_sample.pb.h
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.h
 algorithm
 -
 google/protobuf/io/coded_stream.h
@@ -2468,7 +2468,7 @@ google/protobuf/port_def.inc
 google/protobuf/port_undef.inc
 -
 
-/root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.h
 limits
 -
 string

@@ -57,7 +57,7 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # DB_Connector_Instance
-add_executable(db_connector_instance "db_connector_instance.cc")
+add_executable(db_connector_instance "db_connector_instance.cc" "Storage_Engine_Interface.h")
 target_link_libraries(db_connector_instance
   ss_grpc_proto
   ${_REFLECTION}

@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++11
 
 CXX_DEFINES = -DCARES_STATICLIB
 
-CXX_INCLUDES = -I/root/workspace/ljs/test_gRPC/sample/cmake/build -isystem /include 
+CXX_INCLUDES = -I/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build -isystem /include 
 

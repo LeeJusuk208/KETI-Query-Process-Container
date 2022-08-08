@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/workspace/ljs/test_gRPC/sample
+CMAKE_SOURCE_DIR = /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/workspace/ljs/test_gRPC/sample/cmake/build
+CMAKE_BINARY_DIR = /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -78,14 +78,14 @@ clean: CMakeFiles/ss_grpc_proto.dir/clean
 CMakeFiles/storage_engine_instance.dir/all: CMakeFiles/ss_grpc_proto.dir/all
 	$(MAKE) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/depend
 	$(MAKE) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles --progress-num=7,8 "Built target storage_engine_instance"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=7,8 "Built target storage_engine_instance"
 .PHONY : CMakeFiles/storage_engine_instance.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/storage_engine_instance.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/storage_engine_instance.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 0
 .PHONY : CMakeFiles/storage_engine_instance.dir/rule
 
 # Convenience name for target.
@@ -105,14 +105,14 @@ CMakeFiles/storage_engine_instance.dir/clean:
 CMakeFiles/db_connector_instance.dir/all: CMakeFiles/ss_grpc_proto.dir/all
 	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/depend
 	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles --progress-num=1,2 "Built target db_connector_instance"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=1,2 "Built target db_connector_instance"
 .PHONY : CMakeFiles/db_connector_instance.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/db_connector_instance.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/db_connector_instance.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 0
 .PHONY : CMakeFiles/db_connector_instance.dir/rule
 
 # Convenience name for target.
@@ -132,14 +132,14 @@ CMakeFiles/db_connector_instance.dir/clean:
 CMakeFiles/ss_grpc_proto.dir/all:
 	$(MAKE) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/depend
 	$(MAKE) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles --progress-num=3,4,5,6 "Built target ss_grpc_proto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=3,4,5,6 "Built target ss_grpc_proto"
 .PHONY : CMakeFiles/ss_grpc_proto.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ss_grpc_proto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ss_grpc_proto.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 0
 .PHONY : CMakeFiles/ss_grpc_proto.dir/rule
 
 # Convenience name for target.

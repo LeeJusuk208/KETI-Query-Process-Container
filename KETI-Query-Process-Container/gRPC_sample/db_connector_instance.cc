@@ -2,86 +2,73 @@
 #include <memory>
 #include <string>
 
-#include <grpcpp/grpcpp.h>
-#include <google/protobuf/empty.pb.h>
-#include "snippet_sample.grpc.pb.h"
+#include "Storage_Engine_Interface.h"
 
-using grpc::Channel;
-using grpc::ClientContext;
-using grpc::Status;
-using snippetsample::SnippetSample;
-using snippetsample::Snippet;
-using snippetsample::Result;
-using snippetsample::Request;
-using google::protobuf::Empty;
+class DB_Connector_Instance {
+public:
+	DB_Connector_Instance(std::string channel_ = "localhost") : storageEngineInterface_(grpc::CreateChannel(channel_ + ":50051", grpc::InsecureChannelCredentials())){
+		//init(channel_);
+	}
+	void run() {
+		//while(1){
+			//std::string input_query = "";
 
-class StorageEngineInterface {
-	public:
-		StorageEngineInterface(std::shared_ptr<Channel> channel) : stub_(SnippetSample::NewStub(channel)) {}
+			// get input_query with tcp/ip
 
-		void OpenStream(){
-			stream = stub_->SetSnippet(&streamcontext);
-		}
-		void SendSnippet(const Snippet &snippet) {			
-			Empty empty;
-      		stream->Write(snippet);
-			stream->Read(&empty);
-		}
-		void CloseStream(){
-			stream->WritesDone();
-			Status status = stream->Finish();
-			
-			if (!status.ok()) {
-				std::cout << status.error_code() << ": " << status.error_message() << std::endl;
-				std::cout << "RPC failed";
-			}
-		}
+			//if(input_query == "exit" || input_query == "quit"){
+			//	break;
+			//}
 
-		void Run(int queryid) {
-			Request request;
-			request.set_queryid(queryid);
-    		ClientContext context;
-			Result result;
-			
-			Status status = stub_->Run(&context, request, &result);
+			//ParsedQuery parsed_query(input_query);
 
-			std::cout << std::endl << "result : " << result.value() << "\n";
-			
-	  		if (!status.ok()) {
-				std::cout << status.error_code() << ": " << status.error_message() << std::endl;
-				std::cout << "RPC failed";
-			}
-		}
+			//query_planner_.Parse(parsed_query);
+			//plan_executer_.Execute_Query(parsed_query);
+		//}
+		
+		Snippet val1, val2, val3;
+		val1.set_queryid(1);
+		val1.set_workid(1);
+		val1.set_snippet("snippet01");
+	
+		val2.set_queryid(1);
+		val2.set_workid(2);
+		val2.set_snippet("snippet02");
+	
+		val3.set_queryid(1);
+		val3.set_workid(3);
+		val3.set_snippet("snippet03");
+	
+		storageEngineInterface_.OpenStream();
+		storageEngineInterface_.SendSnippet(val1);
+		storageEngineInterface_.SendSnippet(val2);
+		storageEngineInterface_.SendSnippet(val3);
+		storageEngineInterface_.CloseStream();
+	
+		storageEngineInterface_.Run(1);
+	}
 
-	private:
-		std::unique_ptr<SnippetSample::Stub> stub_;
-		std::unique_ptr<grpc::ClientReaderWriter<snippetsample::Snippet, google::protobuf::Empty>> stream;
-		ClientContext streamcontext;
+private:
+	//Query_Planner query_planner_;
+	//Plan_Executer plan_executer_;
+	//Meta_Data_Manager mata_data_manager_;
+	Storage_Engine_Interface storageEngineInterface_;
+
+	void init(std::string channel_){
+		//query_planner_ = Query_Planner();
+		//plan_executer_ = Plan_Executer();
+
+		//mata_data_manager_ = Meta_Data_Manager(channel_ + ":50052");
+		//storageEngineInterface_ = Storage_Engine_Interface(grpc::CreateChannel(channel_ + ":50051", grpc::InsecureChannelCredentials()));
+
+		//query_planner_.Set_Meta_Data_Manager(mata_data_manager_);
+		//plan_executer_.Set_Storage_Engine_Interface(storageEngineInterface_);
+	}
 };
 
 int main(int argc, char** argv) {
-	Snippet val1, val2, val3;
-	val1.set_queryid(1);
-	val1.set_workid(1);
-	val1.set_snippet("snippet01");
-	
-	val2.set_queryid(1);
-	val2.set_workid(2);
-	val2.set_snippet("snippet02");
-	
-	val3.set_queryid(1);
-	val3.set_workid(3);
-	val3.set_snippet("snippet03");
+	DB_Connector_Instance instance("localhost");
 
-	StorageEngineInterface tester(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials()));
-
-	tester.OpenStream();
-	tester.SendSnippet(val1);
-	tester.SendSnippet(val2);
-	tester.SendSnippet(val3);
-	tester.CloseStream();
-	
-	tester.Run(1);
+	instance.run();
 
 	return 0;
 }

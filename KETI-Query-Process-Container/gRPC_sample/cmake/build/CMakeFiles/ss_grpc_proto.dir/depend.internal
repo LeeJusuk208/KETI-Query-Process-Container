@@ -161,9 +161,9 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.grpc.pb.cc.o
  /include/grpcpp/impl/codegen/sync.h
  /include/grpcpp/impl/codegen/sync_stream.h
  /include/grpcpp/impl/codegen/time.h
- /root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.grpc.pb.cc
- /root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.grpc.pb.h
- /root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.h
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.grpc.pb.cc
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.grpc.pb.h
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.h
 CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o
  /include/google/protobuf/any.h
  /include/google/protobuf/arena.h
@@ -217,5 +217,5 @@ CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o
  /include/google/protobuf/unknown_field_set.h
  /include/google/protobuf/wire_format.h
  /include/google/protobuf/wire_format_lite.h
- /root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.cc
- /root/workspace/ljs/test_gRPC/sample/cmake/build/snippet_sample.pb.h
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.cc
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/snippet_sample.pb.h
