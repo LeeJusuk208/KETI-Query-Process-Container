@@ -1,0 +1,5 @@
+/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/rebuild_cache.dir
+/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/edit_cache.dir
+/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/storage_engine_instance.dir
+/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/db_connector_instance.dir
+/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/ss_grpc_proto.dir

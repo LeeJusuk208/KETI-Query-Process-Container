@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+7eccae29781efccc5bdf21a14ac21cc4 snippet_sample.pb.cc
