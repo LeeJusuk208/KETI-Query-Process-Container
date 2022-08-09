@@ -2814,6 +2814,8 @@ grpcpp/impl/codegen/string_ref.h
 
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Meta_Data_Manager.h
 
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
+
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.cc
 Plan_Executer.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
@@ -2821,12 +2823,16 @@ Plan_Executer.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
 Storage_Engine_Interface.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h
+Parsed_Query.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
 list
 -
 
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Query_Planner.h
 Meta_Data_Manager.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Meta_Data_Manager.h
+Parsed_Query.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
 
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h
 grpcpp/grpcpp.h
@@ -2851,6 +2857,8 @@ Plan_Executer.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
 Storage_Engine_Interface.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h
+Parsed_Query.h
+/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
 
 snippet_sample.grpc.pb.h
 snippet_sample.pb.h

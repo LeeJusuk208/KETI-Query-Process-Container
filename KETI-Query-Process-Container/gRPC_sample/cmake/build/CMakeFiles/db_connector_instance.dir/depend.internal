@@ -206,6 +206,7 @@ CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o
  /include/grpcpp/support/config.h
  /include/grpcpp/support/status.h
  /include/grpcpp/support/string_ref.h
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.cc
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h
@@ -417,6 +418,7 @@ CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o
  /include/grpcpp/support/status.h
  /include/grpcpp/support/string_ref.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Meta_Data_Manager.h
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Query_Planner.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h

@@ -6,6 +6,7 @@
 #include "Meta_Data_Manager.h"
 #include "Plan_Executer.h"
 #include "Storage_Engine_Interface.h"
+#include "Parsed_Query.h"
 
 class DB_Connector_Instance {
 public:
@@ -13,7 +14,11 @@ public:
 		//init(channel_);
 	}
 	void run() {
-		plan_executer_.Execute_Query(storageEngineInterface_);
+		std::string input_query = "";
+		Parsed_Query parsed_query(input_query);
+		
+		query_planner_.Parse(meta_data_manager_,parsed_query);
+		plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
 	}
 
 private:

@@ -1,17 +1,21 @@
 #include "Plan_Executer.h"
 
-void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface){    
-    int query_id = Set_Query_ID();
-    auto snippet_list = Gen_Snippet(query_id);
-    std::list<Snippet>::iterator iter = snippet_list->begin();
-        
-    storageEngineInterface.OpenStream();
-    for(;iter != snippet_list->end();iter++){
-        storageEngineInterface.SendSnippet(*iter);
-    }
-    storageEngineInterface.CloseStream();
+void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query){
+    if(parsed_query.isGenericQuery()){
 
-    storageEngineInterface.Run(query_id);    
+    } else {
+        int query_id = Set_Query_ID();
+        auto snippet_list = Gen_Snippet(query_id);
+        std::list<Snippet>::iterator iter = snippet_list->begin();
+        
+        storageEngineInterface.OpenStream();
+        for(;iter != snippet_list->end();iter++){
+            storageEngineInterface.SendSnippet(*iter);
+        }
+        storageEngineInterface.CloseStream();
+
+        storageEngineInterface.Run(query_id);
+    }
 }
 
 int Plan_Executer::Set_Query_ID(){ // test code
