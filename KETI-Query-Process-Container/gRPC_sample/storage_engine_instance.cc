@@ -22,11 +22,9 @@ using google::protobuf::Empty;
 // Logic and data behind the server's behavior.
 class SnippetSampleServiceImpl final : public SnippetSample::Service {
   Status SetSnippet(ServerContext* context,
-                   ServerReaderWriter<Empty, Snippet>* stream) override {
+                   ServerReaderWriter<Result, Snippet>* stream) override {
     Snippet snippet;
     while (stream->Read(&snippet)) {
-      Empty empty;
-
       std::cout << "SetSnippet" << std::endl;
       std::cout << "queryid :" << snippet.queryid() << std::endl;
       std::cout << "workid :" << snippet.workid() << std::endl;
@@ -38,7 +36,11 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
       query_result += snippet.snippet();
       query_result += "\n";
 
-      stream->Write(empty);
+      if(snippet.snippet() == "return"){
+        Result result;
+        result.set_value(query_result);
+        stream->Write(result);
+      }
     }
     return Status::OK;
   }

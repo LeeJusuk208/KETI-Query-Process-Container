@@ -12,9 +12,10 @@ void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterfa
         for(;iter != snippet_list->end();iter++){
             storageEngineInterface.SendSnippet(*iter);
         }
+        storageEngineInterface.GetReturn();
         storageEngineInterface.CloseStream();
 
-        storageEngineInterface.Run(query_id);
+        //storageEngineInterface.Run(query_id);
     }
 }
 
@@ -35,7 +36,7 @@ std::unique_ptr<std::list<Snippet>> Plan_Executer::Gen_Snippet(int query_id){ //
 	val2.set_snippet("snippet02");	
 	val3.set_queryid(query_id);
 	val3.set_workid(work_id++);
-	val3.set_snippet("snippet03");
+	val3.set_snippet("return");
 
     ret->push_back(Snippet(val1));
     ret->push_back(Snippet(val2));

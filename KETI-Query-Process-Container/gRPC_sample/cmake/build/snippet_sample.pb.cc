@@ -102,19 +102,19 @@ const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION
   "oogle/protobuf/empty.proto\";\n\007Snippet\022\017\n"
   "\007queryid\030\001 \001(\005\022\016\n\006workid\030\002 \001(\005\022\017\n\007snippe"
   "t\030\003 \001(\t\"\032\n\007Request\022\017\n\007queryid\030\001 \001(\005\"\027\n\006R"
-  "esult\022\r\n\005value\030\001 \001(\t2\213\001\n\rSnippetSample\022B"
-  "\n\nSetSnippet\022\026.snippetsample.Snippet\032\026.g"
-  "oogle.protobuf.Empty\"\000(\0010\001\0226\n\003Run\022\026.snip"
-  "petsample.Request\032\025.snippetsample.Result"
-  "\"\000B6\n\026io.grpc.snippet_sampleB\024snippet_sa"
-  "mple_ProtoP\001\242\002\003SSPb\006proto3"
+  "esult\022\r\n\005value\030\001 \001(\t2\212\001\n\rSnippetSample\022A"
+  "\n\nSetSnippet\022\026.snippetsample.Snippet\032\025.s"
+  "nippetsample.Result\"\000(\0010\001\0226\n\003Run\022\026.snipp"
+  "etsample.Request\032\025.snippetsample.Result\""
+  "\000B6\n\026io.grpc.snippet_sampleB\024snippet_sam"
+  "ple_ProtoP\001\242\002\003SSPb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_snippet_5fsample_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_snippet_5fsample_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto = {
-  false, false, 386, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
+  false, false, 385, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
   &descriptor_table_snippet_5fsample_2eproto_once, descriptor_table_snippet_5fsample_2eproto_deps, 1, 3,
   schemas, file_default_instances, TableStruct_snippet_5fsample_2eproto::offsets,
   file_level_metadata_snippet_5fsample_2eproto, file_level_enum_descriptors_snippet_5fsample_2eproto, file_level_service_descriptors_snippet_5fsample_2eproto,

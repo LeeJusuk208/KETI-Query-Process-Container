@@ -17,12 +17,17 @@ class Storage_Engine_Interface {
 		Storage_Engine_Interface(std::shared_ptr<Channel> channel) : stub_(SnippetSample::NewStub(channel)) {}
 
 		void OpenStream(){
-			stream = stub_->SetSnippet(&streamcontext);
+			streamcontext.reset(new ClientContext());
+			stream = stub_->SetSnippet(streamcontext.get());
 		}
-		void SendSnippet(const Snippet &snippet) {			
-			Empty empty;
+		void SendSnippet(const Snippet &snippet) {
       		stream->Write(snippet);
-			stream->Read(&empty);
+			std::cout << "send snippet" << std::endl;
+		}
+		void GetReturn(){		
+			Result result;		
+			stream->Read(&result);
+			std::cout << result.value() << std::endl;
 		}
 		void CloseStream(){
 			stream->WritesDone();
@@ -52,6 +57,6 @@ class Storage_Engine_Interface {
 
 	private:
 		std::unique_ptr<SnippetSample::Stub> stub_;
-		std::unique_ptr<grpc::ClientReaderWriter<snippetsample::Snippet, google::protobuf::Empty>> stream;
-		ClientContext streamcontext;
+		std::unique_ptr<grpc::ClientReaderWriter<snippetsample::Snippet, snippetsample::Result>> stream;
+		std::unique_ptr<ClientContext> streamcontext;
 };

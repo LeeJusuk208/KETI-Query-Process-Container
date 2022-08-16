@@ -1,137 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_70360/fast && /usr/bin/make -f CMakeFiles/cmTC_70360.dir/build.make CMakeFiles/cmTC_70360.dir/build
-make[1]: Entering directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_70360.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_70360.dir/src.c.o   -c /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_70360
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_70360.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_70360.dir/src.c.o  -o cmTC_70360 
-/usr/bin/ld: CMakeFiles/cmTC_70360.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_70360.dir/build.make:87: cmTC_70360] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_70360/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_156aa/fast && /usr/bin/make -f CMakeFiles/cmTC_156aa.dir/build.make CMakeFiles/cmTC_156aa.dir/build
-make[1]: Entering directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_156aa.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_156aa.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_156aa
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_156aa.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_156aa.dir/CheckFunctionExists.c.o  -o cmTC_156aa  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_156aa.dir/build.make:87: cmTC_156aa] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_156aa/fast] Error 2
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_8b655/fast && /usr/bin/make -f CMakeFiles/cmTC_8b655.dir/build.make CMakeFiles/cmTC_8b655.dir/build
-make[1]: Entering directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8b655.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_8b655.dir/src.c.o   -c /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_8b655
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b655.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_8b655.dir/src.c.o  -o cmTC_8b655 
-/usr/bin/ld: CMakeFiles/cmTC_8b655.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_8b655.dir/build.make:87: cmTC_8b655] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_8b655/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_99e53/fast && /usr/bin/make -f CMakeFiles/cmTC_99e53.dir/build.make CMakeFiles/cmTC_99e53.dir/build
-make[1]: Entering directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_99e53.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_99e53.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_99e53
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_99e53.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_99e53.dir/CheckFunctionExists.c.o  -o cmTC_99e53  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_99e53.dir/build.make:87: cmTC_99e53] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/test_gRPC/sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_99e53/fast] Error 2
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_a79a6/fast && /usr/bin/make -f CMakeFiles/cmTC_a79a6.dir/build.make CMakeFiles/cmTC_a79a6.dir/build
+Run Build Command(s):/usr/bin/make cmTC_f82cb/fast && /usr/bin/make -f CMakeFiles/cmTC_f82cb.dir/build.make CMakeFiles/cmTC_f82cb.dir/build
 make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a79a6.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_a79a6.dir/src.c.o   -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_a79a6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a79a6.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_a79a6.dir/src.c.o  -o cmTC_a79a6 
-/usr/bin/ld: CMakeFiles/cmTC_a79a6.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_f82cb.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_f82cb.dir/src.c.o   -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f82cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f82cb.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_f82cb.dir/src.c.o  -o cmTC_f82cb 
+/usr/bin/ld: CMakeFiles/cmTC_f82cb.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_a79a6.dir/build.make:87: cmTC_a79a6] Error 1
+make[1]: *** [CMakeFiles/cmTC_f82cb.dir/build.make:87: cmTC_f82cb] Error 1
 make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_a79a6/fast] Error 2
+make: *** [Makefile:121: cmTC_f82cb/fast] Error 2
 
 
 Source file was:
@@ -157,192 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_556f6/fast && /usr/bin/make -f CMakeFiles/cmTC_556f6.dir/build.make CMakeFiles/cmTC_556f6.dir/build
+Run Build Command(s):/usr/bin/make cmTC_cdb17/fast && /usr/bin/make -f CMakeFiles/cmTC_cdb17.dir/build.make CMakeFiles/cmTC_cdb17.dir/build
 make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_556f6.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_556f6.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_556f6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_556f6.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_556f6.dir/CheckFunctionExists.c.o  -o cmTC_556f6  -lpthreads 
+Building C object CMakeFiles/cmTC_cdb17.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_cdb17.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cdb17
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cdb17.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_cdb17.dir/CheckFunctionExists.c.o  -o cmTC_cdb17  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_556f6.dir/build.make:87: cmTC_556f6] Error 1
+make[1]: *** [CMakeFiles/cmTC_cdb17.dir/build.make:87: cmTC_cdb17] Error 1
 make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_556f6/fast] Error 2
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_1a2f1/fast && /usr/bin/make -f CMakeFiles/cmTC_1a2f1.dir/build.make CMakeFiles/cmTC_1a2f1.dir/build
-make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1a2f1.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1a2f1.dir/src.c.o   -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_1a2f1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a2f1.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_1a2f1.dir/src.c.o  -o cmTC_1a2f1 
-/usr/bin/ld: CMakeFiles/cmTC_1a2f1.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_1a2f1.dir/build.make:87: cmTC_1a2f1] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_1a2f1/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_23072/fast && /usr/bin/make -f CMakeFiles/cmTC_23072.dir/build.make CMakeFiles/cmTC_23072.dir/build
-make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_23072.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_23072.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_23072
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23072.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_23072.dir/CheckFunctionExists.c.o  -o cmTC_23072  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_23072.dir/build.make:87: cmTC_23072] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_23072/fast] Error 2
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_a8c88/fast && /usr/bin/make -f CMakeFiles/cmTC_a8c88.dir/build.make CMakeFiles/cmTC_a8c88.dir/build
-make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a8c88.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_a8c88.dir/src.c.o   -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_a8c88
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a8c88.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_a8c88.dir/src.c.o  -o cmTC_a8c88 
-/usr/bin/ld: CMakeFiles/cmTC_a8c88.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_a8c88.dir/build.make:87: cmTC_a8c88] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_a8c88/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_09cf8/fast && /usr/bin/make -f CMakeFiles/cmTC_09cf8.dir/build.make CMakeFiles/cmTC_09cf8.dir/build
-make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_09cf8.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_09cf8.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_09cf8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09cf8.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_09cf8.dir/CheckFunctionExists.c.o  -o cmTC_09cf8  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_09cf8.dir/build.make:87: cmTC_09cf8] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_09cf8/fast] Error 2
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_572d4/fast && /usr/bin/make -f CMakeFiles/cmTC_572d4.dir/build.make CMakeFiles/cmTC_572d4.dir/build
-make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_572d4.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_572d4.dir/src.c.o   -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_572d4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_572d4.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_572d4.dir/src.c.o  -o cmTC_572d4 
-/usr/bin/ld: CMakeFiles/cmTC_572d4.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_572d4.dir/build.make:87: cmTC_572d4] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_572d4/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_4db44/fast && /usr/bin/make -f CMakeFiles/cmTC_4db44.dir/build.make CMakeFiles/cmTC_4db44.dir/build
-make[1]: Entering directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_4db44.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_4db44.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_4db44
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4db44.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_4db44.dir/CheckFunctionExists.c.o  -o cmTC_4db44  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_4db44.dir/build.make:87: cmTC_4db44] Error 1
-make[1]: Leaving directory '/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_4db44/fast] Error 2
+make: *** [Makefile:121: cmTC_cdb17/fast] Error 2
 
 
 

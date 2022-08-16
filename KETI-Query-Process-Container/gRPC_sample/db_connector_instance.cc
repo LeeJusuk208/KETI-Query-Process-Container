@@ -14,11 +14,20 @@ public:
 		//init(channel_);
 	}
 	void run() {
-		std::string input_query = "";
-		Parsed_Query parsed_query(input_query);
-		
-		query_planner_.Parse(meta_data_manager_,parsed_query);
-		plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
+		while (1)
+		{
+			std::string input_query = "";
+			std::cout << "input: ";
+			std::getline(std::cin,input_query);
+			if(input_query == "exit" || input_query == "quit"){
+				std::cout << "bye~" << std::endl;
+				break;
+			}
+			Parsed_Query parsed_query(input_query);
+			query_planner_.Parse(meta_data_manager_,parsed_query);
+			std::cout << "parse ok " << std::endl;
+			plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
+		}
 	}
 
 private:

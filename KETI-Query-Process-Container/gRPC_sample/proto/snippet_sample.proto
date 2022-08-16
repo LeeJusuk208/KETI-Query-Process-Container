@@ -10,7 +10,7 @@ option objc_class_prefix = "SSP";
 package snippetsample;
 
 service SnippetSample {
-  rpc SetSnippet (stream Snippet) returns (stream google.protobuf.Empty) {}
+  rpc SetSnippet (stream Snippet) returns (stream Result) {}
   rpc Run (Request) returns (Result) {}
 }
 
