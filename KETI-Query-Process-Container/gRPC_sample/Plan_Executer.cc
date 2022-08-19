@@ -95,13 +95,13 @@ void snippet0_0(Snippet& request){
     int dt;
 
     auto filter = request.add_table_filter();
-    filter->set_operator_(snippetsample::Snippet_Filter_OperType::Request_Filter_OperType_KETI_LE);
+    filter->set_operator_(snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_LE);
     auto sany = filter->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_shipdate",10);
     
     sany = filter->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_DATE);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
     dt = 1023253;
     sany->set_value(&dt,sizeof(dt));
   }
@@ -188,112 +188,112 @@ void snippet0_0(Snippet& request){
     int i32;
 
     auto projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     auto sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_returnflag",12);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_linestatus",12);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_SUM);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_SUM);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_quantity",10);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_SUM);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_SUM);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_extendedprice",15);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_SUM);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_SUM);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_extendedprice",15);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_INT32);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_INT32);
     i32 = 1;
     sany->set_value(&i32,sizeof(i32));
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_discount",10);
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("-",1); 
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("*",1);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_SUM);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_SUM);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_extendedprice",15);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_INT32);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_INT32);
     i32 = 1;
     sany->set_value(&i32,sizeof(i32));
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_discount",10);
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("-",1); 
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("*",1);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_INT32);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_INT32);
     i32 = 1;
     sany->set_value(&i32,sizeof(i32));
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_tax",5);
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("+",1); 
 
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("*",1);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_AVG);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_AVG);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_quantity",10);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_AVG);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_AVG);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_extendedprice",15);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_AVG);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_AVG);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_discount",10);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_COUNT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_COUNT);
   }
 
   // set column filtering
@@ -385,87 +385,87 @@ void snippet0_1(Snippet& request){
   // set column projection
   {
     auto projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     auto sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_returnflag",12);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("l_linestatus",12);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_qty",7);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_base_price",15);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_disc_price",15);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_charge",10);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_qty",7);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("count_order",11);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("/",1);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_base_price",14);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("count_order",11);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("/",1);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("sum_for_avg_disc",16);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("count_order",11);
     
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_OPERATOR);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR);
     sany->set_value("/",1);
 
     projection = request.add_column_projection();
-    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT);
+    projection->set_projcetiontype(snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT);
     sany = projection->add_sany();
-    sany->set_snippettype(snippetsample::Snippet_ValueType::Request_ValueType_COLUMN_NAME);
+    sany->set_snippettype(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME);
     sany->set_value("count_order",11);
   }
 

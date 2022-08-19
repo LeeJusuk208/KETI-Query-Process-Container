@@ -62,51 +62,51 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
         auto filter = snippet.table_filter(i);
         std::cout << "\t{";
         switch(filter.operator_()){
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_GE:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_GE:
             std::cout << "\"OPERATOR\" : OperType_KETI_GE,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_LE:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_LE:
             std::cout << "\"OPERATOR\" : OperType_KETI_LE,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_GT:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_GT:
             std::cout << "\"OPERATOR\" : OperType_KETI_GT,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_LT:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_LT:
             std::cout << "\"OPERATOR\" : OperType_KETI_LT,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_ET:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_ET:
             std::cout << "\"OPERATOR\" : OperType_KETI_ET,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_NE:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_NE:
             std::cout << "\"OPERATOR\" : OperType_KETI_NE,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_LIKE:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_LIKE:
             std::cout << "\"OPERATOR\" : OperType_KETI_LIKE,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_BETWEEN:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_BETWEEN:
             std::cout << "\"OPERATOR\" : OperType_KETI_BETWEEN,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_IN:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_IN:
             std::cout << "\"OPERATOR\" : OperType_KETI_IN,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_IS:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_IS:
             std::cout << "\"OPERATOR\" : OperType_KETI_IS,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_ISNOT:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_ISNOT:
             std::cout << "\"OPERATOR\" : OperType_KETI_LE,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_NOT:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_NOT:
             std::cout << "\"OPERATOR\" : OperType_KETI_NOT,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_AND:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_AND:
             std::cout << "\"OPERATOR\" : OperType_KETI_AND,";
             break;
-            case typetest::Request_Filter_OperType::Request_Filter_OperType_KETI_OR:
+            case snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_OR:
             std::cout << "\"OPERATOR\" : OperType_KETI_LE,";
             break;
         }
         for(int j=0;j<filter.sany_size();j++){
-            const typetest::Request_SnippetAny& any = filter.sany(j);
+            const snippetsample::Snippet_SnippetAny& any = filter.sany(j);
             if(j==0){
                 std::cout << "\"LV\" : ";
             } else if(j==1){
@@ -116,26 +116,26 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
             }
             
             switch(any.snippettype()){
-                case typetest::Request_ValueType::Request_ValueType_INT32:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_INT32:
                     int ibuf;
                     memcpy(&ibuf, any.value().c_str(), any.value().size());
                     std::cout << "ValueType_INT32 : " << ibuf << ",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_NUMERIC:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_NUMERIC:
                     std::cout << "ValueType_NUMERIC : \"" << any.value() << "\",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_STRING:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_STRING:
                     std::cout << "ValueType_STRING : \"" << any.value() << "\",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_DATE:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_DATE:
                     int dtbuf;
                     memcpy(&dtbuf, any.value().c_str(), any.value().size());
                     std::cout << "ValueType_DATE : " << dtbuf << ",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_COLUMN_NAME:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME:
                     std::cout << "COLUMN_NAME : \"" << any.value() << "\",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_OPERATOR:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR:
                     std::cout << "ValueType_STRING : \"" << any.value() << "\",";
                 break;
             }
@@ -198,36 +198,36 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
         auto projection = snippet.column_projection(i);
         std::cout << "\t{";        
         switch(projection.projcetiontype()){
-            case typetest::Request_Projection_ProjectionType::Request_Projection_ProjectionType_DEFAULT:
+            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT:
             std::cout << "0,";
             break;
-            case typetest::Request_Projection_ProjectionType::Request_Projection_ProjectionType_SUM:
+            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_SUM:
             std::cout << "1,";
             break;
-            case typetest::Request_Projection_ProjectionType::Request_Projection_ProjectionType_AVG:            
+            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_AVG:            
             std::cout << "2,";
             break;
-            case typetest::Request_Projection_ProjectionType::Request_Projection_ProjectionType_COUNT:            
+            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_COUNT:            
             std::cout << "4,";
             break;
         }
         for(int j=0;j<projection.sany_size();j++){
-            const typetest::Request_SnippetAny& any = projection.sany(j);
+            const snippetsample::Snippet_SnippetAny& any = projection.sany(j);
             switch(any.snippettype()){
-                case typetest::Request_ValueType::Request_ValueType_INT32:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_INT32:
                     int ibuf;
                     memcpy(&ibuf, any.value().c_str(), any.value().size());
                     std::cout << ibuf << ",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_NUMERIC:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_NUMERIC:
                 break;
-                case typetest::Request_ValueType::Request_ValueType_STRING:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_STRING:
                     std::cout << "\"" << any.value() << "\",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_COLUMN_NAME:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME:
                     std::cout << "\"" << any.value() << "\",";
                 break;
-                case typetest::Request_ValueType::Request_ValueType_OPERATOR:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR:
                     std::cout << "\"" << any.value() << "\",";
                 break;
             }
@@ -261,7 +261,7 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
     for(int i=0;i<snippet.order_by_size();i++){        
         auto odr = snippet.order_by(i);
         std::cout << "\t{";
-        if(odr.direction() == typetest::Request_Order_OrderDirection::Request_Order_OrderDirection_DESC){
+        if(odr.direction() == snippetsample::Snippet_Order_OrderDirection::Snippet_Order_OrderDirection_DESC){
             std::cout << "1,";
         }
         std::cout << "\"" << odr.column() << "\"}," << std::endl;
