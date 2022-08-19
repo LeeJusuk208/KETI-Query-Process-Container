@@ -30,6 +30,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/empty.pb.h>
 // @@protoc_insertion_point(includes)
@@ -47,7 +48,7 @@ struct TableStruct_snippet_5fsample_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -64,15 +65,930 @@ extern ResultDefaultTypeInternal _Result_default_instance_;
 class Snippet;
 struct SnippetDefaultTypeInternal;
 extern SnippetDefaultTypeInternal _Snippet_default_instance_;
+class Snippet_Filter;
+struct Snippet_FilterDefaultTypeInternal;
+extern Snippet_FilterDefaultTypeInternal _Snippet_Filter_default_instance_;
+class Snippet_Order;
+struct Snippet_OrderDefaultTypeInternal;
+extern Snippet_OrderDefaultTypeInternal _Snippet_Order_default_instance_;
+class Snippet_Projection;
+struct Snippet_ProjectionDefaultTypeInternal;
+extern Snippet_ProjectionDefaultTypeInternal _Snippet_Projection_default_instance_;
+class Snippet_SnippetAny;
+struct Snippet_SnippetAnyDefaultTypeInternal;
+extern Snippet_SnippetAnyDefaultTypeInternal _Snippet_SnippetAny_default_instance_;
 }  // namespace snippetsample
 PROTOBUF_NAMESPACE_OPEN
 template<> ::snippetsample::Request* Arena::CreateMaybeMessage<::snippetsample::Request>(Arena*);
 template<> ::snippetsample::Result* Arena::CreateMaybeMessage<::snippetsample::Result>(Arena*);
 template<> ::snippetsample::Snippet* Arena::CreateMaybeMessage<::snippetsample::Snippet>(Arena*);
+template<> ::snippetsample::Snippet_Filter* Arena::CreateMaybeMessage<::snippetsample::Snippet_Filter>(Arena*);
+template<> ::snippetsample::Snippet_Order* Arena::CreateMaybeMessage<::snippetsample::Snippet_Order>(Arena*);
+template<> ::snippetsample::Snippet_Projection* Arena::CreateMaybeMessage<::snippetsample::Snippet_Projection>(Arena*);
+template<> ::snippetsample::Snippet_SnippetAny* Arena::CreateMaybeMessage<::snippetsample::Snippet_SnippetAny>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace snippetsample {
 
+enum Snippet_Filter_OperType : int {
+  Snippet_Filter_OperType_KETI_DEFAULT = 0,
+  Snippet_Filter_OperType_KETI_GE = 1,
+  Snippet_Filter_OperType_KETI_LE = 2,
+  Snippet_Filter_OperType_KETI_GT = 3,
+  Snippet_Filter_OperType_KETI_LT = 4,
+  Snippet_Filter_OperType_KETI_ET = 5,
+  Snippet_Filter_OperType_KETI_NE = 6,
+  Snippet_Filter_OperType_KETI_LIKE = 7,
+  Snippet_Filter_OperType_KETI_BETWEEN = 8,
+  Snippet_Filter_OperType_KETI_IN = 9,
+  Snippet_Filter_OperType_KETI_IS = 10,
+  Snippet_Filter_OperType_KETI_ISNOT = 11,
+  Snippet_Filter_OperType_KETI_NOT = 12,
+  Snippet_Filter_OperType_KETI_AND = 13,
+  Snippet_Filter_OperType_KETI_OR = 14,
+  Snippet_Filter_OperType_Snippet_Filter_OperType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Snippet_Filter_OperType_Snippet_Filter_OperType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Snippet_Filter_OperType_IsValid(int value);
+constexpr Snippet_Filter_OperType Snippet_Filter_OperType_OperType_MIN = Snippet_Filter_OperType_KETI_DEFAULT;
+constexpr Snippet_Filter_OperType Snippet_Filter_OperType_OperType_MAX = Snippet_Filter_OperType_KETI_OR;
+constexpr int Snippet_Filter_OperType_OperType_ARRAYSIZE = Snippet_Filter_OperType_OperType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Filter_OperType_descriptor();
+template<typename T>
+inline const std::string& Snippet_Filter_OperType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Snippet_Filter_OperType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Snippet_Filter_OperType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Snippet_Filter_OperType_descriptor(), enum_t_value);
+}
+inline bool Snippet_Filter_OperType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Snippet_Filter_OperType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_Filter_OperType>(
+    Snippet_Filter_OperType_descriptor(), name, value);
+}
+enum Snippet_Projection_ProjectionType : int {
+  Snippet_Projection_ProjectionType_DEFAULT = 0,
+  Snippet_Projection_ProjectionType_SUM = 1,
+  Snippet_Projection_ProjectionType_AVG = 2,
+  Snippet_Projection_ProjectionType_COUNT = 4,
+  Snippet_Projection_ProjectionType_Snippet_Projection_ProjectionType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Snippet_Projection_ProjectionType_Snippet_Projection_ProjectionType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Snippet_Projection_ProjectionType_IsValid(int value);
+constexpr Snippet_Projection_ProjectionType Snippet_Projection_ProjectionType_ProjectionType_MIN = Snippet_Projection_ProjectionType_DEFAULT;
+constexpr Snippet_Projection_ProjectionType Snippet_Projection_ProjectionType_ProjectionType_MAX = Snippet_Projection_ProjectionType_COUNT;
+constexpr int Snippet_Projection_ProjectionType_ProjectionType_ARRAYSIZE = Snippet_Projection_ProjectionType_ProjectionType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Projection_ProjectionType_descriptor();
+template<typename T>
+inline const std::string& Snippet_Projection_ProjectionType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Snippet_Projection_ProjectionType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Snippet_Projection_ProjectionType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Snippet_Projection_ProjectionType_descriptor(), enum_t_value);
+}
+inline bool Snippet_Projection_ProjectionType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Snippet_Projection_ProjectionType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_Projection_ProjectionType>(
+    Snippet_Projection_ProjectionType_descriptor(), name, value);
+}
+enum Snippet_Order_OrderDirection : int {
+  Snippet_Order_OrderDirection_ASC = 0,
+  Snippet_Order_OrderDirection_DESC = 1,
+  Snippet_Order_OrderDirection_Snippet_Order_OrderDirection_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Snippet_Order_OrderDirection_Snippet_Order_OrderDirection_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Snippet_Order_OrderDirection_IsValid(int value);
+constexpr Snippet_Order_OrderDirection Snippet_Order_OrderDirection_OrderDirection_MIN = Snippet_Order_OrderDirection_ASC;
+constexpr Snippet_Order_OrderDirection Snippet_Order_OrderDirection_OrderDirection_MAX = Snippet_Order_OrderDirection_DESC;
+constexpr int Snippet_Order_OrderDirection_OrderDirection_ARRAYSIZE = Snippet_Order_OrderDirection_OrderDirection_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Order_OrderDirection_descriptor();
+template<typename T>
+inline const std::string& Snippet_Order_OrderDirection_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Snippet_Order_OrderDirection>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Snippet_Order_OrderDirection_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Snippet_Order_OrderDirection_descriptor(), enum_t_value);
+}
+inline bool Snippet_Order_OrderDirection_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Snippet_Order_OrderDirection* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_Order_OrderDirection>(
+    Snippet_Order_OrderDirection_descriptor(), name, value);
+}
+enum Snippet_ValueType : int {
+  Snippet_ValueType_INT32 = 0,
+  Snippet_ValueType_INT64 = 1,
+  Snippet_ValueType_FLOAT32 = 2,
+  Snippet_ValueType_FLOAT64 = 3,
+  Snippet_ValueType_NUMERIC = 4,
+  Snippet_ValueType_BYTES = 5,
+  Snippet_ValueType_STRING = 6,
+  Snippet_ValueType_DATE = 7,
+  Snippet_ValueType_COLUMN_NAME = 8,
+  Snippet_ValueType_OPERATOR = 9,
+  Snippet_ValueType_Snippet_ValueType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Snippet_ValueType_Snippet_ValueType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool Snippet_ValueType_IsValid(int value);
+constexpr Snippet_ValueType Snippet_ValueType_ValueType_MIN = Snippet_ValueType_INT32;
+constexpr Snippet_ValueType Snippet_ValueType_ValueType_MAX = Snippet_ValueType_OPERATOR;
+constexpr int Snippet_ValueType_ValueType_ARRAYSIZE = Snippet_ValueType_ValueType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_ValueType_descriptor();
+template<typename T>
+inline const std::string& Snippet_ValueType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Snippet_ValueType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function Snippet_ValueType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    Snippet_ValueType_descriptor(), enum_t_value);
+}
+inline bool Snippet_ValueType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Snippet_ValueType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_ValueType>(
+    Snippet_ValueType_descriptor(), name, value);
+}
 // ===================================================================
+
+class Snippet_SnippetAny final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet.SnippetAny) */ {
+ public:
+  inline Snippet_SnippetAny() : Snippet_SnippetAny(nullptr) {}
+  ~Snippet_SnippetAny() override;
+  explicit constexpr Snippet_SnippetAny(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Snippet_SnippetAny(const Snippet_SnippetAny& from);
+  Snippet_SnippetAny(Snippet_SnippetAny&& from) noexcept
+    : Snippet_SnippetAny() {
+    *this = ::std::move(from);
+  }
+
+  inline Snippet_SnippetAny& operator=(const Snippet_SnippetAny& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Snippet_SnippetAny& operator=(Snippet_SnippetAny&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Snippet_SnippetAny& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Snippet_SnippetAny* internal_default_instance() {
+    return reinterpret_cast<const Snippet_SnippetAny*>(
+               &_Snippet_SnippetAny_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Snippet_SnippetAny& a, Snippet_SnippetAny& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Snippet_SnippetAny* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Snippet_SnippetAny* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Snippet_SnippetAny* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Snippet_SnippetAny>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Snippet_SnippetAny& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Snippet_SnippetAny& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Snippet_SnippetAny* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "snippetsample.Snippet.SnippetAny";
+  }
+  protected:
+  explicit Snippet_SnippetAny(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kValueFieldNumber = 2,
+    kSnippettypeFieldNumber = 1,
+  };
+  // bytes Value = 2;
+  void clear_value();
+  const std::string& value() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_value(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_value();
+  PROTOBUF_NODISCARD std::string* release_value();
+  void set_allocated_value(std::string* value);
+  private:
+  const std::string& _internal_value() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
+  std::string* _internal_mutable_value();
+  public:
+
+  // .snippetsample.Snippet.ValueType snippettype = 1;
+  void clear_snippettype();
+  ::snippetsample::Snippet_ValueType snippettype() const;
+  void set_snippettype(::snippetsample::Snippet_ValueType value);
+  private:
+  ::snippetsample::Snippet_ValueType _internal_snippettype() const;
+  void _internal_set_snippettype(::snippetsample::Snippet_ValueType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:snippetsample.Snippet.SnippetAny)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
+  int snippettype_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Snippet_Filter final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet.Filter) */ {
+ public:
+  inline Snippet_Filter() : Snippet_Filter(nullptr) {}
+  ~Snippet_Filter() override;
+  explicit constexpr Snippet_Filter(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Snippet_Filter(const Snippet_Filter& from);
+  Snippet_Filter(Snippet_Filter&& from) noexcept
+    : Snippet_Filter() {
+    *this = ::std::move(from);
+  }
+
+  inline Snippet_Filter& operator=(const Snippet_Filter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Snippet_Filter& operator=(Snippet_Filter&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Snippet_Filter& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Snippet_Filter* internal_default_instance() {
+    return reinterpret_cast<const Snippet_Filter*>(
+               &_Snippet_Filter_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Snippet_Filter& a, Snippet_Filter& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Snippet_Filter* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Snippet_Filter* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Snippet_Filter* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Snippet_Filter>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Snippet_Filter& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Snippet_Filter& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Snippet_Filter* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "snippetsample.Snippet.Filter";
+  }
+  protected:
+  explicit Snippet_Filter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef Snippet_Filter_OperType OperType;
+  static constexpr OperType KETI_DEFAULT =
+    Snippet_Filter_OperType_KETI_DEFAULT;
+  static constexpr OperType KETI_GE =
+    Snippet_Filter_OperType_KETI_GE;
+  static constexpr OperType KETI_LE =
+    Snippet_Filter_OperType_KETI_LE;
+  static constexpr OperType KETI_GT =
+    Snippet_Filter_OperType_KETI_GT;
+  static constexpr OperType KETI_LT =
+    Snippet_Filter_OperType_KETI_LT;
+  static constexpr OperType KETI_ET =
+    Snippet_Filter_OperType_KETI_ET;
+  static constexpr OperType KETI_NE =
+    Snippet_Filter_OperType_KETI_NE;
+  static constexpr OperType KETI_LIKE =
+    Snippet_Filter_OperType_KETI_LIKE;
+  static constexpr OperType KETI_BETWEEN =
+    Snippet_Filter_OperType_KETI_BETWEEN;
+  static constexpr OperType KETI_IN =
+    Snippet_Filter_OperType_KETI_IN;
+  static constexpr OperType KETI_IS =
+    Snippet_Filter_OperType_KETI_IS;
+  static constexpr OperType KETI_ISNOT =
+    Snippet_Filter_OperType_KETI_ISNOT;
+  static constexpr OperType KETI_NOT =
+    Snippet_Filter_OperType_KETI_NOT;
+  static constexpr OperType KETI_AND =
+    Snippet_Filter_OperType_KETI_AND;
+  static constexpr OperType KETI_OR =
+    Snippet_Filter_OperType_KETI_OR;
+  static inline bool OperType_IsValid(int value) {
+    return Snippet_Filter_OperType_IsValid(value);
+  }
+  static constexpr OperType OperType_MIN =
+    Snippet_Filter_OperType_OperType_MIN;
+  static constexpr OperType OperType_MAX =
+    Snippet_Filter_OperType_OperType_MAX;
+  static constexpr int OperType_ARRAYSIZE =
+    Snippet_Filter_OperType_OperType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  OperType_descriptor() {
+    return Snippet_Filter_OperType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& OperType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, OperType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function OperType_Name.");
+    return Snippet_Filter_OperType_Name(enum_t_value);
+  }
+  static inline bool OperType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      OperType* value) {
+    return Snippet_Filter_OperType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSanyFieldNumber = 2,
+    kOperatorFieldNumber = 1,
+  };
+  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
+  int sany_size() const;
+  private:
+  int _internal_sany_size() const;
+  public:
+  void clear_sany();
+  ::snippetsample::Snippet_SnippetAny* mutable_sany(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
+      mutable_sany();
+  private:
+  const ::snippetsample::Snippet_SnippetAny& _internal_sany(int index) const;
+  ::snippetsample::Snippet_SnippetAny* _internal_add_sany();
+  public:
+  const ::snippetsample::Snippet_SnippetAny& sany(int index) const;
+  ::snippetsample::Snippet_SnippetAny* add_sany();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
+      sany() const;
+
+  // .snippetsample.Snippet.Filter.OperType operator = 1;
+  void clear_operator_();
+  ::snippetsample::Snippet_Filter_OperType operator_() const;
+  void set_operator_(::snippetsample::Snippet_Filter_OperType value);
+  private:
+  ::snippetsample::Snippet_Filter_OperType _internal_operator_() const;
+  void _internal_set_operator_(::snippetsample::Snippet_Filter_OperType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:snippetsample.Snippet.Filter)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny > sany_;
+  int operator__;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Snippet_Projection final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet.Projection) */ {
+ public:
+  inline Snippet_Projection() : Snippet_Projection(nullptr) {}
+  ~Snippet_Projection() override;
+  explicit constexpr Snippet_Projection(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Snippet_Projection(const Snippet_Projection& from);
+  Snippet_Projection(Snippet_Projection&& from) noexcept
+    : Snippet_Projection() {
+    *this = ::std::move(from);
+  }
+
+  inline Snippet_Projection& operator=(const Snippet_Projection& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Snippet_Projection& operator=(Snippet_Projection&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Snippet_Projection& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Snippet_Projection* internal_default_instance() {
+    return reinterpret_cast<const Snippet_Projection*>(
+               &_Snippet_Projection_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Snippet_Projection& a, Snippet_Projection& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Snippet_Projection* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Snippet_Projection* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Snippet_Projection* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Snippet_Projection>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Snippet_Projection& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Snippet_Projection& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Snippet_Projection* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "snippetsample.Snippet.Projection";
+  }
+  protected:
+  explicit Snippet_Projection(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef Snippet_Projection_ProjectionType ProjectionType;
+  static constexpr ProjectionType DEFAULT =
+    Snippet_Projection_ProjectionType_DEFAULT;
+  static constexpr ProjectionType SUM =
+    Snippet_Projection_ProjectionType_SUM;
+  static constexpr ProjectionType AVG =
+    Snippet_Projection_ProjectionType_AVG;
+  static constexpr ProjectionType COUNT =
+    Snippet_Projection_ProjectionType_COUNT;
+  static inline bool ProjectionType_IsValid(int value) {
+    return Snippet_Projection_ProjectionType_IsValid(value);
+  }
+  static constexpr ProjectionType ProjectionType_MIN =
+    Snippet_Projection_ProjectionType_ProjectionType_MIN;
+  static constexpr ProjectionType ProjectionType_MAX =
+    Snippet_Projection_ProjectionType_ProjectionType_MAX;
+  static constexpr int ProjectionType_ARRAYSIZE =
+    Snippet_Projection_ProjectionType_ProjectionType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  ProjectionType_descriptor() {
+    return Snippet_Projection_ProjectionType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& ProjectionType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, ProjectionType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function ProjectionType_Name.");
+    return Snippet_Projection_ProjectionType_Name(enum_t_value);
+  }
+  static inline bool ProjectionType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      ProjectionType* value) {
+    return Snippet_Projection_ProjectionType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSanyFieldNumber = 2,
+    kProjcetiontypeFieldNumber = 1,
+  };
+  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
+  int sany_size() const;
+  private:
+  int _internal_sany_size() const;
+  public:
+  void clear_sany();
+  ::snippetsample::Snippet_SnippetAny* mutable_sany(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
+      mutable_sany();
+  private:
+  const ::snippetsample::Snippet_SnippetAny& _internal_sany(int index) const;
+  ::snippetsample::Snippet_SnippetAny* _internal_add_sany();
+  public:
+  const ::snippetsample::Snippet_SnippetAny& sany(int index) const;
+  ::snippetsample::Snippet_SnippetAny* add_sany();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
+      sany() const;
+
+  // .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+  void clear_projcetiontype();
+  ::snippetsample::Snippet_Projection_ProjectionType projcetiontype() const;
+  void set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value);
+  private:
+  ::snippetsample::Snippet_Projection_ProjectionType _internal_projcetiontype() const;
+  void _internal_set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:snippetsample.Snippet.Projection)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny > sany_;
+  int projcetiontype_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Snippet_Order final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet.Order) */ {
+ public:
+  inline Snippet_Order() : Snippet_Order(nullptr) {}
+  ~Snippet_Order() override;
+  explicit constexpr Snippet_Order(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Snippet_Order(const Snippet_Order& from);
+  Snippet_Order(Snippet_Order&& from) noexcept
+    : Snippet_Order() {
+    *this = ::std::move(from);
+  }
+
+  inline Snippet_Order& operator=(const Snippet_Order& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Snippet_Order& operator=(Snippet_Order&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Snippet_Order& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Snippet_Order* internal_default_instance() {
+    return reinterpret_cast<const Snippet_Order*>(
+               &_Snippet_Order_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Snippet_Order& a, Snippet_Order& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Snippet_Order* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Snippet_Order* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Snippet_Order* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Snippet_Order>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Snippet_Order& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Snippet_Order& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Snippet_Order* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "snippetsample.Snippet.Order";
+  }
+  protected:
+  explicit Snippet_Order(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef Snippet_Order_OrderDirection OrderDirection;
+  static constexpr OrderDirection ASC =
+    Snippet_Order_OrderDirection_ASC;
+  static constexpr OrderDirection DESC =
+    Snippet_Order_OrderDirection_DESC;
+  static inline bool OrderDirection_IsValid(int value) {
+    return Snippet_Order_OrderDirection_IsValid(value);
+  }
+  static constexpr OrderDirection OrderDirection_MIN =
+    Snippet_Order_OrderDirection_OrderDirection_MIN;
+  static constexpr OrderDirection OrderDirection_MAX =
+    Snippet_Order_OrderDirection_OrderDirection_MAX;
+  static constexpr int OrderDirection_ARRAYSIZE =
+    Snippet_Order_OrderDirection_OrderDirection_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  OrderDirection_descriptor() {
+    return Snippet_Order_OrderDirection_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& OrderDirection_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, OrderDirection>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function OrderDirection_Name.");
+    return Snippet_Order_OrderDirection_Name(enum_t_value);
+  }
+  static inline bool OrderDirection_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      OrderDirection* value) {
+    return Snippet_Order_OrderDirection_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kColumnFieldNumber = 2,
+    kDirectionFieldNumber = 1,
+  };
+  // string column = 2;
+  void clear_column();
+  const std::string& column() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_column(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_column();
+  PROTOBUF_NODISCARD std::string* release_column();
+  void set_allocated_column(std::string* column);
+  private:
+  const std::string& _internal_column() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_column(const std::string& value);
+  std::string* _internal_mutable_column();
+  public:
+
+  // .snippetsample.Snippet.Order.OrderDirection direction = 1;
+  void clear_direction();
+  ::snippetsample::Snippet_Order_OrderDirection direction() const;
+  void set_direction(::snippetsample::Snippet_Order_OrderDirection value);
+  private:
+  ::snippetsample::Snippet_Order_OrderDirection _internal_direction() const;
+  void _internal_set_direction(::snippetsample::Snippet_Order_OrderDirection value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:snippetsample.Snippet.Order)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr column_;
+  int direction_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
 
 class Snippet final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet) */ {
@@ -122,7 +1038,7 @@ class Snippet final :
                &_Snippet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    4;
 
   friend void swap(Snippet& a, Snippet& b) {
     a.Swap(&b);
@@ -193,43 +1109,355 @@ class Snippet final :
 
   // nested types ----------------------------------------------------
 
+  typedef Snippet_SnippetAny SnippetAny;
+  typedef Snippet_Filter Filter;
+  typedef Snippet_Projection Projection;
+  typedef Snippet_Order Order;
+
+  typedef Snippet_ValueType ValueType;
+  static constexpr ValueType INT32 =
+    Snippet_ValueType_INT32;
+  static constexpr ValueType INT64 =
+    Snippet_ValueType_INT64;
+  static constexpr ValueType FLOAT32 =
+    Snippet_ValueType_FLOAT32;
+  static constexpr ValueType FLOAT64 =
+    Snippet_ValueType_FLOAT64;
+  static constexpr ValueType NUMERIC =
+    Snippet_ValueType_NUMERIC;
+  static constexpr ValueType BYTES =
+    Snippet_ValueType_BYTES;
+  static constexpr ValueType STRING =
+    Snippet_ValueType_STRING;
+  static constexpr ValueType DATE =
+    Snippet_ValueType_DATE;
+  static constexpr ValueType COLUMN_NAME =
+    Snippet_ValueType_COLUMN_NAME;
+  static constexpr ValueType OPERATOR =
+    Snippet_ValueType_OPERATOR;
+  static inline bool ValueType_IsValid(int value) {
+    return Snippet_ValueType_IsValid(value);
+  }
+  static constexpr ValueType ValueType_MIN =
+    Snippet_ValueType_ValueType_MIN;
+  static constexpr ValueType ValueType_MAX =
+    Snippet_ValueType_ValueType_MAX;
+  static constexpr int ValueType_ARRAYSIZE =
+    Snippet_ValueType_ValueType_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  ValueType_descriptor() {
+    return Snippet_ValueType_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& ValueType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, ValueType>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function ValueType_Name.");
+    return Snippet_ValueType_Name(enum_t_value);
+  }
+  static inline bool ValueType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      ValueType* value) {
+    return Snippet_ValueType_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSnippetFieldNumber = 3,
-    kQueryidFieldNumber = 1,
-    kWorkidFieldNumber = 2,
+    kTableNameFieldNumber = 4,
+    kTableColFieldNumber = 5,
+    kTableFilterFieldNumber = 6,
+    kTableOffsetFieldNumber = 7,
+    kTableOfflenFieldNumber = 8,
+    kTableDatatypeFieldNumber = 9,
+    kColumnAliasFieldNumber = 11,
+    kColumnProjectionFieldNumber = 12,
+    kColumnFilteringFieldNumber = 13,
+    kGroupByFieldNumber = 14,
+    kOrderByFieldNumber = 15,
+    kTableAliasFieldNumber = 10,
+    kSnippetTypeFieldNumber = 1,
+    kQueryIdFieldNumber = 2,
+    kWorkIdFieldNumber = 3,
   };
-  // string snippet = 3;
-  void clear_snippet();
-  const std::string& snippet() const;
+  // repeated string table_name = 4;
+  int table_name_size() const;
+  private:
+  int _internal_table_name_size() const;
+  public:
+  void clear_table_name();
+  const std::string& table_name(int index) const;
+  std::string* mutable_table_name(int index);
+  void set_table_name(int index, const std::string& value);
+  void set_table_name(int index, std::string&& value);
+  void set_table_name(int index, const char* value);
+  void set_table_name(int index, const char* value, size_t size);
+  std::string* add_table_name();
+  void add_table_name(const std::string& value);
+  void add_table_name(std::string&& value);
+  void add_table_name(const char* value);
+  void add_table_name(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& table_name() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_table_name();
+  private:
+  const std::string& _internal_table_name(int index) const;
+  std::string* _internal_add_table_name();
+  public:
+
+  // repeated string table_col = 5;
+  int table_col_size() const;
+  private:
+  int _internal_table_col_size() const;
+  public:
+  void clear_table_col();
+  const std::string& table_col(int index) const;
+  std::string* mutable_table_col(int index);
+  void set_table_col(int index, const std::string& value);
+  void set_table_col(int index, std::string&& value);
+  void set_table_col(int index, const char* value);
+  void set_table_col(int index, const char* value, size_t size);
+  std::string* add_table_col();
+  void add_table_col(const std::string& value);
+  void add_table_col(std::string&& value);
+  void add_table_col(const char* value);
+  void add_table_col(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& table_col() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_table_col();
+  private:
+  const std::string& _internal_table_col(int index) const;
+  std::string* _internal_add_table_col();
+  public:
+
+  // repeated .snippetsample.Snippet.Filter table_filter = 6;
+  int table_filter_size() const;
+  private:
+  int _internal_table_filter_size() const;
+  public:
+  void clear_table_filter();
+  ::snippetsample::Snippet_Filter* mutable_table_filter(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter >*
+      mutable_table_filter();
+  private:
+  const ::snippetsample::Snippet_Filter& _internal_table_filter(int index) const;
+  ::snippetsample::Snippet_Filter* _internal_add_table_filter();
+  public:
+  const ::snippetsample::Snippet_Filter& table_filter(int index) const;
+  ::snippetsample::Snippet_Filter* add_table_filter();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter >&
+      table_filter() const;
+
+  // repeated int32 table_offset = 7;
+  int table_offset_size() const;
+  private:
+  int _internal_table_offset_size() const;
+  public:
+  void clear_table_offset();
+  private:
+  int32_t _internal_table_offset(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_table_offset() const;
+  void _internal_add_table_offset(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_table_offset();
+  public:
+  int32_t table_offset(int index) const;
+  void set_table_offset(int index, int32_t value);
+  void add_table_offset(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      table_offset() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_table_offset();
+
+  // repeated int32 table_offlen = 8;
+  int table_offlen_size() const;
+  private:
+  int _internal_table_offlen_size() const;
+  public:
+  void clear_table_offlen();
+  private:
+  int32_t _internal_table_offlen(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_table_offlen() const;
+  void _internal_add_table_offlen(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_table_offlen();
+  public:
+  int32_t table_offlen(int index) const;
+  void set_table_offlen(int index, int32_t value);
+  void add_table_offlen(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      table_offlen() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_table_offlen();
+
+  // repeated int32 table_datatype = 9;
+  int table_datatype_size() const;
+  private:
+  int _internal_table_datatype_size() const;
+  public:
+  void clear_table_datatype();
+  private:
+  int32_t _internal_table_datatype(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_table_datatype() const;
+  void _internal_add_table_datatype(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_table_datatype();
+  public:
+  int32_t table_datatype(int index) const;
+  void set_table_datatype(int index, int32_t value);
+  void add_table_datatype(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      table_datatype() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_table_datatype();
+
+  // repeated string column_alias = 11;
+  int column_alias_size() const;
+  private:
+  int _internal_column_alias_size() const;
+  public:
+  void clear_column_alias();
+  const std::string& column_alias(int index) const;
+  std::string* mutable_column_alias(int index);
+  void set_column_alias(int index, const std::string& value);
+  void set_column_alias(int index, std::string&& value);
+  void set_column_alias(int index, const char* value);
+  void set_column_alias(int index, const char* value, size_t size);
+  std::string* add_column_alias();
+  void add_column_alias(const std::string& value);
+  void add_column_alias(std::string&& value);
+  void add_column_alias(const char* value);
+  void add_column_alias(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& column_alias() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_column_alias();
+  private:
+  const std::string& _internal_column_alias(int index) const;
+  std::string* _internal_add_column_alias();
+  public:
+
+  // repeated .snippetsample.Snippet.Projection column_projection = 12;
+  int column_projection_size() const;
+  private:
+  int _internal_column_projection_size() const;
+  public:
+  void clear_column_projection();
+  ::snippetsample::Snippet_Projection* mutable_column_projection(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Projection >*
+      mutable_column_projection();
+  private:
+  const ::snippetsample::Snippet_Projection& _internal_column_projection(int index) const;
+  ::snippetsample::Snippet_Projection* _internal_add_column_projection();
+  public:
+  const ::snippetsample::Snippet_Projection& column_projection(int index) const;
+  ::snippetsample::Snippet_Projection* add_column_projection();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Projection >&
+      column_projection() const;
+
+  // repeated string column_filtering = 13;
+  int column_filtering_size() const;
+  private:
+  int _internal_column_filtering_size() const;
+  public:
+  void clear_column_filtering();
+  const std::string& column_filtering(int index) const;
+  std::string* mutable_column_filtering(int index);
+  void set_column_filtering(int index, const std::string& value);
+  void set_column_filtering(int index, std::string&& value);
+  void set_column_filtering(int index, const char* value);
+  void set_column_filtering(int index, const char* value, size_t size);
+  std::string* add_column_filtering();
+  void add_column_filtering(const std::string& value);
+  void add_column_filtering(std::string&& value);
+  void add_column_filtering(const char* value);
+  void add_column_filtering(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& column_filtering() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_column_filtering();
+  private:
+  const std::string& _internal_column_filtering(int index) const;
+  std::string* _internal_add_column_filtering();
+  public:
+
+  // repeated string group_by = 14;
+  int group_by_size() const;
+  private:
+  int _internal_group_by_size() const;
+  public:
+  void clear_group_by();
+  const std::string& group_by(int index) const;
+  std::string* mutable_group_by(int index);
+  void set_group_by(int index, const std::string& value);
+  void set_group_by(int index, std::string&& value);
+  void set_group_by(int index, const char* value);
+  void set_group_by(int index, const char* value, size_t size);
+  std::string* add_group_by();
+  void add_group_by(const std::string& value);
+  void add_group_by(std::string&& value);
+  void add_group_by(const char* value);
+  void add_group_by(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& group_by() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_group_by();
+  private:
+  const std::string& _internal_group_by(int index) const;
+  std::string* _internal_add_group_by();
+  public:
+
+  // repeated .snippetsample.Snippet.Order order_by = 15;
+  int order_by_size() const;
+  private:
+  int _internal_order_by_size() const;
+  public:
+  void clear_order_by();
+  ::snippetsample::Snippet_Order* mutable_order_by(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Order >*
+      mutable_order_by();
+  private:
+  const ::snippetsample::Snippet_Order& _internal_order_by(int index) const;
+  ::snippetsample::Snippet_Order* _internal_add_order_by();
+  public:
+  const ::snippetsample::Snippet_Order& order_by(int index) const;
+  ::snippetsample::Snippet_Order* add_order_by();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Order >&
+      order_by() const;
+
+  // string table_alias = 10;
+  void clear_table_alias();
+  const std::string& table_alias() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_snippet(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_snippet();
-  PROTOBUF_NODISCARD std::string* release_snippet();
-  void set_allocated_snippet(std::string* snippet);
+  void set_table_alias(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_table_alias();
+  PROTOBUF_NODISCARD std::string* release_table_alias();
+  void set_allocated_table_alias(std::string* table_alias);
   private:
-  const std::string& _internal_snippet() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_snippet(const std::string& value);
-  std::string* _internal_mutable_snippet();
+  const std::string& _internal_table_alias() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_table_alias(const std::string& value);
+  std::string* _internal_mutable_table_alias();
   public:
 
-  // int32 queryid = 1;
-  void clear_queryid();
-  int32_t queryid() const;
-  void set_queryid(int32_t value);
+  // int32 snippet_type = 1;
+  void clear_snippet_type();
+  int32_t snippet_type() const;
+  void set_snippet_type(int32_t value);
   private:
-  int32_t _internal_queryid() const;
-  void _internal_set_queryid(int32_t value);
+  int32_t _internal_snippet_type() const;
+  void _internal_set_snippet_type(int32_t value);
   public:
 
-  // int32 workid = 2;
-  void clear_workid();
-  int32_t workid() const;
-  void set_workid(int32_t value);
+  // int32 query_id = 2;
+  void clear_query_id();
+  int32_t query_id() const;
+  void set_query_id(int32_t value);
   private:
-  int32_t _internal_workid() const;
-  void _internal_set_workid(int32_t value);
+  int32_t _internal_query_id() const;
+  void _internal_set_query_id(int32_t value);
+  public:
+
+  // int32 work_id = 3;
+  void clear_work_id();
+  int32_t work_id() const;
+  void set_work_id(int32_t value);
+  private:
+  int32_t _internal_work_id() const;
+  void _internal_set_work_id(int32_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:snippetsample.Snippet)
@@ -239,9 +1467,24 @@ class Snippet final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr snippet_;
-  int32_t queryid_;
-  int32_t workid_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> table_name_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> table_col_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter > table_filter_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > table_offset_;
+  mutable std::atomic<int> _table_offset_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > table_offlen_;
+  mutable std::atomic<int> _table_offlen_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > table_datatype_;
+  mutable std::atomic<int> _table_datatype_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> column_alias_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Projection > column_projection_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> column_filtering_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> group_by_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Order > order_by_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr table_alias_;
+  int32_t snippet_type_;
+  int32_t query_id_;
+  int32_t work_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
@@ -295,7 +1538,7 @@ class Request final :
                &_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    5;
 
   friend void swap(Request& a, Request& b) {
     a.Swap(&b);
@@ -441,7 +1684,7 @@ class Result final :
                &_Result_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    6;
 
   friend void swap(Result& a, Result& b) {
     a.Swap(&b);
@@ -551,97 +1794,1031 @@ class Result final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Snippet
+// Snippet_SnippetAny
 
-// int32 queryid = 1;
-inline void Snippet::clear_queryid() {
-  queryid_ = 0;
+// .snippetsample.Snippet.ValueType snippettype = 1;
+inline void Snippet_SnippetAny::clear_snippettype() {
+  snippettype_ = 0;
 }
-inline int32_t Snippet::_internal_queryid() const {
-  return queryid_;
+inline ::snippetsample::Snippet_ValueType Snippet_SnippetAny::_internal_snippettype() const {
+  return static_cast< ::snippetsample::Snippet_ValueType >(snippettype_);
 }
-inline int32_t Snippet::queryid() const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.queryid)
-  return _internal_queryid();
+inline ::snippetsample::Snippet_ValueType Snippet_SnippetAny::snippettype() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.SnippetAny.snippettype)
+  return _internal_snippettype();
 }
-inline void Snippet::_internal_set_queryid(int32_t value) {
+inline void Snippet_SnippetAny::_internal_set_snippettype(::snippetsample::Snippet_ValueType value) {
   
-  queryid_ = value;
+  snippettype_ = value;
 }
-inline void Snippet::set_queryid(int32_t value) {
-  _internal_set_queryid(value);
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.queryid)
-}
-
-// int32 workid = 2;
-inline void Snippet::clear_workid() {
-  workid_ = 0;
-}
-inline int32_t Snippet::_internal_workid() const {
-  return workid_;
-}
-inline int32_t Snippet::workid() const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.workid)
-  return _internal_workid();
-}
-inline void Snippet::_internal_set_workid(int32_t value) {
-  
-  workid_ = value;
-}
-inline void Snippet::set_workid(int32_t value) {
-  _internal_set_workid(value);
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.workid)
+inline void Snippet_SnippetAny::set_snippettype(::snippetsample::Snippet_ValueType value) {
+  _internal_set_snippettype(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.SnippetAny.snippettype)
 }
 
-// string snippet = 3;
-inline void Snippet::clear_snippet() {
-  snippet_.ClearToEmpty();
+// bytes Value = 2;
+inline void Snippet_SnippetAny::clear_value() {
+  value_.ClearToEmpty();
 }
-inline const std::string& Snippet::snippet() const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.snippet)
-  return _internal_snippet();
+inline const std::string& Snippet_SnippetAny::value() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.SnippetAny.Value)
+  return _internal_value();
 }
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
-void Snippet::set_snippet(ArgT0&& arg0, ArgT... args) {
+void Snippet_SnippetAny::set_value(ArgT0&& arg0, ArgT... args) {
  
- snippet_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.snippet)
+ value_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.SnippetAny.Value)
 }
-inline std::string* Snippet::mutable_snippet() {
-  std::string* _s = _internal_mutable_snippet();
-  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.snippet)
+inline std::string* Snippet_SnippetAny::mutable_value() {
+  std::string* _s = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.SnippetAny.Value)
   return _s;
 }
-inline const std::string& Snippet::_internal_snippet() const {
-  return snippet_.Get();
+inline const std::string& Snippet_SnippetAny::_internal_value() const {
+  return value_.Get();
 }
-inline void Snippet::_internal_set_snippet(const std::string& value) {
+inline void Snippet_SnippetAny::_internal_set_value(const std::string& value) {
   
-  snippet_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  value_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline std::string* Snippet::_internal_mutable_snippet() {
+inline std::string* Snippet_SnippetAny::_internal_mutable_value() {
   
-  return snippet_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+  return value_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline std::string* Snippet::release_snippet() {
-  // @@protoc_insertion_point(field_release:snippetsample.Snippet.snippet)
-  return snippet_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+inline std::string* Snippet_SnippetAny::release_value() {
+  // @@protoc_insertion_point(field_release:snippetsample.Snippet.SnippetAny.Value)
+  return value_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline void Snippet::set_allocated_snippet(std::string* snippet) {
-  if (snippet != nullptr) {
+inline void Snippet_SnippetAny::set_allocated_value(std::string* value) {
+  if (value != nullptr) {
     
   } else {
     
   }
-  snippet_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), snippet,
+  value_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value,
       GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (snippet_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    snippet_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  if (value_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    value_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:snippetsample.Snippet.snippet)
+  // @@protoc_insertion_point(field_set_allocated:snippetsample.Snippet.SnippetAny.Value)
+}
+
+// -------------------------------------------------------------------
+
+// Snippet_Filter
+
+// .snippetsample.Snippet.Filter.OperType operator = 1;
+inline void Snippet_Filter::clear_operator_() {
+  operator__ = 0;
+}
+inline ::snippetsample::Snippet_Filter_OperType Snippet_Filter::_internal_operator_() const {
+  return static_cast< ::snippetsample::Snippet_Filter_OperType >(operator__);
+}
+inline ::snippetsample::Snippet_Filter_OperType Snippet_Filter::operator_() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.operator)
+  return _internal_operator_();
+}
+inline void Snippet_Filter::_internal_set_operator_(::snippetsample::Snippet_Filter_OperType value) {
+  
+  operator__ = value;
+}
+inline void Snippet_Filter::set_operator_(::snippetsample::Snippet_Filter_OperType value) {
+  _internal_set_operator_(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.operator)
+}
+
+// repeated .snippetsample.Snippet.SnippetAny sany = 2;
+inline int Snippet_Filter::_internal_sany_size() const {
+  return sany_.size();
+}
+inline int Snippet_Filter::sany_size() const {
+  return _internal_sany_size();
+}
+inline void Snippet_Filter::clear_sany() {
+  sany_.Clear();
+}
+inline ::snippetsample::Snippet_SnippetAny* Snippet_Filter::mutable_sany(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.sany)
+  return sany_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
+Snippet_Filter::mutable_sany() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.sany)
+  return &sany_;
+}
+inline const ::snippetsample::Snippet_SnippetAny& Snippet_Filter::_internal_sany(int index) const {
+  return sany_.Get(index);
+}
+inline const ::snippetsample::Snippet_SnippetAny& Snippet_Filter::sany(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.sany)
+  return _internal_sany(index);
+}
+inline ::snippetsample::Snippet_SnippetAny* Snippet_Filter::_internal_add_sany() {
+  return sany_.Add();
+}
+inline ::snippetsample::Snippet_SnippetAny* Snippet_Filter::add_sany() {
+  ::snippetsample::Snippet_SnippetAny* _add = _internal_add_sany();
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.sany)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
+Snippet_Filter::sany() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.sany)
+  return sany_;
+}
+
+// -------------------------------------------------------------------
+
+// Snippet_Projection
+
+// .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+inline void Snippet_Projection::clear_projcetiontype() {
+  projcetiontype_ = 0;
+}
+inline ::snippetsample::Snippet_Projection_ProjectionType Snippet_Projection::_internal_projcetiontype() const {
+  return static_cast< ::snippetsample::Snippet_Projection_ProjectionType >(projcetiontype_);
+}
+inline ::snippetsample::Snippet_Projection_ProjectionType Snippet_Projection::projcetiontype() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.projcetiontype)
+  return _internal_projcetiontype();
+}
+inline void Snippet_Projection::_internal_set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value) {
+  
+  projcetiontype_ = value;
+}
+inline void Snippet_Projection::set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value) {
+  _internal_set_projcetiontype(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.projcetiontype)
+}
+
+// repeated .snippetsample.Snippet.SnippetAny sany = 2;
+inline int Snippet_Projection::_internal_sany_size() const {
+  return sany_.size();
+}
+inline int Snippet_Projection::sany_size() const {
+  return _internal_sany_size();
+}
+inline void Snippet_Projection::clear_sany() {
+  sany_.Clear();
+}
+inline ::snippetsample::Snippet_SnippetAny* Snippet_Projection::mutable_sany(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Projection.sany)
+  return sany_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
+Snippet_Projection::mutable_sany() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Projection.sany)
+  return &sany_;
+}
+inline const ::snippetsample::Snippet_SnippetAny& Snippet_Projection::_internal_sany(int index) const {
+  return sany_.Get(index);
+}
+inline const ::snippetsample::Snippet_SnippetAny& Snippet_Projection::sany(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.sany)
+  return _internal_sany(index);
+}
+inline ::snippetsample::Snippet_SnippetAny* Snippet_Projection::_internal_add_sany() {
+  return sany_.Add();
+}
+inline ::snippetsample::Snippet_SnippetAny* Snippet_Projection::add_sany() {
+  ::snippetsample::Snippet_SnippetAny* _add = _internal_add_sany();
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Projection.sany)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
+Snippet_Projection::sany() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Projection.sany)
+  return sany_;
+}
+
+// -------------------------------------------------------------------
+
+// Snippet_Order
+
+// .snippetsample.Snippet.Order.OrderDirection direction = 1;
+inline void Snippet_Order::clear_direction() {
+  direction_ = 0;
+}
+inline ::snippetsample::Snippet_Order_OrderDirection Snippet_Order::_internal_direction() const {
+  return static_cast< ::snippetsample::Snippet_Order_OrderDirection >(direction_);
+}
+inline ::snippetsample::Snippet_Order_OrderDirection Snippet_Order::direction() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Order.direction)
+  return _internal_direction();
+}
+inline void Snippet_Order::_internal_set_direction(::snippetsample::Snippet_Order_OrderDirection value) {
+  
+  direction_ = value;
+}
+inline void Snippet_Order::set_direction(::snippetsample::Snippet_Order_OrderDirection value) {
+  _internal_set_direction(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Order.direction)
+}
+
+// string column = 2;
+inline void Snippet_Order::clear_column() {
+  column_.ClearToEmpty();
+}
+inline const std::string& Snippet_Order::column() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Order.column)
+  return _internal_column();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Snippet_Order::set_column(ArgT0&& arg0, ArgT... args) {
+ 
+ column_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Order.column)
+}
+inline std::string* Snippet_Order::mutable_column() {
+  std::string* _s = _internal_mutable_column();
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Order.column)
+  return _s;
+}
+inline const std::string& Snippet_Order::_internal_column() const {
+  return column_.Get();
+}
+inline void Snippet_Order::_internal_set_column(const std::string& value) {
+  
+  column_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* Snippet_Order::_internal_mutable_column() {
+  
+  return column_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* Snippet_Order::release_column() {
+  // @@protoc_insertion_point(field_release:snippetsample.Snippet.Order.column)
+  return column_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void Snippet_Order::set_allocated_column(std::string* column) {
+  if (column != nullptr) {
+    
+  } else {
+    
+  }
+  column_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), column,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (column_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    column_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:snippetsample.Snippet.Order.column)
+}
+
+// -------------------------------------------------------------------
+
+// Snippet
+
+// int32 snippet_type = 1;
+inline void Snippet::clear_snippet_type() {
+  snippet_type_ = 0;
+}
+inline int32_t Snippet::_internal_snippet_type() const {
+  return snippet_type_;
+}
+inline int32_t Snippet::snippet_type() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.snippet_type)
+  return _internal_snippet_type();
+}
+inline void Snippet::_internal_set_snippet_type(int32_t value) {
+  
+  snippet_type_ = value;
+}
+inline void Snippet::set_snippet_type(int32_t value) {
+  _internal_set_snippet_type(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.snippet_type)
+}
+
+// int32 query_id = 2;
+inline void Snippet::clear_query_id() {
+  query_id_ = 0;
+}
+inline int32_t Snippet::_internal_query_id() const {
+  return query_id_;
+}
+inline int32_t Snippet::query_id() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.query_id)
+  return _internal_query_id();
+}
+inline void Snippet::_internal_set_query_id(int32_t value) {
+  
+  query_id_ = value;
+}
+inline void Snippet::set_query_id(int32_t value) {
+  _internal_set_query_id(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.query_id)
+}
+
+// int32 work_id = 3;
+inline void Snippet::clear_work_id() {
+  work_id_ = 0;
+}
+inline int32_t Snippet::_internal_work_id() const {
+  return work_id_;
+}
+inline int32_t Snippet::work_id() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.work_id)
+  return _internal_work_id();
+}
+inline void Snippet::_internal_set_work_id(int32_t value) {
+  
+  work_id_ = value;
+}
+inline void Snippet::set_work_id(int32_t value) {
+  _internal_set_work_id(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.work_id)
+}
+
+// repeated string table_name = 4;
+inline int Snippet::_internal_table_name_size() const {
+  return table_name_.size();
+}
+inline int Snippet::table_name_size() const {
+  return _internal_table_name_size();
+}
+inline void Snippet::clear_table_name() {
+  table_name_.Clear();
+}
+inline std::string* Snippet::add_table_name() {
+  std::string* _s = _internal_add_table_name();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.table_name)
+  return _s;
+}
+inline const std::string& Snippet::_internal_table_name(int index) const {
+  return table_name_.Get(index);
+}
+inline const std::string& Snippet::table_name(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_name)
+  return _internal_table_name(index);
+}
+inline std::string* Snippet::mutable_table_name(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.table_name)
+  return table_name_.Mutable(index);
+}
+inline void Snippet::set_table_name(int index, const std::string& value) {
+  table_name_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_name)
+}
+inline void Snippet::set_table_name(int index, std::string&& value) {
+  table_name_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_name)
+}
+inline void Snippet::set_table_name(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  table_name_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.table_name)
+}
+inline void Snippet::set_table_name(int index, const char* value, size_t size) {
+  table_name_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.table_name)
+}
+inline std::string* Snippet::_internal_add_table_name() {
+  return table_name_.Add();
+}
+inline void Snippet::add_table_name(const std::string& value) {
+  table_name_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_name)
+}
+inline void Snippet::add_table_name(std::string&& value) {
+  table_name_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_name)
+}
+inline void Snippet::add_table_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  table_name_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.table_name)
+}
+inline void Snippet::add_table_name(const char* value, size_t size) {
+  table_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.table_name)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet::table_name() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.table_name)
+  return table_name_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet::mutable_table_name() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.table_name)
+  return &table_name_;
+}
+
+// repeated string table_col = 5;
+inline int Snippet::_internal_table_col_size() const {
+  return table_col_.size();
+}
+inline int Snippet::table_col_size() const {
+  return _internal_table_col_size();
+}
+inline void Snippet::clear_table_col() {
+  table_col_.Clear();
+}
+inline std::string* Snippet::add_table_col() {
+  std::string* _s = _internal_add_table_col();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.table_col)
+  return _s;
+}
+inline const std::string& Snippet::_internal_table_col(int index) const {
+  return table_col_.Get(index);
+}
+inline const std::string& Snippet::table_col(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_col)
+  return _internal_table_col(index);
+}
+inline std::string* Snippet::mutable_table_col(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.table_col)
+  return table_col_.Mutable(index);
+}
+inline void Snippet::set_table_col(int index, const std::string& value) {
+  table_col_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_col)
+}
+inline void Snippet::set_table_col(int index, std::string&& value) {
+  table_col_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_col)
+}
+inline void Snippet::set_table_col(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  table_col_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.table_col)
+}
+inline void Snippet::set_table_col(int index, const char* value, size_t size) {
+  table_col_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.table_col)
+}
+inline std::string* Snippet::_internal_add_table_col() {
+  return table_col_.Add();
+}
+inline void Snippet::add_table_col(const std::string& value) {
+  table_col_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_col)
+}
+inline void Snippet::add_table_col(std::string&& value) {
+  table_col_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_col)
+}
+inline void Snippet::add_table_col(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  table_col_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.table_col)
+}
+inline void Snippet::add_table_col(const char* value, size_t size) {
+  table_col_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.table_col)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet::table_col() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.table_col)
+  return table_col_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet::mutable_table_col() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.table_col)
+  return &table_col_;
+}
+
+// repeated .snippetsample.Snippet.Filter table_filter = 6;
+inline int Snippet::_internal_table_filter_size() const {
+  return table_filter_.size();
+}
+inline int Snippet::table_filter_size() const {
+  return _internal_table_filter_size();
+}
+inline void Snippet::clear_table_filter() {
+  table_filter_.Clear();
+}
+inline ::snippetsample::Snippet_Filter* Snippet::mutable_table_filter(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.table_filter)
+  return table_filter_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter >*
+Snippet::mutable_table_filter() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.table_filter)
+  return &table_filter_;
+}
+inline const ::snippetsample::Snippet_Filter& Snippet::_internal_table_filter(int index) const {
+  return table_filter_.Get(index);
+}
+inline const ::snippetsample::Snippet_Filter& Snippet::table_filter(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_filter)
+  return _internal_table_filter(index);
+}
+inline ::snippetsample::Snippet_Filter* Snippet::_internal_add_table_filter() {
+  return table_filter_.Add();
+}
+inline ::snippetsample::Snippet_Filter* Snippet::add_table_filter() {
+  ::snippetsample::Snippet_Filter* _add = _internal_add_table_filter();
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_filter)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter >&
+Snippet::table_filter() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.table_filter)
+  return table_filter_;
+}
+
+// repeated int32 table_offset = 7;
+inline int Snippet::_internal_table_offset_size() const {
+  return table_offset_.size();
+}
+inline int Snippet::table_offset_size() const {
+  return _internal_table_offset_size();
+}
+inline void Snippet::clear_table_offset() {
+  table_offset_.Clear();
+}
+inline int32_t Snippet::_internal_table_offset(int index) const {
+  return table_offset_.Get(index);
+}
+inline int32_t Snippet::table_offset(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_offset)
+  return _internal_table_offset(index);
+}
+inline void Snippet::set_table_offset(int index, int32_t value) {
+  table_offset_.Set(index, value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_offset)
+}
+inline void Snippet::_internal_add_table_offset(int32_t value) {
+  table_offset_.Add(value);
+}
+inline void Snippet::add_table_offset(int32_t value) {
+  _internal_add_table_offset(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_offset)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+Snippet::_internal_table_offset() const {
+  return table_offset_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+Snippet::table_offset() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.table_offset)
+  return _internal_table_offset();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+Snippet::_internal_mutable_table_offset() {
+  return &table_offset_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+Snippet::mutable_table_offset() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.table_offset)
+  return _internal_mutable_table_offset();
+}
+
+// repeated int32 table_offlen = 8;
+inline int Snippet::_internal_table_offlen_size() const {
+  return table_offlen_.size();
+}
+inline int Snippet::table_offlen_size() const {
+  return _internal_table_offlen_size();
+}
+inline void Snippet::clear_table_offlen() {
+  table_offlen_.Clear();
+}
+inline int32_t Snippet::_internal_table_offlen(int index) const {
+  return table_offlen_.Get(index);
+}
+inline int32_t Snippet::table_offlen(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_offlen)
+  return _internal_table_offlen(index);
+}
+inline void Snippet::set_table_offlen(int index, int32_t value) {
+  table_offlen_.Set(index, value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_offlen)
+}
+inline void Snippet::_internal_add_table_offlen(int32_t value) {
+  table_offlen_.Add(value);
+}
+inline void Snippet::add_table_offlen(int32_t value) {
+  _internal_add_table_offlen(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_offlen)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+Snippet::_internal_table_offlen() const {
+  return table_offlen_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+Snippet::table_offlen() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.table_offlen)
+  return _internal_table_offlen();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+Snippet::_internal_mutable_table_offlen() {
+  return &table_offlen_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+Snippet::mutable_table_offlen() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.table_offlen)
+  return _internal_mutable_table_offlen();
+}
+
+// repeated int32 table_datatype = 9;
+inline int Snippet::_internal_table_datatype_size() const {
+  return table_datatype_.size();
+}
+inline int Snippet::table_datatype_size() const {
+  return _internal_table_datatype_size();
+}
+inline void Snippet::clear_table_datatype() {
+  table_datatype_.Clear();
+}
+inline int32_t Snippet::_internal_table_datatype(int index) const {
+  return table_datatype_.Get(index);
+}
+inline int32_t Snippet::table_datatype(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_datatype)
+  return _internal_table_datatype(index);
+}
+inline void Snippet::set_table_datatype(int index, int32_t value) {
+  table_datatype_.Set(index, value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_datatype)
+}
+inline void Snippet::_internal_add_table_datatype(int32_t value) {
+  table_datatype_.Add(value);
+}
+inline void Snippet::add_table_datatype(int32_t value) {
+  _internal_add_table_datatype(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.table_datatype)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+Snippet::_internal_table_datatype() const {
+  return table_datatype_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+Snippet::table_datatype() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.table_datatype)
+  return _internal_table_datatype();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+Snippet::_internal_mutable_table_datatype() {
+  return &table_datatype_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+Snippet::mutable_table_datatype() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.table_datatype)
+  return _internal_mutable_table_datatype();
+}
+
+// string table_alias = 10;
+inline void Snippet::clear_table_alias() {
+  table_alias_.ClearToEmpty();
+}
+inline const std::string& Snippet::table_alias() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.table_alias)
+  return _internal_table_alias();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Snippet::set_table_alias(ArgT0&& arg0, ArgT... args) {
+ 
+ table_alias_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.table_alias)
+}
+inline std::string* Snippet::mutable_table_alias() {
+  std::string* _s = _internal_mutable_table_alias();
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.table_alias)
+  return _s;
+}
+inline const std::string& Snippet::_internal_table_alias() const {
+  return table_alias_.Get();
+}
+inline void Snippet::_internal_set_table_alias(const std::string& value) {
+  
+  table_alias_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* Snippet::_internal_mutable_table_alias() {
+  
+  return table_alias_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* Snippet::release_table_alias() {
+  // @@protoc_insertion_point(field_release:snippetsample.Snippet.table_alias)
+  return table_alias_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void Snippet::set_allocated_table_alias(std::string* table_alias) {
+  if (table_alias != nullptr) {
+    
+  } else {
+    
+  }
+  table_alias_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), table_alias,
+      GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (table_alias_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
+    table_alias_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:snippetsample.Snippet.table_alias)
+}
+
+// repeated string column_alias = 11;
+inline int Snippet::_internal_column_alias_size() const {
+  return column_alias_.size();
+}
+inline int Snippet::column_alias_size() const {
+  return _internal_column_alias_size();
+}
+inline void Snippet::clear_column_alias() {
+  column_alias_.Clear();
+}
+inline std::string* Snippet::add_column_alias() {
+  std::string* _s = _internal_add_column_alias();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.column_alias)
+  return _s;
+}
+inline const std::string& Snippet::_internal_column_alias(int index) const {
+  return column_alias_.Get(index);
+}
+inline const std::string& Snippet::column_alias(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.column_alias)
+  return _internal_column_alias(index);
+}
+inline std::string* Snippet::mutable_column_alias(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.column_alias)
+  return column_alias_.Mutable(index);
+}
+inline void Snippet::set_column_alias(int index, const std::string& value) {
+  column_alias_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.column_alias)
+}
+inline void Snippet::set_column_alias(int index, std::string&& value) {
+  column_alias_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.column_alias)
+}
+inline void Snippet::set_column_alias(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  column_alias_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.column_alias)
+}
+inline void Snippet::set_column_alias(int index, const char* value, size_t size) {
+  column_alias_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.column_alias)
+}
+inline std::string* Snippet::_internal_add_column_alias() {
+  return column_alias_.Add();
+}
+inline void Snippet::add_column_alias(const std::string& value) {
+  column_alias_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.column_alias)
+}
+inline void Snippet::add_column_alias(std::string&& value) {
+  column_alias_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.column_alias)
+}
+inline void Snippet::add_column_alias(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  column_alias_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.column_alias)
+}
+inline void Snippet::add_column_alias(const char* value, size_t size) {
+  column_alias_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.column_alias)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet::column_alias() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.column_alias)
+  return column_alias_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet::mutable_column_alias() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.column_alias)
+  return &column_alias_;
+}
+
+// repeated .snippetsample.Snippet.Projection column_projection = 12;
+inline int Snippet::_internal_column_projection_size() const {
+  return column_projection_.size();
+}
+inline int Snippet::column_projection_size() const {
+  return _internal_column_projection_size();
+}
+inline void Snippet::clear_column_projection() {
+  column_projection_.Clear();
+}
+inline ::snippetsample::Snippet_Projection* Snippet::mutable_column_projection(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.column_projection)
+  return column_projection_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Projection >*
+Snippet::mutable_column_projection() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.column_projection)
+  return &column_projection_;
+}
+inline const ::snippetsample::Snippet_Projection& Snippet::_internal_column_projection(int index) const {
+  return column_projection_.Get(index);
+}
+inline const ::snippetsample::Snippet_Projection& Snippet::column_projection(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.column_projection)
+  return _internal_column_projection(index);
+}
+inline ::snippetsample::Snippet_Projection* Snippet::_internal_add_column_projection() {
+  return column_projection_.Add();
+}
+inline ::snippetsample::Snippet_Projection* Snippet::add_column_projection() {
+  ::snippetsample::Snippet_Projection* _add = _internal_add_column_projection();
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.column_projection)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Projection >&
+Snippet::column_projection() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.column_projection)
+  return column_projection_;
+}
+
+// repeated string column_filtering = 13;
+inline int Snippet::_internal_column_filtering_size() const {
+  return column_filtering_.size();
+}
+inline int Snippet::column_filtering_size() const {
+  return _internal_column_filtering_size();
+}
+inline void Snippet::clear_column_filtering() {
+  column_filtering_.Clear();
+}
+inline std::string* Snippet::add_column_filtering() {
+  std::string* _s = _internal_add_column_filtering();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.column_filtering)
+  return _s;
+}
+inline const std::string& Snippet::_internal_column_filtering(int index) const {
+  return column_filtering_.Get(index);
+}
+inline const std::string& Snippet::column_filtering(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.column_filtering)
+  return _internal_column_filtering(index);
+}
+inline std::string* Snippet::mutable_column_filtering(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.column_filtering)
+  return column_filtering_.Mutable(index);
+}
+inline void Snippet::set_column_filtering(int index, const std::string& value) {
+  column_filtering_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.column_filtering)
+}
+inline void Snippet::set_column_filtering(int index, std::string&& value) {
+  column_filtering_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.column_filtering)
+}
+inline void Snippet::set_column_filtering(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  column_filtering_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.column_filtering)
+}
+inline void Snippet::set_column_filtering(int index, const char* value, size_t size) {
+  column_filtering_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.column_filtering)
+}
+inline std::string* Snippet::_internal_add_column_filtering() {
+  return column_filtering_.Add();
+}
+inline void Snippet::add_column_filtering(const std::string& value) {
+  column_filtering_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.column_filtering)
+}
+inline void Snippet::add_column_filtering(std::string&& value) {
+  column_filtering_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.column_filtering)
+}
+inline void Snippet::add_column_filtering(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  column_filtering_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.column_filtering)
+}
+inline void Snippet::add_column_filtering(const char* value, size_t size) {
+  column_filtering_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.column_filtering)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet::column_filtering() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.column_filtering)
+  return column_filtering_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet::mutable_column_filtering() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.column_filtering)
+  return &column_filtering_;
+}
+
+// repeated string group_by = 14;
+inline int Snippet::_internal_group_by_size() const {
+  return group_by_.size();
+}
+inline int Snippet::group_by_size() const {
+  return _internal_group_by_size();
+}
+inline void Snippet::clear_group_by() {
+  group_by_.Clear();
+}
+inline std::string* Snippet::add_group_by() {
+  std::string* _s = _internal_add_group_by();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.group_by)
+  return _s;
+}
+inline const std::string& Snippet::_internal_group_by(int index) const {
+  return group_by_.Get(index);
+}
+inline const std::string& Snippet::group_by(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.group_by)
+  return _internal_group_by(index);
+}
+inline std::string* Snippet::mutable_group_by(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.group_by)
+  return group_by_.Mutable(index);
+}
+inline void Snippet::set_group_by(int index, const std::string& value) {
+  group_by_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.group_by)
+}
+inline void Snippet::set_group_by(int index, std::string&& value) {
+  group_by_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.group_by)
+}
+inline void Snippet::set_group_by(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  group_by_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.group_by)
+}
+inline void Snippet::set_group_by(int index, const char* value, size_t size) {
+  group_by_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.group_by)
+}
+inline std::string* Snippet::_internal_add_group_by() {
+  return group_by_.Add();
+}
+inline void Snippet::add_group_by(const std::string& value) {
+  group_by_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.group_by)
+}
+inline void Snippet::add_group_by(std::string&& value) {
+  group_by_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.group_by)
+}
+inline void Snippet::add_group_by(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  group_by_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.group_by)
+}
+inline void Snippet::add_group_by(const char* value, size_t size) {
+  group_by_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.group_by)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet::group_by() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.group_by)
+  return group_by_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet::mutable_group_by() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.group_by)
+  return &group_by_;
+}
+
+// repeated .snippetsample.Snippet.Order order_by = 15;
+inline int Snippet::_internal_order_by_size() const {
+  return order_by_.size();
+}
+inline int Snippet::order_by_size() const {
+  return _internal_order_by_size();
+}
+inline void Snippet::clear_order_by() {
+  order_by_.Clear();
+}
+inline ::snippetsample::Snippet_Order* Snippet::mutable_order_by(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.order_by)
+  return order_by_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Order >*
+Snippet::mutable_order_by() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.order_by)
+  return &order_by_;
+}
+inline const ::snippetsample::Snippet_Order& Snippet::_internal_order_by(int index) const {
+  return order_by_.Get(index);
+}
+inline const ::snippetsample::Snippet_Order& Snippet::order_by(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.order_by)
+  return _internal_order_by(index);
+}
+inline ::snippetsample::Snippet_Order* Snippet::_internal_add_order_by() {
+  return order_by_.Add();
+}
+inline ::snippetsample::Snippet_Order* Snippet::add_order_by() {
+  ::snippetsample::Snippet_Order* _add = _internal_add_order_by();
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.order_by)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Order >&
+Snippet::order_by() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.order_by)
+  return order_by_;
 }
 
 // -------------------------------------------------------------------
@@ -730,10 +2907,43 @@ inline void Result::set_allocated_value(std::string* value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
 }  // namespace snippetsample
+
+PROTOBUF_NAMESPACE_OPEN
+
+template <> struct is_proto_enum< ::snippetsample::Snippet_Filter_OperType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_Filter_OperType>() {
+  return ::snippetsample::Snippet_Filter_OperType_descriptor();
+}
+template <> struct is_proto_enum< ::snippetsample::Snippet_Projection_ProjectionType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_Projection_ProjectionType>() {
+  return ::snippetsample::Snippet_Projection_ProjectionType_descriptor();
+}
+template <> struct is_proto_enum< ::snippetsample::Snippet_Order_OrderDirection> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_Order_OrderDirection>() {
+  return ::snippetsample::Snippet_Order_OrderDirection_descriptor();
+}
+template <> struct is_proto_enum< ::snippetsample::Snippet_ValueType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_ValueType>() {
+  return ::snippetsample::Snippet_ValueType_descriptor();
+}
+
+PROTOBUF_NAMESPACE_CLOSE
 
 // @@protoc_insertion_point(global_scope)
 
