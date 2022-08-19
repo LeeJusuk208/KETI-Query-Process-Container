@@ -269,7 +269,7 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
     std::cout << "]" << std::endl;
   }
 
-      if(snippet.snippet() == "return"){
+      if(snippet.table_alias() == "return"){
         Result result;
         query_result = "Under Construct";
         result.set_value(query_result);
