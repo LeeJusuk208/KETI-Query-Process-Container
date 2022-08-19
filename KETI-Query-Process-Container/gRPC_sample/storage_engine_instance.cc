@@ -30,11 +30,14 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
       std::cout << "workid :" << snippet.workid() << std::endl;
       std::cout << "snippet :" << snippet.snippet() << std::endl << std::endl;
 
-      query_result += "w_id :";
-      query_result += std::to_string(snippet.workid());    
-      query_result += "snippet str :";
-      query_result += snippet.snippet();
-      query_result += "\n";
+    
+      {
+        query_result += "w_id :";
+        query_result += std::to_string(snippet.workid());    
+        query_result += "snippet str :";
+        query_result += snippet.snippet();
+        query_result += "\n";
+      }
 
       if(snippet.snippet() == "return"){
         Result result;

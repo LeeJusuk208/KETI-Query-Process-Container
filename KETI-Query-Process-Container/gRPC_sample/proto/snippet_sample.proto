@@ -15,9 +15,76 @@ service SnippetSample {
 }
 
 message Snippet {
-	int32 queryid = 1;
-	int32 workid = 2;
-	string snippet = 3;
+  enum ValueType {
+    INT32 = 0;
+    INT64 = 1;
+    FLOAT32 = 2;
+    FLOAT64 = 3;
+    NUMERIC = 4;
+    BYTES = 5;
+    STRING = 6;
+    DATE = 7;
+    COLUMN_NAME = 8;
+    OPERATOR = 9;
+  }
+  message SnippetAny {
+    ValueType snippettype = 1;
+    bytes Value = 2;
+  }
+  message Filter {
+    enum OperType {
+      KETI_DEFAULT = 0;
+      KETI_GE = 1;
+      KETI_LE = 2;
+      KETI_GT = 3;
+      KETI_LT = 4;
+      KETI_ET = 5;
+      KETI_NE = 6;
+      KETI_LIKE = 7;
+      KETI_BETWEEN = 8;
+      KETI_IN = 9;
+      KETI_IS = 10;
+      KETI_ISNOT = 11;
+      KETI_NOT = 12;
+      KETI_AND = 13;
+      KETI_OR = 14;
+    }
+    OperType operator = 1;
+    repeated SnippetAny sany = 2;
+  }
+  message Projection {
+    enum ProjectionType{
+      DEFAULT = 0;
+      SUM = 1;
+      AVG = 2;
+      COUNT = 4;
+    }
+    ProjectionType projcetiontype = 1;
+    repeated SnippetAny sany = 2;
+  }
+  message Order {
+    enum OrderDirection{
+      ASC = 0;
+      DESC = 1;
+    }
+    OrderDirection direction = 1;
+    string column = 2;
+  }
+  int32 snippet_type = 1;
+  int32 query_id = 2;
+  int32 work_id = 3;
+  repeated string table_name = 4;
+  repeated string table_col = 5;
+  repeated Filter table_filter = 6;
+  repeated int32 table_offset = 7;
+  repeated int32 table_offlen = 8;
+  repeated int32 table_datatype = 9;
+  string table_alias = 10;
+  repeated string column_alias = 11;
+  repeated Projection column_projection = 12;
+  repeated string column_filtering = 13;
+  repeated string group_by = 14;
+  repeated Order order_by = 15;
 }
 message Request{
   int32 queryid = 1;
