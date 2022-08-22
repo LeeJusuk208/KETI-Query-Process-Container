@@ -33,7 +33,9 @@ struct Snippet_SnippetAnyDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Snippet_SnippetAnyDefaultTypeInternal _Snippet_SnippetAny_default_instance_;
 constexpr Snippet_Filter::Snippet_Filter(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : sany_()
+  : value_()
+  , value_type_()
+  , _value_type_cached_byte_size_(0)
   , operator__(0)
 {}
 struct Snippet_FilterDefaultTypeInternal {
@@ -47,8 +49,10 @@ struct Snippet_FilterDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Snippet_FilterDefaultTypeInternal _Snippet_Filter_default_instance_;
 constexpr Snippet_Projection::Snippet_Projection(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : sany_()
-  , projcetiontype_(0)
+  : value_()
+  , value_type_()
+  , _value_type_cached_byte_size_(0)
+  , select_type_(0)
 {}
 struct Snippet_ProjectionDefaultTypeInternal {
   constexpr Snippet_ProjectionDefaultTypeInternal()
@@ -147,15 +151,17 @@ const uint32_t TableStruct_snippet_5fsample_2eproto::offsets[] PROTOBUF_SECTION_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Filter, operator__),
-  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Filter, sany_),
+  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Filter, value_),
+  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Filter, value_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Projection, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Projection, projcetiontype_),
-  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Projection, sany_),
+  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Projection, select_type_),
+  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Projection, value_),
+  PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Projection, value_type_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::snippetsample::Snippet_Order, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -203,11 +209,11 @@ const uint32_t TableStruct_snippet_5fsample_2eproto::offsets[] PROTOBUF_SECTION_
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::snippetsample::Snippet_SnippetAny)},
   { 8, -1, -1, sizeof(::snippetsample::Snippet_Filter)},
-  { 16, -1, -1, sizeof(::snippetsample::Snippet_Projection)},
-  { 24, -1, -1, sizeof(::snippetsample::Snippet_Order)},
-  { 32, -1, -1, sizeof(::snippetsample::Snippet)},
-  { 53, -1, -1, sizeof(::snippetsample::Request)},
-  { 60, -1, -1, sizeof(::snippetsample::Result)},
+  { 17, -1, -1, sizeof(::snippetsample::Snippet_Projection)},
+  { 26, -1, -1, sizeof(::snippetsample::Snippet_Order)},
+  { 34, -1, -1, sizeof(::snippetsample::Snippet)},
+  { 55, -1, -1, sizeof(::snippetsample::Request)},
+  { 62, -1, -1, sizeof(::snippetsample::Result)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -222,7 +228,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\024snippet_sample.proto\022\rsnippetsample\032\033g"
-  "oogle/protobuf/empty.proto\"\256\013\n\007Snippet\022\024"
+  "oogle/protobuf/empty.proto\"\323\013\n\007Snippet\022\024"
   "\n\014snippet_type\030\001 \001(\005\022\020\n\010query_id\030\002 \001(\005\022\017"
   "\n\007work_id\030\003 \001(\005\022\022\n\ntable_name\030\004 \003(\t\022\021\n\tt"
   "able_col\030\005 \003(\t\0223\n\014table_filter\030\006 \003(\0132\035.s"
@@ -235,44 +241,45 @@ const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION
   " \003(\t\022.\n\010order_by\030\017 \003(\0132\034.snippetsample.S"
   "nippet.Order\032R\n\nSnippetAny\0225\n\013snippettyp"
   "e\030\001 \001(\0162 .snippetsample.Snippet.ValueTyp"
-  "e\022\r\n\005Value\030\002 \001(\014\032\324\002\n\006Filter\0228\n\010operator\030"
+  "e\022\r\n\005Value\030\002 \001(\014\032\350\002\n\006Filter\0228\n\010Operator\030"
   "\001 \001(\0162&.snippetsample.Snippet.Filter.Ope"
-  "rType\022/\n\004sany\030\002 \003(\0132!.snippetsample.Snip"
-  "pet.SnippetAny\"\336\001\n\010OperType\022\020\n\014KETI_DEFA"
-  "ULT\020\000\022\013\n\007KETI_GE\020\001\022\013\n\007KETI_LE\020\002\022\013\n\007KETI_"
-  "GT\020\003\022\013\n\007KETI_LT\020\004\022\013\n\007KETI_ET\020\005\022\013\n\007KETI_N"
-  "E\020\006\022\r\n\tKETI_LIKE\020\007\022\020\n\014KETI_BETWEEN\020\010\022\013\n\007"
-  "KETI_IN\020\t\022\013\n\007KETI_IS\020\n\022\016\n\nKETI_ISNOT\020\013\022\014"
-  "\n\010KETI_NOT\020\014\022\014\n\010KETI_AND\020\r\022\013\n\007KETI_OR\020\016\032"
-  "\233\002\n\nProjection\022D\n\016projcetiontype\030\001 \001(\0162,"
-  ".snippetsample.Snippet.Projection.Select"
-  "Type\022/\n\004sany\030\002 \003(\0132!.snippetsample.Snipp"
-  "et.SnippetAny\"\225\001\n\nSelectType\022\016\n\nCOLUMNNA"
-  "ME\020\000\022\007\n\003SUM\020\001\022\007\n\003AVG\020\002\022\t\n\005COUNT\020\003\022\r\n\tCOU"
-  "NTSTAR\020\004\022\007\n\003TOP\020\005\022\007\n\003MIN\020\006\022\007\n\003MAX\020\007\022\010\n\004C"
-  "ASE\020\010\022\010\n\004WHEN\020\t\022\010\n\004THEN\020\n\022\010\n\004ELSE\020\013\022\010\n\004L"
-  "IKE\020\014\032|\n\005Order\022>\n\tdirection\030\001 \001(\0162+.snip"
-  "petsample.Snippet.Order.OrderDirection\022\016"
-  "\n\006column\030\002 \001(\t\"#\n\016OrderDirection\022\007\n\003ASC\020"
-  "\000\022\010\n\004DESC\020\001\"\275\001\n\tValueType\022\010\n\004INT8\020\000\022\t\n\005I"
-  "NT16\020\001\022\t\n\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n\007FLOAT32\020"
-  "\004\022\013\n\007FLOAT64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022\r\n"
-  "\tTIMESTAMP\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\010\n\004"
-  "PLUS\020d\022\t\n\005MINUS\020e\022\014\n\010MULTIPLE\020f\022\n\n\006DIVID"
-  "E\020g\"\032\n\007Request\022\017\n\007queryid\030\001 \001(\005\"\027\n\006Resul"
-  "t\022\r\n\005value\030\001 \001(\t2\212\001\n\rSnippetSample\022A\n\nSe"
-  "tSnippet\022\026.snippetsample.Snippet\032\025.snipp"
-  "etsample.Result\"\000(\0010\001\0226\n\003Run\022\026.snippetsa"
-  "mple.Request\032\025.snippetsample.Result\"\000B6\n"
-  "\026io.grpc.snippet_sampleB\024snippet_sample_"
-  "ProtoP\001\242\002\003SSPb\006proto3"
+  "rType\022\r\n\005value\030\002 \003(\t\0224\n\nvalue_type\030\003 \003(\016"
+  "2 .snippetsample.Snippet.ValueType\"\336\001\n\010O"
+  "perType\022\020\n\014KETI_DEFAULT\020\000\022\013\n\007KETI_GE\020\001\022\013"
+  "\n\007KETI_LE\020\002\022\013\n\007KETI_GT\020\003\022\013\n\007KETI_LT\020\004\022\013\n"
+  "\007KETI_ET\020\005\022\013\n\007KETI_NE\020\006\022\r\n\tKETI_LIKE\020\007\022\020"
+  "\n\014KETI_BETWEEN\020\010\022\013\n\007KETI_IN\020\t\022\013\n\007KETI_IS"
+  "\020\n\022\016\n\nKETI_ISNOT\020\013\022\014\n\010KETI_NOT\020\014\022\014\n\010KETI"
+  "_AND\020\r\022\013\n\007KETI_OR\020\016\032\254\002\n\nProjection\022A\n\013se"
+  "lect_type\030\001 \001(\0162,.snippetsample.Snippet."
+  "Projection.SelectType\022\r\n\005value\030\002 \003(\t\0224\n\n"
+  "value_type\030\003 \003(\0162 .snippetsample.Snippet"
+  ".ValueType\"\225\001\n\nSelectType\022\016\n\nCOLUMNNAME\020"
+  "\000\022\007\n\003SUM\020\001\022\007\n\003AVG\020\002\022\t\n\005COUNT\020\003\022\r\n\tCOUNTS"
+  "TAR\020\004\022\007\n\003TOP\020\005\022\007\n\003MIN\020\006\022\007\n\003MAX\020\007\022\010\n\004CASE"
+  "\020\010\022\010\n\004WHEN\020\t\022\010\n\004THEN\020\n\022\010\n\004ELSE\020\013\022\010\n\004LIKE"
+  "\020\014\032|\n\005Order\022>\n\tdirection\030\001 \001(\0162+.snippet"
+  "sample.Snippet.Order.OrderDirection\022\016\n\006c"
+  "olumn\030\002 \001(\t\"#\n\016OrderDirection\022\007\n\003ASC\020\000\022\010"
+  "\n\004DESC\020\001\"\275\001\n\tValueType\022\010\n\004INT8\020\000\022\t\n\005INT1"
+  "6\020\001\022\t\n\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n\007FLOAT32\020\004\022\013"
+  "\n\007FLOAT64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022\r\n\tTI"
+  "MESTAMP\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\010\n\004PLU"
+  "S\020d\022\t\n\005MINUS\020e\022\014\n\010MULTIPLE\020f\022\n\n\006DIVIDE\020g"
+  "\"\032\n\007Request\022\017\n\007queryid\030\001 \001(\005\"\027\n\006Result\022\r"
+  "\n\005value\030\001 \001(\t2\212\001\n\rSnippetSample\022A\n\nSetSn"
+  "ippet\022\026.snippetsample.Snippet\032\025.snippets"
+  "ample.Result\"\000(\0010\001\0226\n\003Run\022\026.snippetsampl"
+  "e.Request\032\025.snippetsample.Result\"\000B6\n\026io"
+  ".grpc.snippet_sampleB\024snippet_sample_Pro"
+  "toP\001\242\002\003SSPb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_snippet_5fsample_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_snippet_5fsample_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto = {
-  false, false, 1781, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
+  false, false, 1818, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
   &descriptor_table_snippet_5fsample_2eproto_once, descriptor_table_snippet_5fsample_2eproto_deps, 1, 7,
   schemas, file_default_instances, TableStruct_snippet_5fsample_2eproto::offsets,
   file_level_metadata_snippet_5fsample_2eproto, file_level_enum_descriptors_snippet_5fsample_2eproto, file_level_service_descriptors_snippet_5fsample_2eproto,
@@ -679,7 +686,8 @@ class Snippet_Filter::_Internal {
 Snippet_Filter::Snippet_Filter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  sany_(arena) {
+  value_(arena),
+  value_type_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -688,7 +696,8 @@ Snippet_Filter::Snippet_Filter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 Snippet_Filter::Snippet_Filter(const Snippet_Filter& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      sany_(from.sany_) {
+      value_(from.value_),
+      value_type_(from.value_type_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   operator__ = from.operator__;
   // @@protoc_insertion_point(copy_constructor:snippetsample.Snippet.Filter)
@@ -725,7 +734,8 @@ void Snippet_Filter::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  sany_.Clear();
+  value_.Clear();
+  value_type_.Clear();
   operator__ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -736,7 +746,7 @@ const char* Snippet_Filter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .snippetsample.Snippet.Filter.OperType operator = 1;
+      // .snippetsample.Snippet.Filter.OperType Operator = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -745,16 +755,30 @@ const char* Snippet_Filter::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
         } else
           goto handle_unusual;
         continue;
-      // repeated .snippetsample.Snippet.SnippetAny sany = 2;
+      // repeated string value = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_sany(), ptr);
+            auto str = _internal_add_value();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "snippetsample.Snippet.Filter.value"));
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .snippetsample.Snippet.ValueType value_type = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_value_type(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 24) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_add_value_type(static_cast<::snippetsample::Snippet_ValueType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -787,19 +811,30 @@ uint8_t* Snippet_Filter::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .snippetsample.Snippet.Filter.OperType operator = 1;
+  // .snippetsample.Snippet.Filter.OperType Operator = 1;
   if (this->_internal_operator_() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_operator_(), target);
   }
 
-  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_sany_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_sany(i), target, stream);
+  // repeated string value = 2;
+  for (int i = 0, n = this->_internal_value_size(); i < n; i++) {
+    const auto& s = this->_internal_value(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "snippetsample.Snippet.Filter.value");
+    target = stream->WriteString(2, s, target);
+  }
+
+  // repeated .snippetsample.Snippet.ValueType value_type = 3;
+  {
+    int byte_size = _value_type_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          3, value_type_, byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -818,14 +853,33 @@ size_t Snippet_Filter::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
-  total_size += 1UL * this->_internal_sany_size();
-  for (const auto& msg : this->sany_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // repeated string value = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(value_.size());
+  for (int i = 0, n = value_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      value_.Get(i));
   }
 
-  // .snippetsample.Snippet.Filter.OperType operator = 1;
+  // repeated .snippetsample.Snippet.ValueType value_type = 3;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_value_type_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_value_type(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _value_type_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // .snippetsample.Snippet.Filter.OperType Operator = 1;
   if (this->_internal_operator_() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_operator_());
@@ -853,7 +907,8 @@ void Snippet_Filter::MergeFrom(const Snippet_Filter& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  sany_.MergeFrom(from.sany_);
+  value_.MergeFrom(from.value_);
+  value_type_.MergeFrom(from.value_type_);
   if (from._internal_operator_() != 0) {
     _internal_set_operator_(from._internal_operator_());
   }
@@ -874,7 +929,8 @@ bool Snippet_Filter::IsInitialized() const {
 void Snippet_Filter::InternalSwap(Snippet_Filter* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  sany_.InternalSwap(&other->sany_);
+  value_.InternalSwap(&other->value_);
+  value_type_.InternalSwap(&other->value_type_);
   swap(operator__, other->operator__);
 }
 
@@ -893,7 +949,8 @@ class Snippet_Projection::_Internal {
 Snippet_Projection::Snippet_Projection(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  sany_(arena) {
+  value_(arena),
+  value_type_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -902,14 +959,15 @@ Snippet_Projection::Snippet_Projection(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 Snippet_Projection::Snippet_Projection(const Snippet_Projection& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      sany_(from.sany_) {
+      value_(from.value_),
+      value_type_(from.value_type_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  projcetiontype_ = from.projcetiontype_;
+  select_type_ = from.select_type_;
   // @@protoc_insertion_point(copy_constructor:snippetsample.Snippet.Projection)
 }
 
 inline void Snippet_Projection::SharedCtor() {
-projcetiontype_ = 0;
+select_type_ = 0;
 }
 
 Snippet_Projection::~Snippet_Projection() {
@@ -939,8 +997,9 @@ void Snippet_Projection::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  sany_.Clear();
-  projcetiontype_ = 0;
+  value_.Clear();
+  value_type_.Clear();
+  select_type_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -950,25 +1009,39 @@ const char* Snippet_Projection::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
+      // .snippetsample.Snippet.Projection.SelectType select_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_projcetiontype(static_cast<::snippetsample::Snippet_Projection_SelectType>(val));
+          _internal_set_select_type(static_cast<::snippetsample::Snippet_Projection_SelectType>(val));
         } else
           goto handle_unusual;
         continue;
-      // repeated .snippetsample.Snippet.SnippetAny sany = 2;
+      // repeated string value = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_sany(), ptr);
+            auto str = _internal_add_value();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "snippetsample.Snippet.Projection.value"));
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .snippetsample.Snippet.ValueType value_type = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedEnumParser(_internal_mutable_value_type(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 24) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_add_value_type(static_cast<::snippetsample::Snippet_ValueType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1001,19 +1074,30 @@ uint8_t* Snippet_Projection::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
-  if (this->_internal_projcetiontype() != 0) {
+  // .snippetsample.Snippet.Projection.SelectType select_type = 1;
+  if (this->_internal_select_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_projcetiontype(), target);
+      1, this->_internal_select_type(), target);
   }
 
-  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_sany_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_sany(i), target, stream);
+  // repeated string value = 2;
+  for (int i = 0, n = this->_internal_value_size(); i < n; i++) {
+    const auto& s = this->_internal_value(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "snippetsample.Snippet.Projection.value");
+    target = stream->WriteString(2, s, target);
+  }
+
+  // repeated .snippetsample.Snippet.ValueType value_type = 3;
+  {
+    int byte_size = _value_type_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteEnumPacked(
+          3, value_type_, byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1032,17 +1116,36 @@ size_t Snippet_Projection::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
-  total_size += 1UL * this->_internal_sany_size();
-  for (const auto& msg : this->sany_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  // repeated string value = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(value_.size());
+  for (int i = 0, n = value_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      value_.Get(i));
   }
 
-  // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
-  if (this->_internal_projcetiontype() != 0) {
+  // repeated .snippetsample.Snippet.ValueType value_type = 3;
+  {
+    size_t data_size = 0;
+    unsigned int count = static_cast<unsigned int>(this->_internal_value_type_size());for (unsigned int i = 0; i < count; i++) {
+      data_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(
+        this->_internal_value_type(static_cast<int>(i)));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _value_type_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // .snippetsample.Snippet.Projection.SelectType select_type = 1;
+  if (this->_internal_select_type() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_projcetiontype());
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_select_type());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -1067,9 +1170,10 @@ void Snippet_Projection::MergeFrom(const Snippet_Projection& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  sany_.MergeFrom(from.sany_);
-  if (from._internal_projcetiontype() != 0) {
-    _internal_set_projcetiontype(from._internal_projcetiontype());
+  value_.MergeFrom(from.value_);
+  value_type_.MergeFrom(from.value_type_);
+  if (from._internal_select_type() != 0) {
+    _internal_set_select_type(from._internal_select_type());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1088,8 +1192,9 @@ bool Snippet_Projection::IsInitialized() const {
 void Snippet_Projection::InternalSwap(Snippet_Projection* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  sany_.InternalSwap(&other->sany_);
-  swap(projcetiontype_, other->projcetiontype_);
+  value_.InternalSwap(&other->value_);
+  value_type_.InternalSwap(&other->value_type_);
+  swap(select_type_, other->select_type_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Snippet_Projection::GetMetadata() const {

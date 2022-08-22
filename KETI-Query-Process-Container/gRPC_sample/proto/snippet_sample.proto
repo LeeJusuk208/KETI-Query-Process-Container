@@ -54,8 +54,10 @@ message Snippet {
       KETI_AND = 13;
       KETI_OR = 14;
     }
-    OperType operator = 1;
-    repeated SnippetAny sany = 2;
+    OperType Operator = 1;
+    repeated string value = 2;
+    repeated ValueType value_type = 3;
+    //repeated SnippetAny keti_any = 2;
   }
   message Projection {
     enum SelectType{
@@ -73,8 +75,10 @@ message Snippet {
       ELSE = 11;
       LIKE = 12;
     }
-    SelectType projcetiontype = 1;
-    repeated SnippetAny sany = 2;
+    SelectType select_type = 1;
+    repeated string value = 2;
+    repeated ValueType value_type = 3;    
+    //repeated SnippetAny keti_any = 2;
   }
   message Order {
     enum OrderDirection{

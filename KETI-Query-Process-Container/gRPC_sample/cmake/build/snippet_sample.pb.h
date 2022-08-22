@@ -568,28 +568,52 @@ class Snippet_Filter final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSanyFieldNumber = 2,
+    kValueFieldNumber = 2,
+    kValueTypeFieldNumber = 3,
     kOperatorFieldNumber = 1,
   };
-  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
-  int sany_size() const;
+  // repeated string value = 2;
+  int value_size() const;
   private:
-  int _internal_sany_size() const;
+  int _internal_value_size() const;
   public:
-  void clear_sany();
-  ::snippetsample::Snippet_SnippetAny* mutable_sany(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
-      mutable_sany();
+  void clear_value();
+  const std::string& value(int index) const;
+  std::string* mutable_value(int index);
+  void set_value(int index, const std::string& value);
+  void set_value(int index, std::string&& value);
+  void set_value(int index, const char* value);
+  void set_value(int index, const char* value, size_t size);
+  std::string* add_value();
+  void add_value(const std::string& value);
+  void add_value(std::string&& value);
+  void add_value(const char* value);
+  void add_value(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_value();
   private:
-  const ::snippetsample::Snippet_SnippetAny& _internal_sany(int index) const;
-  ::snippetsample::Snippet_SnippetAny* _internal_add_sany();
+  const std::string& _internal_value(int index) const;
+  std::string* _internal_add_value();
   public:
-  const ::snippetsample::Snippet_SnippetAny& sany(int index) const;
-  ::snippetsample::Snippet_SnippetAny* add_sany();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
-      sany() const;
 
-  // .snippetsample.Snippet.Filter.OperType operator = 1;
+  // repeated .snippetsample.Snippet.ValueType value_type = 3;
+  int value_type_size() const;
+  private:
+  int _internal_value_type_size() const;
+  public:
+  void clear_value_type();
+  private:
+  ::snippetsample::Snippet_ValueType _internal_value_type(int index) const;
+  void _internal_add_value_type(::snippetsample::Snippet_ValueType value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_value_type();
+  public:
+  ::snippetsample::Snippet_ValueType value_type(int index) const;
+  void set_value_type(int index, ::snippetsample::Snippet_ValueType value);
+  void add_value_type(::snippetsample::Snippet_ValueType value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& value_type() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_value_type();
+
+  // .snippetsample.Snippet.Filter.OperType Operator = 1;
   void clear_operator_();
   ::snippetsample::Snippet_Filter_OperType operator_() const;
   void set_operator_(::snippetsample::Snippet_Filter_OperType value);
@@ -605,7 +629,9 @@ class Snippet_Filter final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny > sany_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> value_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> value_type_;
+  mutable std::atomic<int> _value_type_cached_byte_size_;
   int operator__;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
@@ -786,34 +812,58 @@ class Snippet_Projection final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSanyFieldNumber = 2,
-    kProjcetiontypeFieldNumber = 1,
+    kValueFieldNumber = 2,
+    kValueTypeFieldNumber = 3,
+    kSelectTypeFieldNumber = 1,
   };
-  // repeated .snippetsample.Snippet.SnippetAny sany = 2;
-  int sany_size() const;
+  // repeated string value = 2;
+  int value_size() const;
   private:
-  int _internal_sany_size() const;
+  int _internal_value_size() const;
   public:
-  void clear_sany();
-  ::snippetsample::Snippet_SnippetAny* mutable_sany(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
-      mutable_sany();
+  void clear_value();
+  const std::string& value(int index) const;
+  std::string* mutable_value(int index);
+  void set_value(int index, const std::string& value);
+  void set_value(int index, std::string&& value);
+  void set_value(int index, const char* value);
+  void set_value(int index, const char* value, size_t size);
+  std::string* add_value();
+  void add_value(const std::string& value);
+  void add_value(std::string&& value);
+  void add_value(const char* value);
+  void add_value(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_value();
   private:
-  const ::snippetsample::Snippet_SnippetAny& _internal_sany(int index) const;
-  ::snippetsample::Snippet_SnippetAny* _internal_add_sany();
+  const std::string& _internal_value(int index) const;
+  std::string* _internal_add_value();
   public:
-  const ::snippetsample::Snippet_SnippetAny& sany(int index) const;
-  ::snippetsample::Snippet_SnippetAny* add_sany();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
-      sany() const;
 
-  // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
-  void clear_projcetiontype();
-  ::snippetsample::Snippet_Projection_SelectType projcetiontype() const;
-  void set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value);
+  // repeated .snippetsample.Snippet.ValueType value_type = 3;
+  int value_type_size() const;
   private:
-  ::snippetsample::Snippet_Projection_SelectType _internal_projcetiontype() const;
-  void _internal_set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value);
+  int _internal_value_type_size() const;
+  public:
+  void clear_value_type();
+  private:
+  ::snippetsample::Snippet_ValueType _internal_value_type(int index) const;
+  void _internal_add_value_type(::snippetsample::Snippet_ValueType value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_value_type();
+  public:
+  ::snippetsample::Snippet_ValueType value_type(int index) const;
+  void set_value_type(int index, ::snippetsample::Snippet_ValueType value);
+  void add_value_type(::snippetsample::Snippet_ValueType value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& value_type() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_value_type();
+
+  // .snippetsample.Snippet.Projection.SelectType select_type = 1;
+  void clear_select_type();
+  ::snippetsample::Snippet_Projection_SelectType select_type() const;
+  void set_select_type(::snippetsample::Snippet_Projection_SelectType value);
+  private:
+  ::snippetsample::Snippet_Projection_SelectType _internal_select_type() const;
+  void _internal_set_select_type(::snippetsample::Snippet_Projection_SelectType value);
   public:
 
   // @@protoc_insertion_point(class_scope:snippetsample.Snippet.Projection)
@@ -823,8 +873,10 @@ class Snippet_Projection final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny > sany_;
-  int projcetiontype_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> value_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> value_type_;
+  mutable std::atomic<int> _value_type_cached_byte_size_;
+  int select_type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
 };
@@ -1913,7 +1965,7 @@ inline void Snippet_SnippetAny::set_allocated_value(std::string* value) {
 
 // Snippet_Filter
 
-// .snippetsample.Snippet.Filter.OperType operator = 1;
+// .snippetsample.Snippet.Filter.OperType Operator = 1;
 inline void Snippet_Filter::clear_operator_() {
   operator__ = 0;
 }
@@ -1921,7 +1973,7 @@ inline ::snippetsample::Snippet_Filter_OperType Snippet_Filter::_internal_operat
   return static_cast< ::snippetsample::Snippet_Filter_OperType >(operator__);
 }
 inline ::snippetsample::Snippet_Filter_OperType Snippet_Filter::operator_() const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.operator)
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.Operator)
   return _internal_operator_();
 }
 inline void Snippet_Filter::_internal_set_operator_(::snippetsample::Snippet_Filter_OperType value) {
@@ -1930,111 +1982,267 @@ inline void Snippet_Filter::_internal_set_operator_(::snippetsample::Snippet_Fil
 }
 inline void Snippet_Filter::set_operator_(::snippetsample::Snippet_Filter_OperType value) {
   _internal_set_operator_(value);
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.operator)
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.Operator)
 }
 
-// repeated .snippetsample.Snippet.SnippetAny sany = 2;
-inline int Snippet_Filter::_internal_sany_size() const {
-  return sany_.size();
+// repeated string value = 2;
+inline int Snippet_Filter::_internal_value_size() const {
+  return value_.size();
 }
-inline int Snippet_Filter::sany_size() const {
-  return _internal_sany_size();
+inline int Snippet_Filter::value_size() const {
+  return _internal_value_size();
 }
-inline void Snippet_Filter::clear_sany() {
-  sany_.Clear();
+inline void Snippet_Filter::clear_value() {
+  value_.Clear();
 }
-inline ::snippetsample::Snippet_SnippetAny* Snippet_Filter::mutable_sany(int index) {
-  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.sany)
-  return sany_.Mutable(index);
+inline std::string* Snippet_Filter::add_value() {
+  std::string* _s = _internal_add_value();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.Filter.value)
+  return _s;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
-Snippet_Filter::mutable_sany() {
-  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.sany)
-  return &sany_;
+inline const std::string& Snippet_Filter::_internal_value(int index) const {
+  return value_.Get(index);
 }
-inline const ::snippetsample::Snippet_SnippetAny& Snippet_Filter::_internal_sany(int index) const {
-  return sany_.Get(index);
+inline const std::string& Snippet_Filter::value(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.value)
+  return _internal_value(index);
 }
-inline const ::snippetsample::Snippet_SnippetAny& Snippet_Filter::sany(int index) const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.sany)
-  return _internal_sany(index);
+inline std::string* Snippet_Filter::mutable_value(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.value)
+  return value_.Mutable(index);
 }
-inline ::snippetsample::Snippet_SnippetAny* Snippet_Filter::_internal_add_sany() {
-  return sany_.Add();
+inline void Snippet_Filter::set_value(int index, const std::string& value) {
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.value)
 }
-inline ::snippetsample::Snippet_SnippetAny* Snippet_Filter::add_sany() {
-  ::snippetsample::Snippet_SnippetAny* _add = _internal_add_sany();
-  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.sany)
-  return _add;
+inline void Snippet_Filter::set_value(int index, std::string&& value) {
+  value_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.value)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
-Snippet_Filter::sany() const {
-  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.sany)
-  return sany_;
+inline void Snippet_Filter::set_value(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.Filter.value)
+}
+inline void Snippet_Filter::set_value(int index, const char* value, size_t size) {
+  value_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.Filter.value)
+}
+inline std::string* Snippet_Filter::_internal_add_value() {
+  return value_.Add();
+}
+inline void Snippet_Filter::add_value(const std::string& value) {
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.value)
+}
+inline void Snippet_Filter::add_value(std::string&& value) {
+  value_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.value)
+}
+inline void Snippet_Filter::add_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.Filter.value)
+}
+inline void Snippet_Filter::add_value(const char* value, size_t size) {
+  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.Filter.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet_Filter::value() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.value)
+  return value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet_Filter::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.value)
+  return &value_;
+}
+
+// repeated .snippetsample.Snippet.ValueType value_type = 3;
+inline int Snippet_Filter::_internal_value_type_size() const {
+  return value_type_.size();
+}
+inline int Snippet_Filter::value_type_size() const {
+  return _internal_value_type_size();
+}
+inline void Snippet_Filter::clear_value_type() {
+  value_type_.Clear();
+}
+inline ::snippetsample::Snippet_ValueType Snippet_Filter::_internal_value_type(int index) const {
+  return static_cast< ::snippetsample::Snippet_ValueType >(value_type_.Get(index));
+}
+inline ::snippetsample::Snippet_ValueType Snippet_Filter::value_type(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.value_type)
+  return _internal_value_type(index);
+}
+inline void Snippet_Filter::set_value_type(int index, ::snippetsample::Snippet_ValueType value) {
+  value_type_.Set(index, value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.value_type)
+}
+inline void Snippet_Filter::_internal_add_value_type(::snippetsample::Snippet_ValueType value) {
+  value_type_.Add(value);
+}
+inline void Snippet_Filter::add_value_type(::snippetsample::Snippet_ValueType value) {
+  _internal_add_value_type(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.value_type)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+Snippet_Filter::value_type() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.value_type)
+  return value_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+Snippet_Filter::_internal_mutable_value_type() {
+  return &value_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+Snippet_Filter::mutable_value_type() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.value_type)
+  return _internal_mutable_value_type();
 }
 
 // -------------------------------------------------------------------
 
 // Snippet_Projection
 
-// .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
-inline void Snippet_Projection::clear_projcetiontype() {
-  projcetiontype_ = 0;
+// .snippetsample.Snippet.Projection.SelectType select_type = 1;
+inline void Snippet_Projection::clear_select_type() {
+  select_type_ = 0;
 }
-inline ::snippetsample::Snippet_Projection_SelectType Snippet_Projection::_internal_projcetiontype() const {
-  return static_cast< ::snippetsample::Snippet_Projection_SelectType >(projcetiontype_);
+inline ::snippetsample::Snippet_Projection_SelectType Snippet_Projection::_internal_select_type() const {
+  return static_cast< ::snippetsample::Snippet_Projection_SelectType >(select_type_);
 }
-inline ::snippetsample::Snippet_Projection_SelectType Snippet_Projection::projcetiontype() const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.projcetiontype)
-  return _internal_projcetiontype();
+inline ::snippetsample::Snippet_Projection_SelectType Snippet_Projection::select_type() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.select_type)
+  return _internal_select_type();
 }
-inline void Snippet_Projection::_internal_set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value) {
+inline void Snippet_Projection::_internal_set_select_type(::snippetsample::Snippet_Projection_SelectType value) {
   
-  projcetiontype_ = value;
+  select_type_ = value;
 }
-inline void Snippet_Projection::set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value) {
-  _internal_set_projcetiontype(value);
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.projcetiontype)
+inline void Snippet_Projection::set_select_type(::snippetsample::Snippet_Projection_SelectType value) {
+  _internal_set_select_type(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.select_type)
 }
 
-// repeated .snippetsample.Snippet.SnippetAny sany = 2;
-inline int Snippet_Projection::_internal_sany_size() const {
-  return sany_.size();
+// repeated string value = 2;
+inline int Snippet_Projection::_internal_value_size() const {
+  return value_.size();
 }
-inline int Snippet_Projection::sany_size() const {
-  return _internal_sany_size();
+inline int Snippet_Projection::value_size() const {
+  return _internal_value_size();
 }
-inline void Snippet_Projection::clear_sany() {
-  sany_.Clear();
+inline void Snippet_Projection::clear_value() {
+  value_.Clear();
 }
-inline ::snippetsample::Snippet_SnippetAny* Snippet_Projection::mutable_sany(int index) {
-  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Projection.sany)
-  return sany_.Mutable(index);
+inline std::string* Snippet_Projection::add_value() {
+  std::string* _s = _internal_add_value();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.Projection.value)
+  return _s;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >*
-Snippet_Projection::mutable_sany() {
-  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Projection.sany)
-  return &sany_;
+inline const std::string& Snippet_Projection::_internal_value(int index) const {
+  return value_.Get(index);
 }
-inline const ::snippetsample::Snippet_SnippetAny& Snippet_Projection::_internal_sany(int index) const {
-  return sany_.Get(index);
+inline const std::string& Snippet_Projection::value(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.value)
+  return _internal_value(index);
 }
-inline const ::snippetsample::Snippet_SnippetAny& Snippet_Projection::sany(int index) const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.sany)
-  return _internal_sany(index);
+inline std::string* Snippet_Projection::mutable_value(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Projection.value)
+  return value_.Mutable(index);
 }
-inline ::snippetsample::Snippet_SnippetAny* Snippet_Projection::_internal_add_sany() {
-  return sany_.Add();
+inline void Snippet_Projection::set_value(int index, const std::string& value) {
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.value)
 }
-inline ::snippetsample::Snippet_SnippetAny* Snippet_Projection::add_sany() {
-  ::snippetsample::Snippet_SnippetAny* _add = _internal_add_sany();
-  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Projection.sany)
-  return _add;
+inline void Snippet_Projection::set_value(int index, std::string&& value) {
+  value_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.value)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
-Snippet_Projection::sany() const {
-  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Projection.sany)
-  return sany_;
+inline void Snippet_Projection::set_value(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.Projection.value)
+}
+inline void Snippet_Projection::set_value(int index, const char* value, size_t size) {
+  value_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.Projection.value)
+}
+inline std::string* Snippet_Projection::_internal_add_value() {
+  return value_.Add();
+}
+inline void Snippet_Projection::add_value(const std::string& value) {
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Projection.value)
+}
+inline void Snippet_Projection::add_value(std::string&& value) {
+  value_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Projection.value)
+}
+inline void Snippet_Projection::add_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.Projection.value)
+}
+inline void Snippet_Projection::add_value(const char* value, size_t size) {
+  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.Projection.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet_Projection::value() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Projection.value)
+  return value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet_Projection::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Projection.value)
+  return &value_;
+}
+
+// repeated .snippetsample.Snippet.ValueType value_type = 3;
+inline int Snippet_Projection::_internal_value_type_size() const {
+  return value_type_.size();
+}
+inline int Snippet_Projection::value_type_size() const {
+  return _internal_value_type_size();
+}
+inline void Snippet_Projection::clear_value_type() {
+  value_type_.Clear();
+}
+inline ::snippetsample::Snippet_ValueType Snippet_Projection::_internal_value_type(int index) const {
+  return static_cast< ::snippetsample::Snippet_ValueType >(value_type_.Get(index));
+}
+inline ::snippetsample::Snippet_ValueType Snippet_Projection::value_type(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.value_type)
+  return _internal_value_type(index);
+}
+inline void Snippet_Projection::set_value_type(int index, ::snippetsample::Snippet_ValueType value) {
+  value_type_.Set(index, value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.value_type)
+}
+inline void Snippet_Projection::_internal_add_value_type(::snippetsample::Snippet_ValueType value) {
+  value_type_.Add(value);
+}
+inline void Snippet_Projection::add_value_type(::snippetsample::Snippet_ValueType value) {
+  _internal_add_value_type(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Projection.value_type)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+Snippet_Projection::value_type() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Projection.value_type)
+  return value_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+Snippet_Projection::_internal_mutable_value_type() {
+  return &value_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+Snippet_Projection::mutable_value_type() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Projection.value_type)
+  return _internal_mutable_value_type();
 }
 
 // -------------------------------------------------------------------
