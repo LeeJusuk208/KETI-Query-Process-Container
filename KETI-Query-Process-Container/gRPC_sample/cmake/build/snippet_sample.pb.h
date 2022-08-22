@@ -127,32 +127,41 @@ inline bool Snippet_Filter_OperType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_Filter_OperType>(
     Snippet_Filter_OperType_descriptor(), name, value);
 }
-enum Snippet_Projection_ProjectionType : int {
-  Snippet_Projection_ProjectionType_DEFAULT = 0,
-  Snippet_Projection_ProjectionType_SUM = 1,
-  Snippet_Projection_ProjectionType_AVG = 2,
-  Snippet_Projection_ProjectionType_COUNT = 4,
-  Snippet_Projection_ProjectionType_Snippet_Projection_ProjectionType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  Snippet_Projection_ProjectionType_Snippet_Projection_ProjectionType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+enum Snippet_Projection_SelectType : int {
+  Snippet_Projection_SelectType_COLUMNNAME = 0,
+  Snippet_Projection_SelectType_SUM = 1,
+  Snippet_Projection_SelectType_AVG = 2,
+  Snippet_Projection_SelectType_COUNT = 3,
+  Snippet_Projection_SelectType_COUNTSTAR = 4,
+  Snippet_Projection_SelectType_TOP = 5,
+  Snippet_Projection_SelectType_MIN = 6,
+  Snippet_Projection_SelectType_MAX = 7,
+  Snippet_Projection_SelectType_CASE = 8,
+  Snippet_Projection_SelectType_WHEN = 9,
+  Snippet_Projection_SelectType_THEN = 10,
+  Snippet_Projection_SelectType_ELSE = 11,
+  Snippet_Projection_SelectType_LIKE = 12,
+  Snippet_Projection_SelectType_Snippet_Projection_SelectType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  Snippet_Projection_SelectType_Snippet_Projection_SelectType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool Snippet_Projection_ProjectionType_IsValid(int value);
-constexpr Snippet_Projection_ProjectionType Snippet_Projection_ProjectionType_ProjectionType_MIN = Snippet_Projection_ProjectionType_DEFAULT;
-constexpr Snippet_Projection_ProjectionType Snippet_Projection_ProjectionType_ProjectionType_MAX = Snippet_Projection_ProjectionType_COUNT;
-constexpr int Snippet_Projection_ProjectionType_ProjectionType_ARRAYSIZE = Snippet_Projection_ProjectionType_ProjectionType_MAX + 1;
+bool Snippet_Projection_SelectType_IsValid(int value);
+constexpr Snippet_Projection_SelectType Snippet_Projection_SelectType_SelectType_MIN = Snippet_Projection_SelectType_COLUMNNAME;
+constexpr Snippet_Projection_SelectType Snippet_Projection_SelectType_SelectType_MAX = Snippet_Projection_SelectType_LIKE;
+constexpr int Snippet_Projection_SelectType_SelectType_ARRAYSIZE = Snippet_Projection_SelectType_SelectType_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Projection_ProjectionType_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Projection_SelectType_descriptor();
 template<typename T>
-inline const std::string& Snippet_Projection_ProjectionType_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Snippet_Projection_ProjectionType>::value ||
+inline const std::string& Snippet_Projection_SelectType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, Snippet_Projection_SelectType>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function Snippet_Projection_ProjectionType_Name.");
+    "Incorrect type passed to function Snippet_Projection_SelectType_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Snippet_Projection_ProjectionType_descriptor(), enum_t_value);
+    Snippet_Projection_SelectType_descriptor(), enum_t_value);
 }
-inline bool Snippet_Projection_ProjectionType_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Snippet_Projection_ProjectionType* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_Projection_ProjectionType>(
-    Snippet_Projection_ProjectionType_descriptor(), name, value);
+inline bool Snippet_Projection_SelectType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Snippet_Projection_SelectType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Snippet_Projection_SelectType>(
+    Snippet_Projection_SelectType_descriptor(), name, value);
 }
 enum Snippet_Order_OrderDirection : int {
   Snippet_Order_OrderDirection_ASC = 0,
@@ -180,22 +189,27 @@ inline bool Snippet_Order_OrderDirection_Parse(
     Snippet_Order_OrderDirection_descriptor(), name, value);
 }
 enum Snippet_ValueType : int {
-  Snippet_ValueType_INT32 = 0,
-  Snippet_ValueType_INT64 = 1,
-  Snippet_ValueType_FLOAT32 = 2,
-  Snippet_ValueType_FLOAT64 = 3,
-  Snippet_ValueType_NUMERIC = 4,
-  Snippet_ValueType_BYTES = 5,
-  Snippet_ValueType_STRING = 6,
+  Snippet_ValueType_INT8 = 0,
+  Snippet_ValueType_INT16 = 1,
+  Snippet_ValueType_INT32 = 2,
+  Snippet_ValueType_INT64 = 3,
+  Snippet_ValueType_FLOAT32 = 4,
+  Snippet_ValueType_FLOAT64 = 5,
+  Snippet_ValueType_NUMERIC = 6,
   Snippet_ValueType_DATE = 7,
-  Snippet_ValueType_COLUMN_NAME = 8,
-  Snippet_ValueType_OPERATOR = 9,
+  Snippet_ValueType_TIMESTAMP = 8,
+  Snippet_ValueType_STRING = 9,
+  Snippet_ValueType_COLUMN = 10,
+  Snippet_ValueType_PLUS = 100,
+  Snippet_ValueType_MINUS = 101,
+  Snippet_ValueType_MULTIPLE = 102,
+  Snippet_ValueType_DIVIDE = 103,
   Snippet_ValueType_Snippet_ValueType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Snippet_ValueType_Snippet_ValueType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool Snippet_ValueType_IsValid(int value);
-constexpr Snippet_ValueType Snippet_ValueType_ValueType_MIN = Snippet_ValueType_INT32;
-constexpr Snippet_ValueType Snippet_ValueType_ValueType_MAX = Snippet_ValueType_OPERATOR;
+constexpr Snippet_ValueType Snippet_ValueType_ValueType_MIN = Snippet_ValueType_INT8;
+constexpr Snippet_ValueType Snippet_ValueType_ValueType_MAX = Snippet_ValueType_DIVIDE;
 constexpr int Snippet_ValueType_ValueType_ARRAYSIZE = Snippet_ValueType_ValueType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_ValueType_descriptor();
@@ -717,38 +731,56 @@ class Snippet_Projection final :
 
   // nested types ----------------------------------------------------
 
-  typedef Snippet_Projection_ProjectionType ProjectionType;
-  static constexpr ProjectionType DEFAULT =
-    Snippet_Projection_ProjectionType_DEFAULT;
-  static constexpr ProjectionType SUM =
-    Snippet_Projection_ProjectionType_SUM;
-  static constexpr ProjectionType AVG =
-    Snippet_Projection_ProjectionType_AVG;
-  static constexpr ProjectionType COUNT =
-    Snippet_Projection_ProjectionType_COUNT;
-  static inline bool ProjectionType_IsValid(int value) {
-    return Snippet_Projection_ProjectionType_IsValid(value);
+  typedef Snippet_Projection_SelectType SelectType;
+  static constexpr SelectType COLUMNNAME =
+    Snippet_Projection_SelectType_COLUMNNAME;
+  static constexpr SelectType SUM =
+    Snippet_Projection_SelectType_SUM;
+  static constexpr SelectType AVG =
+    Snippet_Projection_SelectType_AVG;
+  static constexpr SelectType COUNT =
+    Snippet_Projection_SelectType_COUNT;
+  static constexpr SelectType COUNTSTAR =
+    Snippet_Projection_SelectType_COUNTSTAR;
+  static constexpr SelectType TOP =
+    Snippet_Projection_SelectType_TOP;
+  static constexpr SelectType MIN =
+    Snippet_Projection_SelectType_MIN;
+  static constexpr SelectType MAX =
+    Snippet_Projection_SelectType_MAX;
+  static constexpr SelectType CASE =
+    Snippet_Projection_SelectType_CASE;
+  static constexpr SelectType WHEN =
+    Snippet_Projection_SelectType_WHEN;
+  static constexpr SelectType THEN =
+    Snippet_Projection_SelectType_THEN;
+  static constexpr SelectType ELSE =
+    Snippet_Projection_SelectType_ELSE;
+  static constexpr SelectType LIKE =
+    Snippet_Projection_SelectType_LIKE;
+  static inline bool SelectType_IsValid(int value) {
+    return Snippet_Projection_SelectType_IsValid(value);
   }
-  static constexpr ProjectionType ProjectionType_MIN =
-    Snippet_Projection_ProjectionType_ProjectionType_MIN;
-  static constexpr ProjectionType ProjectionType_MAX =
-    Snippet_Projection_ProjectionType_ProjectionType_MAX;
-  static constexpr int ProjectionType_ARRAYSIZE =
-    Snippet_Projection_ProjectionType_ProjectionType_ARRAYSIZE;
+  static constexpr SelectType SelectType_MIN =
+    Snippet_Projection_SelectType_SelectType_MIN;
+  static constexpr SelectType SelectType_MAX =
+    Snippet_Projection_SelectType_SelectType_MAX;
+  static constexpr int SelectType_ARRAYSIZE =
+    Snippet_Projection_SelectType_SelectType_ARRAYSIZE;
   static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  ProjectionType_descriptor() {
-    return Snippet_Projection_ProjectionType_descriptor();
+  SelectType_descriptor() {
+    return Snippet_Projection_SelectType_descriptor();
   }
   template<typename T>
-  static inline const std::string& ProjectionType_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, ProjectionType>::value ||
+  static inline const std::string& SelectType_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, SelectType>::value ||
       ::std::is_integral<T>::value,
-      "Incorrect type passed to function ProjectionType_Name.");
-    return Snippet_Projection_ProjectionType_Name(enum_t_value);
+      "Incorrect type passed to function SelectType_Name.");
+    return Snippet_Projection_SelectType_Name(enum_t_value);
   }
-  static inline bool ProjectionType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      ProjectionType* value) {
-    return Snippet_Projection_ProjectionType_Parse(name, value);
+  static inline bool SelectType_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      SelectType* value) {
+    return Snippet_Projection_SelectType_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -775,13 +807,13 @@ class Snippet_Projection final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_SnippetAny >&
       sany() const;
 
-  // .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+  // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
   void clear_projcetiontype();
-  ::snippetsample::Snippet_Projection_ProjectionType projcetiontype() const;
-  void set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value);
+  ::snippetsample::Snippet_Projection_SelectType projcetiontype() const;
+  void set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value);
   private:
-  ::snippetsample::Snippet_Projection_ProjectionType _internal_projcetiontype() const;
-  void _internal_set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value);
+  ::snippetsample::Snippet_Projection_SelectType _internal_projcetiontype() const;
+  void _internal_set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value);
   public:
 
   // @@protoc_insertion_point(class_scope:snippetsample.Snippet.Projection)
@@ -1115,6 +1147,10 @@ class Snippet final :
   typedef Snippet_Order Order;
 
   typedef Snippet_ValueType ValueType;
+  static constexpr ValueType INT8 =
+    Snippet_ValueType_INT8;
+  static constexpr ValueType INT16 =
+    Snippet_ValueType_INT16;
   static constexpr ValueType INT32 =
     Snippet_ValueType_INT32;
   static constexpr ValueType INT64 =
@@ -1125,16 +1161,22 @@ class Snippet final :
     Snippet_ValueType_FLOAT64;
   static constexpr ValueType NUMERIC =
     Snippet_ValueType_NUMERIC;
-  static constexpr ValueType BYTES =
-    Snippet_ValueType_BYTES;
-  static constexpr ValueType STRING =
-    Snippet_ValueType_STRING;
   static constexpr ValueType DATE =
     Snippet_ValueType_DATE;
-  static constexpr ValueType COLUMN_NAME =
-    Snippet_ValueType_COLUMN_NAME;
-  static constexpr ValueType OPERATOR =
-    Snippet_ValueType_OPERATOR;
+  static constexpr ValueType TIMESTAMP =
+    Snippet_ValueType_TIMESTAMP;
+  static constexpr ValueType STRING =
+    Snippet_ValueType_STRING;
+  static constexpr ValueType COLUMN =
+    Snippet_ValueType_COLUMN;
+  static constexpr ValueType PLUS =
+    Snippet_ValueType_PLUS;
+  static constexpr ValueType MINUS =
+    Snippet_ValueType_MINUS;
+  static constexpr ValueType MULTIPLE =
+    Snippet_ValueType_MULTIPLE;
+  static constexpr ValueType DIVIDE =
+    Snippet_ValueType_DIVIDE;
   static inline bool ValueType_IsValid(int value) {
     return Snippet_ValueType_IsValid(value);
   }
@@ -1935,22 +1977,22 @@ Snippet_Filter::sany() const {
 
 // Snippet_Projection
 
-// .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+// .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
 inline void Snippet_Projection::clear_projcetiontype() {
   projcetiontype_ = 0;
 }
-inline ::snippetsample::Snippet_Projection_ProjectionType Snippet_Projection::_internal_projcetiontype() const {
-  return static_cast< ::snippetsample::Snippet_Projection_ProjectionType >(projcetiontype_);
+inline ::snippetsample::Snippet_Projection_SelectType Snippet_Projection::_internal_projcetiontype() const {
+  return static_cast< ::snippetsample::Snippet_Projection_SelectType >(projcetiontype_);
 }
-inline ::snippetsample::Snippet_Projection_ProjectionType Snippet_Projection::projcetiontype() const {
+inline ::snippetsample::Snippet_Projection_SelectType Snippet_Projection::projcetiontype() const {
   // @@protoc_insertion_point(field_get:snippetsample.Snippet.Projection.projcetiontype)
   return _internal_projcetiontype();
 }
-inline void Snippet_Projection::_internal_set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value) {
+inline void Snippet_Projection::_internal_set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value) {
   
   projcetiontype_ = value;
 }
-inline void Snippet_Projection::set_projcetiontype(::snippetsample::Snippet_Projection_ProjectionType value) {
+inline void Snippet_Projection::set_projcetiontype(::snippetsample::Snippet_Projection_SelectType value) {
   _internal_set_projcetiontype(value);
   // @@protoc_insertion_point(field_set:snippetsample.Snippet.Projection.projcetiontype)
 }
@@ -2927,10 +2969,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_Filter_OperType>() {
   return ::snippetsample::Snippet_Filter_OperType_descriptor();
 }
-template <> struct is_proto_enum< ::snippetsample::Snippet_Projection_ProjectionType> : ::std::true_type {};
+template <> struct is_proto_enum< ::snippetsample::Snippet_Projection_SelectType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_Projection_ProjectionType>() {
-  return ::snippetsample::Snippet_Projection_ProjectionType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::snippetsample::Snippet_Projection_SelectType>() {
+  return ::snippetsample::Snippet_Projection_SelectType_descriptor();
 }
 template <> struct is_proto_enum< ::snippetsample::Snippet_Order_OrderDirection> : ::std::true_type {};
 template <>

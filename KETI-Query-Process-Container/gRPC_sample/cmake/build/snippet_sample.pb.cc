@@ -222,7 +222,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\024snippet_sample.proto\022\rsnippetsample\032\033g"
-  "oogle/protobuf/empty.proto\"\241\n\n\007Snippet\022\024"
+  "oogle/protobuf/empty.proto\"\256\013\n\007Snippet\022\024"
   "\n\014snippet_type\030\001 \001(\005\022\020\n\010query_id\030\002 \001(\005\022\017"
   "\n\007work_id\030\003 \001(\005\022\022\n\ntable_name\030\004 \003(\t\022\021\n\tt"
   "able_col\030\005 \003(\t\0223\n\014table_filter\030\006 \003(\0132\035.s"
@@ -244,31 +244,35 @@ const char descriptor_table_protodef_snippet_5fsample_2eproto[] PROTOBUF_SECTION
   "E\020\006\022\r\n\tKETI_LIKE\020\007\022\020\n\014KETI_BETWEEN\020\010\022\013\n\007"
   "KETI_IN\020\t\022\013\n\007KETI_IS\020\n\022\016\n\nKETI_ISNOT\020\013\022\014"
   "\n\010KETI_NOT\020\014\022\014\n\010KETI_AND\020\r\022\013\n\007KETI_OR\020\016\032"
-  "\303\001\n\nProjection\022H\n\016projcetiontype\030\001 \001(\01620"
-  ".snippetsample.Snippet.Projection.Projec"
-  "tionType\022/\n\004sany\030\002 \003(\0132!.snippetsample.S"
-  "nippet.SnippetAny\":\n\016ProjectionType\022\013\n\007D"
-  "EFAULT\020\000\022\007\n\003SUM\020\001\022\007\n\003AVG\020\002\022\t\n\005COUNT\020\004\032|\n"
-  "\005Order\022>\n\tdirection\030\001 \001(\0162+.snippetsampl"
-  "e.Snippet.Order.OrderDirection\022\016\n\006column"
-  "\030\002 \001(\t\"#\n\016OrderDirection\022\007\n\003ASC\020\000\022\010\n\004DES"
-  "C\020\001\"\210\001\n\tValueType\022\t\n\005INT32\020\000\022\t\n\005INT64\020\001\022"
-  "\013\n\007FLOAT32\020\002\022\013\n\007FLOAT64\020\003\022\013\n\007NUMERIC\020\004\022\t"
-  "\n\005BYTES\020\005\022\n\n\006STRING\020\006\022\010\n\004DATE\020\007\022\017\n\013COLUM"
-  "N_NAME\020\010\022\014\n\010OPERATOR\020\t\"\032\n\007Request\022\017\n\007que"
-  "ryid\030\001 \001(\005\"\027\n\006Result\022\r\n\005value\030\001 \001(\t2\212\001\n\r"
-  "SnippetSample\022A\n\nSetSnippet\022\026.snippetsam"
-  "ple.Snippet\032\025.snippetsample.Result\"\000(\0010\001"
-  "\0226\n\003Run\022\026.snippetsample.Request\032\025.snippe"
-  "tsample.Result\"\000B6\n\026io.grpc.snippet_samp"
-  "leB\024snippet_sample_ProtoP\001\242\002\003SSPb\006proto3"
+  "\233\002\n\nProjection\022D\n\016projcetiontype\030\001 \001(\0162,"
+  ".snippetsample.Snippet.Projection.Select"
+  "Type\022/\n\004sany\030\002 \003(\0132!.snippetsample.Snipp"
+  "et.SnippetAny\"\225\001\n\nSelectType\022\016\n\nCOLUMNNA"
+  "ME\020\000\022\007\n\003SUM\020\001\022\007\n\003AVG\020\002\022\t\n\005COUNT\020\003\022\r\n\tCOU"
+  "NTSTAR\020\004\022\007\n\003TOP\020\005\022\007\n\003MIN\020\006\022\007\n\003MAX\020\007\022\010\n\004C"
+  "ASE\020\010\022\010\n\004WHEN\020\t\022\010\n\004THEN\020\n\022\010\n\004ELSE\020\013\022\010\n\004L"
+  "IKE\020\014\032|\n\005Order\022>\n\tdirection\030\001 \001(\0162+.snip"
+  "petsample.Snippet.Order.OrderDirection\022\016"
+  "\n\006column\030\002 \001(\t\"#\n\016OrderDirection\022\007\n\003ASC\020"
+  "\000\022\010\n\004DESC\020\001\"\275\001\n\tValueType\022\010\n\004INT8\020\000\022\t\n\005I"
+  "NT16\020\001\022\t\n\005INT32\020\002\022\t\n\005INT64\020\003\022\013\n\007FLOAT32\020"
+  "\004\022\013\n\007FLOAT64\020\005\022\013\n\007NUMERIC\020\006\022\010\n\004DATE\020\007\022\r\n"
+  "\tTIMESTAMP\020\010\022\n\n\006STRING\020\t\022\n\n\006COLUMN\020\n\022\010\n\004"
+  "PLUS\020d\022\t\n\005MINUS\020e\022\014\n\010MULTIPLE\020f\022\n\n\006DIVID"
+  "E\020g\"\032\n\007Request\022\017\n\007queryid\030\001 \001(\005\"\027\n\006Resul"
+  "t\022\r\n\005value\030\001 \001(\t2\212\001\n\rSnippetSample\022A\n\nSe"
+  "tSnippet\022\026.snippetsample.Snippet\032\025.snipp"
+  "etsample.Result\"\000(\0010\001\0226\n\003Run\022\026.snippetsa"
+  "mple.Request\032\025.snippetsample.Result\"\000B6\n"
+  "\026io.grpc.snippet_sampleB\024snippet_sample_"
+  "ProtoP\001\242\002\003SSPb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_snippet_5fsample_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_snippet_5fsample_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_snippet_5fsample_2eproto = {
-  false, false, 1640, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
+  false, false, 1781, descriptor_table_protodef_snippet_5fsample_2eproto, "snippet_sample.proto", 
   &descriptor_table_snippet_5fsample_2eproto_once, descriptor_table_snippet_5fsample_2eproto_deps, 1, 7,
   schemas, file_default_instances, TableStruct_snippet_5fsample_2eproto::offsets,
   file_level_metadata_snippet_5fsample_2eproto, file_level_enum_descriptors_snippet_5fsample_2eproto, file_level_service_descriptors_snippet_5fsample_2eproto,
@@ -327,16 +331,25 @@ constexpr Snippet_Filter_OperType Snippet_Filter::OperType_MIN;
 constexpr Snippet_Filter_OperType Snippet_Filter::OperType_MAX;
 constexpr int Snippet_Filter::OperType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Projection_ProjectionType_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Projection_SelectType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_snippet_5fsample_2eproto);
   return file_level_enum_descriptors_snippet_5fsample_2eproto[1];
 }
-bool Snippet_Projection_ProjectionType_IsValid(int value) {
+bool Snippet_Projection_SelectType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
     case 2:
+    case 3:
     case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
       return true;
     default:
       return false;
@@ -344,13 +357,22 @@ bool Snippet_Projection_ProjectionType_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr Snippet_Projection_ProjectionType Snippet_Projection::DEFAULT;
-constexpr Snippet_Projection_ProjectionType Snippet_Projection::SUM;
-constexpr Snippet_Projection_ProjectionType Snippet_Projection::AVG;
-constexpr Snippet_Projection_ProjectionType Snippet_Projection::COUNT;
-constexpr Snippet_Projection_ProjectionType Snippet_Projection::ProjectionType_MIN;
-constexpr Snippet_Projection_ProjectionType Snippet_Projection::ProjectionType_MAX;
-constexpr int Snippet_Projection::ProjectionType_ARRAYSIZE;
+constexpr Snippet_Projection_SelectType Snippet_Projection::COLUMNNAME;
+constexpr Snippet_Projection_SelectType Snippet_Projection::SUM;
+constexpr Snippet_Projection_SelectType Snippet_Projection::AVG;
+constexpr Snippet_Projection_SelectType Snippet_Projection::COUNT;
+constexpr Snippet_Projection_SelectType Snippet_Projection::COUNTSTAR;
+constexpr Snippet_Projection_SelectType Snippet_Projection::TOP;
+constexpr Snippet_Projection_SelectType Snippet_Projection::MIN;
+constexpr Snippet_Projection_SelectType Snippet_Projection::MAX;
+constexpr Snippet_Projection_SelectType Snippet_Projection::CASE;
+constexpr Snippet_Projection_SelectType Snippet_Projection::WHEN;
+constexpr Snippet_Projection_SelectType Snippet_Projection::THEN;
+constexpr Snippet_Projection_SelectType Snippet_Projection::ELSE;
+constexpr Snippet_Projection_SelectType Snippet_Projection::LIKE;
+constexpr Snippet_Projection_SelectType Snippet_Projection::SelectType_MIN;
+constexpr Snippet_Projection_SelectType Snippet_Projection::SelectType_MAX;
+constexpr int Snippet_Projection::SelectType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Snippet_Order_OrderDirection_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_snippet_5fsample_2eproto);
@@ -389,6 +411,11 @@ bool Snippet_ValueType_IsValid(int value) {
     case 7:
     case 8:
     case 9:
+    case 10:
+    case 100:
+    case 101:
+    case 102:
+    case 103:
       return true;
     default:
       return false;
@@ -396,16 +423,21 @@ bool Snippet_ValueType_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr Snippet_ValueType Snippet::INT8;
+constexpr Snippet_ValueType Snippet::INT16;
 constexpr Snippet_ValueType Snippet::INT32;
 constexpr Snippet_ValueType Snippet::INT64;
 constexpr Snippet_ValueType Snippet::FLOAT32;
 constexpr Snippet_ValueType Snippet::FLOAT64;
 constexpr Snippet_ValueType Snippet::NUMERIC;
-constexpr Snippet_ValueType Snippet::BYTES;
-constexpr Snippet_ValueType Snippet::STRING;
 constexpr Snippet_ValueType Snippet::DATE;
-constexpr Snippet_ValueType Snippet::COLUMN_NAME;
-constexpr Snippet_ValueType Snippet::OPERATOR;
+constexpr Snippet_ValueType Snippet::TIMESTAMP;
+constexpr Snippet_ValueType Snippet::STRING;
+constexpr Snippet_ValueType Snippet::COLUMN;
+constexpr Snippet_ValueType Snippet::PLUS;
+constexpr Snippet_ValueType Snippet::MINUS;
+constexpr Snippet_ValueType Snippet::MULTIPLE;
+constexpr Snippet_ValueType Snippet::DIVIDE;
 constexpr Snippet_ValueType Snippet::ValueType_MIN;
 constexpr Snippet_ValueType Snippet::ValueType_MAX;
 constexpr int Snippet::ValueType_ARRAYSIZE;
@@ -918,12 +950,12 @@ const char* Snippet_Projection::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+      // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_projcetiontype(static_cast<::snippetsample::Snippet_Projection_ProjectionType>(val));
+          _internal_set_projcetiontype(static_cast<::snippetsample::Snippet_Projection_SelectType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -969,7 +1001,7 @@ uint8_t* Snippet_Projection::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+  // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
   if (this->_internal_projcetiontype() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -1007,7 +1039,7 @@ size_t Snippet_Projection::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // .snippetsample.Snippet.Projection.ProjectionType projcetiontype = 1;
+  // .snippetsample.Snippet.Projection.SelectType projcetiontype = 1;
   if (this->_internal_projcetiontype() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_projcetiontype());

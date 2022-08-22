@@ -116,27 +116,64 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
             }
             
             switch(any.snippettype()){
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_INT8:
+                    int8_t i8buf;
+                    memcpy(&i8buf, any.value().c_str(), any.value().size());
+                    std::cout << "ValueType_INT8 : " << i8buf << ",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_INT16:
+                    int32_t i16buf;
+                    memcpy(&i16buf, any.value().c_str(), any.value().size());
+                    std::cout << "ValueType_INT16 : " << i16buf << ",";
+                break;
                 case snippetsample::Snippet_ValueType::Snippet_ValueType_INT32:
-                    int ibuf;
-                    memcpy(&ibuf, any.value().c_str(), any.value().size());
-                    std::cout << "ValueType_INT32 : " << ibuf << ",";
+                    int32_t i32buf;
+                    memcpy(&i32buf, any.value().c_str(), any.value().size());
+                    std::cout << "ValueType_INT32 : " << i32buf << ",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_INT64:
+                    int64_t i64buf;
+                    memcpy(&i64buf, any.value().c_str(), any.value().size());
+                    std::cout << "ValueType_INT64 : " << i64buf << ",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_FLOAT32:
+                    float fbuf;
+                    memcpy(&fbuf, any.value().c_str(), any.value().size());
+                    std::cout << "ValueType_FLOAT32 : \"" << fbuf << "\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_FLOAT64:
+                    double dbuf;
+                    memcpy(&dbuf, any.value().c_str(), any.value().size());
+                    std::cout << "ValueType_FLOAT64 : \"" << dbuf << "\",";
                 break;
                 case snippetsample::Snippet_ValueType::Snippet_ValueType_NUMERIC:
                     std::cout << "ValueType_NUMERIC : \"" << any.value() << "\",";
-                break;
-                case snippetsample::Snippet_ValueType::Snippet_ValueType_STRING:
-                    std::cout << "ValueType_STRING : \"" << any.value() << "\",";
                 break;
                 case snippetsample::Snippet_ValueType::Snippet_ValueType_DATE:
                     int dtbuf;
                     memcpy(&dtbuf, any.value().c_str(), any.value().size());
                     std::cout << "ValueType_DATE : " << dtbuf << ",";
                 break;
-                case snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_TIMESTAMP:
+                    std::cout << "ValueType_TIMESTAMP : \" \",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_STRING:
+                    std::cout << "ValueType_STRING : \"" << any.value() << "\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN:
                     std::cout << "COLUMN_NAME : \"" << any.value() << "\",";
                 break;
-                case snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR:
-                    std::cout << "ValueType_STRING : \"" << any.value() << "\",";
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_PLUS:
+                    std::cout << "ValueType_PLUS : \"+\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_MINUS:
+                    std::cout << "ValueType_MINUS : \"-\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_MULTIPLE:
+                    std::cout << "ValueType_MULTIPLE : \"*\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_DIVIDE:
+                    std::cout << "ValueType_DIVIDE : \"/\",";
                 break;
             }
         }
@@ -198,17 +235,44 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
         auto projection = snippet.column_projection(i);
         std::cout << "\t{";        
         switch(projection.projcetiontype()){
-            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_DEFAULT:
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_COLUMNNAME:
             std::cout << "0,";
             break;
-            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_SUM:
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_SUM:
             std::cout << "1,";
             break;
-            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_AVG:            
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_AVG:            
             std::cout << "2,";
             break;
-            case snippetsample::Snippet_Projection_ProjectionType::Snippet_Projection_ProjectionType_COUNT:            
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_COUNT:            
+            std::cout << "3,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_COUNTSTAR:
             std::cout << "4,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_TOP:
+            std::cout << "5,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_MIN:
+            std::cout << "6,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_MAX:
+            std::cout << "7,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_CASE:
+            std::cout << "8,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_WHEN:
+            std::cout << "9,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_THEN:
+            std::cout << "10,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_ELSE:
+            std::cout << "11,";
+            break;
+            case snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_LIKE:
+            std::cout << "12,";
             break;
         }
         for(int j=0;j<projection.sany_size();j++){
@@ -224,11 +288,20 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
                 case snippetsample::Snippet_ValueType::Snippet_ValueType_STRING:
                     std::cout << "\"" << any.value() << "\",";
                 break;
-                case snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN_NAME:
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN:
                     std::cout << "\"" << any.value() << "\",";
                 break;
-                case snippetsample::Snippet_ValueType::Snippet_ValueType_OPERATOR:
-                    std::cout << "\"" << any.value() << "\",";
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_PLUS:
+                    std::cout << "\"+\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_MINUS:
+                    std::cout << "\"-\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_MULTIPLE:
+                    std::cout << "\"*\",";
+                break;
+                case snippetsample::Snippet_ValueType::Snippet_ValueType_DIVIDE:
+                    std::cout << "\"/\",";
                 break;
             }
         }
