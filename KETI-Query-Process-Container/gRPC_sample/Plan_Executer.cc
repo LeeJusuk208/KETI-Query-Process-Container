@@ -118,14 +118,17 @@ void snippet0_0(Snippet& request){
 
   // set table filter
   {
-    int dt;
-
     auto filter = request.add_table_filter();
+    auto lv = new snippetsample::Snippet_Filter_FilterValue();
+    auto rv = new snippetsample::Snippet_Filter_FilterValue();
+    
+    lv->add_value("l_shipdate",10);
+    lv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
+    rv->add_value("1023253",7);
+    rv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
+    filter->set_allocated_lv(lv);
     filter->set_operator_(snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_LE);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
-    filter->add_value("l_shipdate",10);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
-    filter->add_value("1023253",7);
+    filter->set_allocated_rv(rv);
   }
 
   // set table offset
@@ -591,21 +594,31 @@ void snippet4_1(Snippet& request){
     int dt;
 
     auto filter = request.add_table_filter();
+    auto lv = new snippetsample::Snippet_Filter_FilterValue();
+    auto rv = new snippetsample::Snippet_Filter_FilterValue();
+    
+    lv->add_value("o_orderdate",11);
+    lv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
+    rv->add_value("1020961",7);
+    rv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
+    filter->set_allocated_lv(lv);
     filter->set_operator_(snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_GE);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
-    filter->add_value("o_orderdate",11);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
-    filter->add_value("1020961",7);
+    filter->set_allocated_rv(rv);
     
     filter = request.add_table_filter();
     filter->set_operator_(snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_AND);
 
     filter = request.add_table_filter();
+    lv = new snippetsample::Snippet_Filter_FilterValue();
+    rv = new snippetsample::Snippet_Filter_FilterValue();
+    
+    lv->add_value("o_orderdate",11);
+    lv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
+    rv->add_value("1021473",7);
+    rv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
+    filter->set_allocated_lv(lv);
     filter->set_operator_(snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_LT);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
-    filter->add_value("o_orderdate",11);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_DATE);
-    filter->add_value("1021473",7);
+    filter->set_allocated_rv(rv);
   }
 
   // set table offset
@@ -1059,18 +1072,17 @@ void snippet4_5(Snippet& request){
 
   // set table filter
   {
-    int8_t i8;
-    int16_t i16;
-    int64_t i64;
-    float f32;
-    double f64;
-
     auto filter = request.add_table_filter();
+    auto lv = new snippetsample::Snippet_Filter_FilterValue();
+    auto rv = new snippetsample::Snippet_Filter_FilterValue();
+    
+    lv->add_value("r_name",6);
+    lv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
+    rv->add_value("middle east",11);
+    rv->add_type(snippetsample::Snippet_ValueType::Snippet_ValueType_STRING);
+    filter->set_allocated_lv(lv);
     filter->set_operator_(snippetsample::Snippet_Filter_OperType::Snippet_Filter_OperType_KETI_ET);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
-    filter->add_value("r_name",6);
-    filter->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_STRING);
-    filter->add_value("middle east",11);
+    filter->set_allocated_rv(rv);
   }
 
   // set table offset

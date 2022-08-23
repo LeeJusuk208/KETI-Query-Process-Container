@@ -48,7 +48,7 @@ struct TableStruct_snippet_5fsample_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -68,6 +68,9 @@ extern SnippetDefaultTypeInternal _Snippet_default_instance_;
 class Snippet_Filter;
 struct Snippet_FilterDefaultTypeInternal;
 extern Snippet_FilterDefaultTypeInternal _Snippet_Filter_default_instance_;
+class Snippet_Filter_FilterValue;
+struct Snippet_Filter_FilterValueDefaultTypeInternal;
+extern Snippet_Filter_FilterValueDefaultTypeInternal _Snippet_Filter_FilterValue_default_instance_;
 class Snippet_Order;
 struct Snippet_OrderDefaultTypeInternal;
 extern Snippet_OrderDefaultTypeInternal _Snippet_Order_default_instance_;
@@ -83,6 +86,7 @@ template<> ::snippetsample::Request* Arena::CreateMaybeMessage<::snippetsample::
 template<> ::snippetsample::Result* Arena::CreateMaybeMessage<::snippetsample::Result>(Arena*);
 template<> ::snippetsample::Snippet* Arena::CreateMaybeMessage<::snippetsample::Snippet>(Arena*);
 template<> ::snippetsample::Snippet_Filter* Arena::CreateMaybeMessage<::snippetsample::Snippet_Filter>(Arena*);
+template<> ::snippetsample::Snippet_Filter_FilterValue* Arena::CreateMaybeMessage<::snippetsample::Snippet_Filter_FilterValue>(Arena*);
 template<> ::snippetsample::Snippet_Order* Arena::CreateMaybeMessage<::snippetsample::Snippet_Order>(Arena*);
 template<> ::snippetsample::Snippet_Projection* Arena::CreateMaybeMessage<::snippetsample::Snippet_Projection>(Arena*);
 template<> ::snippetsample::Snippet_SnippetAny* Arena::CreateMaybeMessage<::snippetsample::Snippet_SnippetAny>(Arena*);
@@ -390,6 +394,187 @@ class Snippet_SnippetAny final :
 };
 // -------------------------------------------------------------------
 
+class Snippet_Filter_FilterValue final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet.Filter.FilterValue) */ {
+ public:
+  inline Snippet_Filter_FilterValue() : Snippet_Filter_FilterValue(nullptr) {}
+  ~Snippet_Filter_FilterValue() override;
+  explicit constexpr Snippet_Filter_FilterValue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Snippet_Filter_FilterValue(const Snippet_Filter_FilterValue& from);
+  Snippet_Filter_FilterValue(Snippet_Filter_FilterValue&& from) noexcept
+    : Snippet_Filter_FilterValue() {
+    *this = ::std::move(from);
+  }
+
+  inline Snippet_Filter_FilterValue& operator=(const Snippet_Filter_FilterValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Snippet_Filter_FilterValue& operator=(Snippet_Filter_FilterValue&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Snippet_Filter_FilterValue& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Snippet_Filter_FilterValue* internal_default_instance() {
+    return reinterpret_cast<const Snippet_Filter_FilterValue*>(
+               &_Snippet_Filter_FilterValue_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Snippet_Filter_FilterValue& a, Snippet_Filter_FilterValue& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Snippet_Filter_FilterValue* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Snippet_Filter_FilterValue* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Snippet_Filter_FilterValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Snippet_Filter_FilterValue>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Snippet_Filter_FilterValue& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Snippet_Filter_FilterValue& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Snippet_Filter_FilterValue* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "snippetsample.Snippet.Filter.FilterValue";
+  }
+  protected:
+  explicit Snippet_Filter_FilterValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTypeFieldNumber = 1,
+    kValueFieldNumber = 2,
+  };
+  // repeated .snippetsample.Snippet.ValueType type = 1;
+  int type_size() const;
+  private:
+  int _internal_type_size() const;
+  public:
+  void clear_type();
+  private:
+  ::snippetsample::Snippet_ValueType _internal_type(int index) const;
+  void _internal_add_type(::snippetsample::Snippet_ValueType value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_type();
+  public:
+  ::snippetsample::Snippet_ValueType type(int index) const;
+  void set_type(int index, ::snippetsample::Snippet_ValueType value);
+  void add_type(::snippetsample::Snippet_ValueType value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& type() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_type();
+
+  // repeated string value = 2;
+  int value_size() const;
+  private:
+  int _internal_value_size() const;
+  public:
+  void clear_value();
+  const std::string& value(int index) const;
+  std::string* mutable_value(int index);
+  void set_value(int index, const std::string& value);
+  void set_value(int index, std::string&& value);
+  void set_value(int index, const char* value);
+  void set_value(int index, const char* value, size_t size);
+  std::string* add_value();
+  void add_value(const std::string& value);
+  void add_value(std::string&& value);
+  void add_value(const char* value);
+  void add_value(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& value() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_value();
+  private:
+  const std::string& _internal_value(int index) const;
+  std::string* _internal_add_value();
+  public:
+
+  // @@protoc_insertion_point(class_scope:snippetsample.Snippet.Filter.FilterValue)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> type_;
+  mutable std::atomic<int> _type_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> value_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_snippet_5fsample_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Snippet_Filter final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:snippetsample.Snippet.Filter) */ {
  public:
@@ -438,7 +623,7 @@ class Snippet_Filter final :
                &_Snippet_Filter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(Snippet_Filter& a, Snippet_Filter& b) {
     a.Swap(&b);
@@ -509,6 +694,8 @@ class Snippet_Filter final :
 
   // nested types ----------------------------------------------------
 
+  typedef Snippet_Filter_FilterValue FilterValue;
+
   typedef Snippet_Filter_OperType OperType;
   static constexpr OperType KETI_DEFAULT =
     Snippet_Filter_OperType_KETI_DEFAULT;
@@ -568,52 +755,66 @@ class Snippet_Filter final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kValueFieldNumber = 2,
-    kValueTypeFieldNumber = 3,
-    kOperatorFieldNumber = 1,
+    kEXTRAFieldNumber = 4,
+    kLVFieldNumber = 1,
+    kRVFieldNumber = 3,
+    kOperatorFieldNumber = 2,
   };
-  // repeated string value = 2;
-  int value_size() const;
+  // repeated .snippetsample.Snippet.Filter.FilterValue EXTRA = 4;
+  int extra_size() const;
   private:
-  int _internal_value_size() const;
+  int _internal_extra_size() const;
   public:
-  void clear_value();
-  const std::string& value(int index) const;
-  std::string* mutable_value(int index);
-  void set_value(int index, const std::string& value);
-  void set_value(int index, std::string&& value);
-  void set_value(int index, const char* value);
-  void set_value(int index, const char* value, size_t size);
-  std::string* add_value();
-  void add_value(const std::string& value);
-  void add_value(std::string&& value);
-  void add_value(const char* value);
-  void add_value(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& value() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_value();
+  void clear_extra();
+  ::snippetsample::Snippet_Filter_FilterValue* mutable_extra(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter_FilterValue >*
+      mutable_extra();
   private:
-  const std::string& _internal_value(int index) const;
-  std::string* _internal_add_value();
+  const ::snippetsample::Snippet_Filter_FilterValue& _internal_extra(int index) const;
+  ::snippetsample::Snippet_Filter_FilterValue* _internal_add_extra();
   public:
+  const ::snippetsample::Snippet_Filter_FilterValue& extra(int index) const;
+  ::snippetsample::Snippet_Filter_FilterValue* add_extra();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter_FilterValue >&
+      extra() const;
 
-  // repeated .snippetsample.Snippet.ValueType value_type = 3;
-  int value_type_size() const;
+  // .snippetsample.Snippet.Filter.FilterValue LV = 1;
+  bool has_lv() const;
   private:
-  int _internal_value_type_size() const;
+  bool _internal_has_lv() const;
   public:
-  void clear_value_type();
+  void clear_lv();
+  const ::snippetsample::Snippet_Filter_FilterValue& lv() const;
+  PROTOBUF_NODISCARD ::snippetsample::Snippet_Filter_FilterValue* release_lv();
+  ::snippetsample::Snippet_Filter_FilterValue* mutable_lv();
+  void set_allocated_lv(::snippetsample::Snippet_Filter_FilterValue* lv);
   private:
-  ::snippetsample::Snippet_ValueType _internal_value_type(int index) const;
-  void _internal_add_value_type(::snippetsample::Snippet_ValueType value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* _internal_mutable_value_type();
+  const ::snippetsample::Snippet_Filter_FilterValue& _internal_lv() const;
+  ::snippetsample::Snippet_Filter_FilterValue* _internal_mutable_lv();
   public:
-  ::snippetsample::Snippet_ValueType value_type(int index) const;
-  void set_value_type(int index, ::snippetsample::Snippet_ValueType value);
-  void add_value_type(::snippetsample::Snippet_ValueType value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& value_type() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_value_type();
+  void unsafe_arena_set_allocated_lv(
+      ::snippetsample::Snippet_Filter_FilterValue* lv);
+  ::snippetsample::Snippet_Filter_FilterValue* unsafe_arena_release_lv();
 
-  // .snippetsample.Snippet.Filter.OperType Operator = 1;
+  // .snippetsample.Snippet.Filter.FilterValue RV = 3;
+  bool has_rv() const;
+  private:
+  bool _internal_has_rv() const;
+  public:
+  void clear_rv();
+  const ::snippetsample::Snippet_Filter_FilterValue& rv() const;
+  PROTOBUF_NODISCARD ::snippetsample::Snippet_Filter_FilterValue* release_rv();
+  ::snippetsample::Snippet_Filter_FilterValue* mutable_rv();
+  void set_allocated_rv(::snippetsample::Snippet_Filter_FilterValue* rv);
+  private:
+  const ::snippetsample::Snippet_Filter_FilterValue& _internal_rv() const;
+  ::snippetsample::Snippet_Filter_FilterValue* _internal_mutable_rv();
+  public:
+  void unsafe_arena_set_allocated_rv(
+      ::snippetsample::Snippet_Filter_FilterValue* rv);
+  ::snippetsample::Snippet_Filter_FilterValue* unsafe_arena_release_rv();
+
+  // .snippetsample.Snippet.Filter.OperType Operator = 2;
   void clear_operator_();
   ::snippetsample::Snippet_Filter_OperType operator_() const;
   void set_operator_(::snippetsample::Snippet_Filter_OperType value);
@@ -629,9 +830,9 @@ class Snippet_Filter final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> value_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> value_type_;
-  mutable std::atomic<int> _value_type_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter_FilterValue > extra_;
+  ::snippetsample::Snippet_Filter_FilterValue* lv_;
+  ::snippetsample::Snippet_Filter_FilterValue* rv_;
   int operator__;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_snippet_5fsample_2eproto;
@@ -686,7 +887,7 @@ class Snippet_Projection final :
                &_Snippet_Projection_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Snippet_Projection& a, Snippet_Projection& b) {
     a.Swap(&b);
@@ -930,7 +1131,7 @@ class Snippet_Order final :
                &_Snippet_Order_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Snippet_Order& a, Snippet_Order& b) {
     a.Swap(&b);
@@ -1122,7 +1323,7 @@ class Snippet final :
                &_Snippet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(Snippet& a, Snippet& b) {
     a.Swap(&b);
@@ -1632,7 +1833,7 @@ class Request final :
                &_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(Request& a, Request& b) {
     a.Swap(&b);
@@ -1778,7 +1979,7 @@ class Result final :
                &_Result_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(Result& a, Result& b) {
     a.Swap(&b);
@@ -1963,9 +2164,221 @@ inline void Snippet_SnippetAny::set_allocated_value(std::string* value) {
 
 // -------------------------------------------------------------------
 
+// Snippet_Filter_FilterValue
+
+// repeated .snippetsample.Snippet.ValueType type = 1;
+inline int Snippet_Filter_FilterValue::_internal_type_size() const {
+  return type_.size();
+}
+inline int Snippet_Filter_FilterValue::type_size() const {
+  return _internal_type_size();
+}
+inline void Snippet_Filter_FilterValue::clear_type() {
+  type_.Clear();
+}
+inline ::snippetsample::Snippet_ValueType Snippet_Filter_FilterValue::_internal_type(int index) const {
+  return static_cast< ::snippetsample::Snippet_ValueType >(type_.Get(index));
+}
+inline ::snippetsample::Snippet_ValueType Snippet_Filter_FilterValue::type(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.FilterValue.type)
+  return _internal_type(index);
+}
+inline void Snippet_Filter_FilterValue::set_type(int index, ::snippetsample::Snippet_ValueType value) {
+  type_.Set(index, value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.FilterValue.type)
+}
+inline void Snippet_Filter_FilterValue::_internal_add_type(::snippetsample::Snippet_ValueType value) {
+  type_.Add(value);
+}
+inline void Snippet_Filter_FilterValue::add_type(::snippetsample::Snippet_ValueType value) {
+  _internal_add_type(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.FilterValue.type)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
+Snippet_Filter_FilterValue::type() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.FilterValue.type)
+  return type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+Snippet_Filter_FilterValue::_internal_mutable_type() {
+  return &type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
+Snippet_Filter_FilterValue::mutable_type() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.FilterValue.type)
+  return _internal_mutable_type();
+}
+
+// repeated string value = 2;
+inline int Snippet_Filter_FilterValue::_internal_value_size() const {
+  return value_.size();
+}
+inline int Snippet_Filter_FilterValue::value_size() const {
+  return _internal_value_size();
+}
+inline void Snippet_Filter_FilterValue::clear_value() {
+  value_.Clear();
+}
+inline std::string* Snippet_Filter_FilterValue::add_value() {
+  std::string* _s = _internal_add_value();
+  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.Filter.FilterValue.value)
+  return _s;
+}
+inline const std::string& Snippet_Filter_FilterValue::_internal_value(int index) const {
+  return value_.Get(index);
+}
+inline const std::string& Snippet_Filter_FilterValue::value(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.FilterValue.value)
+  return _internal_value(index);
+}
+inline std::string* Snippet_Filter_FilterValue::mutable_value(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.FilterValue.value)
+  return value_.Mutable(index);
+}
+inline void Snippet_Filter_FilterValue::set_value(int index, const std::string& value) {
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline void Snippet_Filter_FilterValue::set_value(int index, std::string&& value) {
+  value_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline void Snippet_Filter_FilterValue::set_value(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  value_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline void Snippet_Filter_FilterValue::set_value(int index, const char* value, size_t size) {
+  value_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline std::string* Snippet_Filter_FilterValue::_internal_add_value() {
+  return value_.Add();
+}
+inline void Snippet_Filter_FilterValue::add_value(const std::string& value) {
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline void Snippet_Filter_FilterValue::add_value(std::string&& value) {
+  value_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline void Snippet_Filter_FilterValue::add_value(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  value_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline void Snippet_Filter_FilterValue::add_value(const char* value, size_t size) {
+  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.Filter.FilterValue.value)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Snippet_Filter_FilterValue::value() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.FilterValue.value)
+  return value_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Snippet_Filter_FilterValue::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.FilterValue.value)
+  return &value_;
+}
+
+// -------------------------------------------------------------------
+
 // Snippet_Filter
 
-// .snippetsample.Snippet.Filter.OperType Operator = 1;
+// .snippetsample.Snippet.Filter.FilterValue LV = 1;
+inline bool Snippet_Filter::_internal_has_lv() const {
+  return this != internal_default_instance() && lv_ != nullptr;
+}
+inline bool Snippet_Filter::has_lv() const {
+  return _internal_has_lv();
+}
+inline void Snippet_Filter::clear_lv() {
+  if (GetArenaForAllocation() == nullptr && lv_ != nullptr) {
+    delete lv_;
+  }
+  lv_ = nullptr;
+}
+inline const ::snippetsample::Snippet_Filter_FilterValue& Snippet_Filter::_internal_lv() const {
+  const ::snippetsample::Snippet_Filter_FilterValue* p = lv_;
+  return p != nullptr ? *p : reinterpret_cast<const ::snippetsample::Snippet_Filter_FilterValue&>(
+      ::snippetsample::_Snippet_Filter_FilterValue_default_instance_);
+}
+inline const ::snippetsample::Snippet_Filter_FilterValue& Snippet_Filter::lv() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.LV)
+  return _internal_lv();
+}
+inline void Snippet_Filter::unsafe_arena_set_allocated_lv(
+    ::snippetsample::Snippet_Filter_FilterValue* lv) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(lv_);
+  }
+  lv_ = lv;
+  if (lv) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:snippetsample.Snippet.Filter.LV)
+}
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::release_lv() {
+  
+  ::snippetsample::Snippet_Filter_FilterValue* temp = lv_;
+  lv_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::unsafe_arena_release_lv() {
+  // @@protoc_insertion_point(field_release:snippetsample.Snippet.Filter.LV)
+  
+  ::snippetsample::Snippet_Filter_FilterValue* temp = lv_;
+  lv_ = nullptr;
+  return temp;
+}
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::_internal_mutable_lv() {
+  
+  if (lv_ == nullptr) {
+    auto* p = CreateMaybeMessage<::snippetsample::Snippet_Filter_FilterValue>(GetArenaForAllocation());
+    lv_ = p;
+  }
+  return lv_;
+}
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::mutable_lv() {
+  ::snippetsample::Snippet_Filter_FilterValue* _msg = _internal_mutable_lv();
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.LV)
+  return _msg;
+}
+inline void Snippet_Filter::set_allocated_lv(::snippetsample::Snippet_Filter_FilterValue* lv) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete lv_;
+  }
+  if (lv) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::snippetsample::Snippet_Filter_FilterValue>::GetOwningArena(lv);
+    if (message_arena != submessage_arena) {
+      lv = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, lv, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  lv_ = lv;
+  // @@protoc_insertion_point(field_set_allocated:snippetsample.Snippet.Filter.LV)
+}
+
+// .snippetsample.Snippet.Filter.OperType Operator = 2;
 inline void Snippet_Filter::clear_operator_() {
   operator__ = 0;
 }
@@ -1985,122 +2398,134 @@ inline void Snippet_Filter::set_operator_(::snippetsample::Snippet_Filter_OperTy
   // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.Operator)
 }
 
-// repeated string value = 2;
-inline int Snippet_Filter::_internal_value_size() const {
-  return value_.size();
+// .snippetsample.Snippet.Filter.FilterValue RV = 3;
+inline bool Snippet_Filter::_internal_has_rv() const {
+  return this != internal_default_instance() && rv_ != nullptr;
 }
-inline int Snippet_Filter::value_size() const {
-  return _internal_value_size();
+inline bool Snippet_Filter::has_rv() const {
+  return _internal_has_rv();
 }
-inline void Snippet_Filter::clear_value() {
-  value_.Clear();
+inline void Snippet_Filter::clear_rv() {
+  if (GetArenaForAllocation() == nullptr && rv_ != nullptr) {
+    delete rv_;
+  }
+  rv_ = nullptr;
 }
-inline std::string* Snippet_Filter::add_value() {
-  std::string* _s = _internal_add_value();
-  // @@protoc_insertion_point(field_add_mutable:snippetsample.Snippet.Filter.value)
-  return _s;
+inline const ::snippetsample::Snippet_Filter_FilterValue& Snippet_Filter::_internal_rv() const {
+  const ::snippetsample::Snippet_Filter_FilterValue* p = rv_;
+  return p != nullptr ? *p : reinterpret_cast<const ::snippetsample::Snippet_Filter_FilterValue&>(
+      ::snippetsample::_Snippet_Filter_FilterValue_default_instance_);
 }
-inline const std::string& Snippet_Filter::_internal_value(int index) const {
-  return value_.Get(index);
+inline const ::snippetsample::Snippet_Filter_FilterValue& Snippet_Filter::rv() const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.RV)
+  return _internal_rv();
 }
-inline const std::string& Snippet_Filter::value(int index) const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.value)
-  return _internal_value(index);
+inline void Snippet_Filter::unsafe_arena_set_allocated_rv(
+    ::snippetsample::Snippet_Filter_FilterValue* rv) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(rv_);
+  }
+  rv_ = rv;
+  if (rv) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:snippetsample.Snippet.Filter.RV)
 }
-inline std::string* Snippet_Filter::mutable_value(int index) {
-  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.value)
-  return value_.Mutable(index);
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::release_rv() {
+  
+  ::snippetsample::Snippet_Filter_FilterValue* temp = rv_;
+  rv_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline void Snippet_Filter::set_value(int index, const std::string& value) {
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.value)
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::unsafe_arena_release_rv() {
+  // @@protoc_insertion_point(field_release:snippetsample.Snippet.Filter.RV)
+  
+  ::snippetsample::Snippet_Filter_FilterValue* temp = rv_;
+  rv_ = nullptr;
+  return temp;
 }
-inline void Snippet_Filter::set_value(int index, std::string&& value) {
-  value_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.value)
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::_internal_mutable_rv() {
+  
+  if (rv_ == nullptr) {
+    auto* p = CreateMaybeMessage<::snippetsample::Snippet_Filter_FilterValue>(GetArenaForAllocation());
+    rv_ = p;
+  }
+  return rv_;
 }
-inline void Snippet_Filter::set_value(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  value_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:snippetsample.Snippet.Filter.value)
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::mutable_rv() {
+  ::snippetsample::Snippet_Filter_FilterValue* _msg = _internal_mutable_rv();
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.RV)
+  return _msg;
 }
-inline void Snippet_Filter::set_value(int index, const char* value, size_t size) {
-  value_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:snippetsample.Snippet.Filter.value)
-}
-inline std::string* Snippet_Filter::_internal_add_value() {
-  return value_.Add();
-}
-inline void Snippet_Filter::add_value(const std::string& value) {
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.value)
-}
-inline void Snippet_Filter::add_value(std::string&& value) {
-  value_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.value)
-}
-inline void Snippet_Filter::add_value(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  value_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:snippetsample.Snippet.Filter.value)
-}
-inline void Snippet_Filter::add_value(const char* value, size_t size) {
-  value_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:snippetsample.Snippet.Filter.value)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-Snippet_Filter::value() const {
-  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.value)
-  return value_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-Snippet_Filter::mutable_value() {
-  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.value)
-  return &value_;
+inline void Snippet_Filter::set_allocated_rv(::snippetsample::Snippet_Filter_FilterValue* rv) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete rv_;
+  }
+  if (rv) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::snippetsample::Snippet_Filter_FilterValue>::GetOwningArena(rv);
+    if (message_arena != submessage_arena) {
+      rv = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, rv, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  rv_ = rv;
+  // @@protoc_insertion_point(field_set_allocated:snippetsample.Snippet.Filter.RV)
 }
 
-// repeated .snippetsample.Snippet.ValueType value_type = 3;
-inline int Snippet_Filter::_internal_value_type_size() const {
-  return value_type_.size();
+// repeated .snippetsample.Snippet.Filter.FilterValue EXTRA = 4;
+inline int Snippet_Filter::_internal_extra_size() const {
+  return extra_.size();
 }
-inline int Snippet_Filter::value_type_size() const {
-  return _internal_value_type_size();
+inline int Snippet_Filter::extra_size() const {
+  return _internal_extra_size();
 }
-inline void Snippet_Filter::clear_value_type() {
-  value_type_.Clear();
+inline void Snippet_Filter::clear_extra() {
+  extra_.Clear();
 }
-inline ::snippetsample::Snippet_ValueType Snippet_Filter::_internal_value_type(int index) const {
-  return static_cast< ::snippetsample::Snippet_ValueType >(value_type_.Get(index));
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::mutable_extra(int index) {
+  // @@protoc_insertion_point(field_mutable:snippetsample.Snippet.Filter.EXTRA)
+  return extra_.Mutable(index);
 }
-inline ::snippetsample::Snippet_ValueType Snippet_Filter::value_type(int index) const {
-  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.value_type)
-  return _internal_value_type(index);
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter_FilterValue >*
+Snippet_Filter::mutable_extra() {
+  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.EXTRA)
+  return &extra_;
 }
-inline void Snippet_Filter::set_value_type(int index, ::snippetsample::Snippet_ValueType value) {
-  value_type_.Set(index, value);
-  // @@protoc_insertion_point(field_set:snippetsample.Snippet.Filter.value_type)
+inline const ::snippetsample::Snippet_Filter_FilterValue& Snippet_Filter::_internal_extra(int index) const {
+  return extra_.Get(index);
 }
-inline void Snippet_Filter::_internal_add_value_type(::snippetsample::Snippet_ValueType value) {
-  value_type_.Add(value);
+inline const ::snippetsample::Snippet_Filter_FilterValue& Snippet_Filter::extra(int index) const {
+  // @@protoc_insertion_point(field_get:snippetsample.Snippet.Filter.EXTRA)
+  return _internal_extra(index);
 }
-inline void Snippet_Filter::add_value_type(::snippetsample::Snippet_ValueType value) {
-  _internal_add_value_type(value);
-  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.value_type)
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::_internal_add_extra() {
+  return extra_.Add();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>&
-Snippet_Filter::value_type() const {
-  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.value_type)
-  return value_type_;
+inline ::snippetsample::Snippet_Filter_FilterValue* Snippet_Filter::add_extra() {
+  ::snippetsample::Snippet_Filter_FilterValue* _add = _internal_add_extra();
+  // @@protoc_insertion_point(field_add:snippetsample.Snippet.Filter.EXTRA)
+  return _add;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-Snippet_Filter::_internal_mutable_value_type() {
-  return &value_type_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>*
-Snippet_Filter::mutable_value_type() {
-  // @@protoc_insertion_point(field_mutable_list:snippetsample.Snippet.Filter.value_type)
-  return _internal_mutable_value_type();
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::snippetsample::Snippet_Filter_FilterValue >&
+Snippet_Filter::extra() const {
+  // @@protoc_insertion_point(field_list:snippetsample.Snippet.Filter.EXTRA)
+  return extra_;
 }
 
 // -------------------------------------------------------------------
@@ -3153,6 +3578,8 @@ inline void Result::set_allocated_value(std::string* value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

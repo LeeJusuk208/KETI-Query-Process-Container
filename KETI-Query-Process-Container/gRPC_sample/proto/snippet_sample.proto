@@ -54,10 +54,14 @@ message Snippet {
       KETI_AND = 13;
       KETI_OR = 14;
     }
-    OperType Operator = 1;
-    repeated string value = 2;
-    repeated ValueType value_type = 3;
-    //repeated SnippetAny keti_any = 2;
+    message FilterValue{
+      repeated ValueType type = 1;
+      repeated string value = 2;
+    }
+    FilterValue LV = 1;
+    OperType Operator = 2;
+    FilterValue RV = 3;
+    repeated FilterValue EXTRA = 4;
   }
   message Projection {
     enum SelectType{
@@ -78,7 +82,6 @@ message Snippet {
     SelectType select_type = 1;
     repeated string value = 2;
     repeated ValueType value_type = 3;    
-    //repeated SnippetAny keti_any = 2;
   }
   message Order {
     enum OrderDirection{
