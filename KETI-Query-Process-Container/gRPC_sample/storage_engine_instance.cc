@@ -15,6 +15,7 @@ using grpc::ServerReaderWriter;
 using grpc::Status;
 using snippetsample::SnippetSample;
 using snippetsample::Snippet;
+using snippetsample::SnippetRequest;
 using snippetsample::Result;
 using snippetsample::Request;
 using google::protobuf::Empty;
@@ -22,23 +23,18 @@ using google::protobuf::Empty;
 // Logic and data behind the server's behavior.
 class SnippetSampleServiceImpl final : public SnippetSample::Service {
   Status SetSnippet(ServerContext* context,
-                   ServerReaderWriter<Result, Snippet>* stream) override {
-    Snippet snippet;
-    while (stream->Read(&snippet)) {
+                   ServerReaderWriter<Result, SnippetRequest>* stream) override {
+    SnippetRequest snippetrequest;
+    while (stream->Read(&snippetrequest)) {
+      //Snippet snippet = snippetrequest.snippet();
       std::string test_json;
       google::protobuf::util::JsonPrintOptions options;
       options.always_print_primitive_fields = true;
       options.always_print_enums_as_ints = true;
-      google::protobuf::util::MessageToJsonString(snippet,&test_json,options);
+      google::protobuf::util::MessageToJsonString(snippetrequest,&test_json,options);
       std::cout << "Recv Snippet to JSON" << std::endl;
+      //std::cout << "Snippet Type : " << snippetrequest.type() << std::endl;
       std::cout << test_json << std::endl << std::endl;
-      
-      if(snippet.table_alias() == "return"){
-        Result result;
-        query_result = "Under Construct";
-        result.set_value(query_result);
-        stream->Write(result);
-      }
     }
     return Status::OK;
   }

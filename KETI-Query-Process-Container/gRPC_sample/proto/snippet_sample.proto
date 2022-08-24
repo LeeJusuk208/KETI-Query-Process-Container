@@ -10,8 +10,13 @@ option objc_class_prefix = "SSP";
 package snippetsample;
 
 service SnippetSample {
-  rpc SetSnippet (stream Snippet) returns (stream Result) {}
+  rpc SetSnippet (stream SnippetRequest) returns (stream Result) {}
   rpc Run (Request) returns (Result) {}
+}
+
+message SnippetRequest {
+  int32 type = 1;
+  Snippet snippet = 2;
 }
 
 message Snippet {
@@ -31,10 +36,6 @@ message Snippet {
     MINUS = 101; //OPERATOR
     MULTIPLE = 102; //OPERATOR
     DIVIDE = 103; //OPERATOR
-  }
-  message SnippetAny {
-    ValueType snippettype = 1;
-    bytes Value = 2;
   }
   message Filter {
     enum OperType {
@@ -91,21 +92,20 @@ message Snippet {
     OrderDirection direction = 1;
     string column = 2;
   }
-  int32 snippet_type = 1;
-  int32 query_id = 2;
-  int32 work_id = 3;
-  repeated string table_name = 4;
-  repeated string table_col = 5;
-  repeated Filter table_filter = 6;
-  repeated int32 table_offset = 7;
-  repeated int32 table_offlen = 8;
-  repeated int32 table_datatype = 9;
-  string table_alias = 10;
-  repeated string column_alias = 11;
-  repeated Projection column_projection = 12;
-  repeated string column_filtering = 13;
-  repeated string group_by = 14;
-  repeated Order order_by = 15;
+  int32 query_ID = 1;
+  int32 work_ID = 2;
+  repeated string table_name = 3;
+  repeated string table_col = 4;
+  repeated Filter table_filter = 5;
+  repeated int32 table_offset = 6;
+  repeated int32 table_offlen = 7;
+  repeated int32 table_datatype = 8;
+  string table_alias = 9;
+  repeated string column_alias = 10;
+  repeated Projection column_projection = 11;
+  repeated string column_filtering = 12;
+  repeated string group_by = 13;
+  repeated Order order_by = 14;
 }
 message Request{
   int32 queryid = 1;

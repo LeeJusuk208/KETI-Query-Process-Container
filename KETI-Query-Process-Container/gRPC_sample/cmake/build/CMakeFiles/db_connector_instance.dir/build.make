@@ -57,18 +57,18 @@ include CMakeFiles/db_connector_instance.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/db_connector_instance.dir/flags.make
 
-CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o: CMakeFiles/db_connector_instance.dir/flags.make
-CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o: ../../db_connector_instance.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/db_connector_instance.cc
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o: CMakeFiles/db_connector_instance.dir/flags.make
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o: ../../DB_Connector_Instance_Main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance_Main.cc
 
-CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/db_connector_instance.cc > CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.i
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance_Main.cc > CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.i
 
-CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/db_connector_instance.cc -o CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.s
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance_Main.cc -o CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.s
 
 CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o: CMakeFiles/db_connector_instance.dir/flags.make
 CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o: ../../Plan_Executer.cc
@@ -83,16 +83,31 @@ CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.cc -o CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.s
 
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o: CMakeFiles/db_connector_instance.dir/flags.make
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o: ../../DB_Connector_Instance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o -c /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance.cpp
+
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance.cpp > CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.i
+
+CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance.cpp -o CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.s
+
 # Object files for target db_connector_instance
 db_connector_instance_OBJECTS = \
-"CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o" \
-"CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o"
+"CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o" \
+"CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o" \
+"CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o"
 
 # External object files for target db_connector_instance
 db_connector_instance_EXTERNAL_OBJECTS =
 
-db_connector_instance: CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o
+db_connector_instance: CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o
 db_connector_instance: CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o
+db_connector_instance: CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o
 db_connector_instance: CMakeFiles/db_connector_instance.dir/build.make
 db_connector_instance: libss_grpc_proto.a
 db_connector_instance: /lib/libgrpc++_reflection.a
@@ -152,7 +167,7 @@ db_connector_instance: /lib/libabsl_time_zone.a
 db_connector_instance: /lib/libssl.a
 db_connector_instance: /lib/libcrypto.a
 db_connector_instance: CMakeFiles/db_connector_instance.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable db_connector_instance"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable db_connector_instance"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/db_connector_instance.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

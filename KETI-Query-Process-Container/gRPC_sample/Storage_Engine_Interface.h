@@ -8,6 +8,7 @@ using grpc::ClientContext;
 using grpc::Status;
 using snippetsample::SnippetSample;
 using snippetsample::Snippet;
+using snippetsample::SnippetRequest;
 using snippetsample::Result;
 using snippetsample::Request;
 using google::protobuf::Empty;
@@ -20,7 +21,7 @@ class Storage_Engine_Interface {
 			streamcontext.reset(new ClientContext());
 			stream = stub_->SetSnippet(streamcontext.get());
 		}
-		void SendSnippet(const Snippet &snippet) {
+		void SendSnippet(const SnippetRequest &snippet) {
       		stream->Write(snippet);
 			std::cout << "send snippet" << std::endl;
 		}
@@ -57,6 +58,6 @@ class Storage_Engine_Interface {
 
 	private:
 		std::unique_ptr<SnippetSample::Stub> stub_;
-		std::unique_ptr<grpc::ClientReaderWriter<snippetsample::Snippet, snippetsample::Result>> stream;
+		std::unique_ptr<grpc::ClientReaderWriter<snippetsample::SnippetRequest, snippetsample::Result>> stream;
 		std::unique_ptr<ClientContext> streamcontext;
 };

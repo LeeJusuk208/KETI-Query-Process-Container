@@ -1,24 +1,30 @@
 #include "Plan_Executer.h"
+#include <iostream>
+#include <fstream>
 
 //tcp-h query 1
-void snippet0_0(Snippet& request);
-void snippet0_1(Snippet& request);
+void snippet0_0(SnippetRequest& request);
+void snippet0_1(SnippetRequest& request);
 
 //tcp-h query 5
-void snippet4_0(Snippet& request);
-void snippet4_1(Snippet& request);
-void snippet4_2(Snippet& request);
-void snippet4_3(Snippet& request);
-void snippet4_4(Snippet& request);
-void snippet4_5(Snippet& request);
+void snippet4_0(SnippetRequest& request);
+void snippet4_1(SnippetRequest& request);
+void snippet4_2(SnippetRequest& request);
+void snippet4_3(SnippetRequest& request);
+void snippet4_4(SnippetRequest& request);
+void snippet4_5(SnippetRequest& request);
+void snippet4_6(SnippetRequest& request);
 
 void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query){
+  std::cout << parsed_query.Get_Ori_Query() << std::endl;
+  std::cout << parsed_query.Get_Parsed_Query() << std::endl;
+
     if(parsed_query.isGenericQuery()){
 
     } else {
         int query_id = Set_Query_ID();
-        auto snippet_list = Gen_Snippet(query_id);
-        std::list<Snippet>::iterator iter = snippet_list->begin();
+        auto snippet_list = Gen_Snippet(parsed_query.Get_Ori_Query());
+        std::list<SnippetRequest>::iterator iter = snippet_list->begin();
         
         storageEngineInterface.OpenStream();
         for(;iter != snippet_list->end();iter++){
@@ -35,47 +41,58 @@ int Plan_Executer::Set_Query_ID(){ // test code
     return 5;
 }
 
-std::unique_ptr<std::list<Snippet>> Plan_Executer::Gen_Snippet(int query_id){ // test code
-    std::unique_ptr<std::list<Snippet>> ret(new std::list<Snippet>());
+std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(std::string query_str){ // test code
+    std::unique_ptr<std::list<SnippetRequest>> ret(new std::list<SnippetRequest>());
 
-    switch (query_id)
-    {
-    case 1:{ //TPC-H Query 1
-	    Snippet val1, val2;
+    if (query_str == "TPC-H_01"){ //TPC-H Query 1
+	    SnippetRequest val1, val2;
         snippet0_0(val1);
         snippet0_1(val2);
 
-        ret->push_back(Snippet(val1));
-        ret->push_back(Snippet(val2));
-    }
-    break;
-    case 5:{ //TPC-H Query 5
-	    Snippet val0, val1, val2, val3, val4, val5;
+        ret->push_back(SnippetRequest(val1));
+        ret->push_back(SnippetRequest(val2));
+    } else if(query_str == "TPC-H_05"){ //TPC-H Query 5
+	    SnippetRequest val0, val1, val2, val3, val4, val5, val6;
         snippet4_0(val0);
         snippet4_1(val1);
         snippet4_2(val2);
         snippet4_3(val3);
         snippet4_4(val4);
         snippet4_5(val5);
+        snippet4_6(val6);
 
-        ret->push_back(Snippet(val0));
-        ret->push_back(Snippet(val1));
-        ret->push_back(Snippet(val2));
-        ret->push_back(Snippet(val3));
-        ret->push_back(Snippet(val4));
-        ret->push_back(Snippet(val5));
-    }
-    break;
-    
-    default:
-        break;
+        ret->push_back(SnippetRequest(val0));
+        ret->push_back(SnippetRequest(val1));
+        ret->push_back(SnippetRequest(val2));
+        ret->push_back(SnippetRequest(val3));
+        ret->push_back(SnippetRequest(val4));
+        ret->push_back(SnippetRequest(val5));
+        ret->push_back(SnippetRequest(val6));
     }
 	
     return ret;
 }
 
+void read_json(std::string& request,std::string snippet_name){
+  request = "";
+	std::ifstream openFile("../../../snippets/" + snippet_name + ".json");
+	if(openFile.is_open() ){
+		std::string line;
+		while(getline(openFile, line)){
+			request += line;
+      //std::cout << line << std::endl;
+		}
+		openFile.close();
+	}
+}
 
-void snippet0_0(Snippet& request){  
+void snippet0_0(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch01-0");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(1);
@@ -309,9 +326,16 @@ void snippet0_0(Snippet& request){
     odr = request.add_order_by();
     odr->set_column("l_linestatus");
   }
+  */
 }
 
-void snippet0_1(Snippet& request){ 
+void snippet0_1(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch01-1");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(2);
@@ -391,12 +415,12 @@ void snippet0_1(Snippet& request){
     projection = request.add_column_projection();
     projection->set_select_type(snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_COLUMNNAME);
     projection->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
-    projection->add_value("sum_base_price",15);
+    projection->add_value("sum_base_price",14);
 
     projection = request.add_column_projection();
     projection->set_select_type(snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_COLUMNNAME);
     projection->add_value_type(snippetsample::Snippet_ValueType::Snippet_ValueType_COLUMN);
-    projection->add_value("sum_disc_price",15);
+    projection->add_value("sum_disc_price",14);
 
     projection = request.add_column_projection();
     projection->set_select_type(snippetsample::Snippet_Projection_SelectType::Snippet_Projection_SelectType_COLUMNNAME);
@@ -450,10 +474,17 @@ void snippet0_1(Snippet& request){
     odr = request.add_order_by();
     odr->set_column("l_linestatus");
   }
+  */
 }
 
 
-void snippet4_0(Snippet& request){
+void snippet4_0(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-0");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(0);
@@ -553,9 +584,16 @@ void snippet4_0(Snippet& request){
     request.add_column_filtering("c_custkey");
     request.add_column_filtering("c_nationkey");
   }
+  */
 }
 
-void snippet4_1(Snippet& request){
+void snippet4_1(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-1");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(0);
@@ -689,9 +727,16 @@ void snippet4_1(Snippet& request){
     request.add_column_filtering("o_orderkey");
     request.add_column_filtering("o_custkey");
   }
+  */
 }
 
-void snippet4_2(Snippet& request){
+void snippet4_2(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-2");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(1);
@@ -845,9 +890,16 @@ void snippet4_2(Snippet& request){
   // set group by
 
   // set order by
+  */
 }
 
-void snippet4_3(Snippet& request){
+void snippet4_3(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-3");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(0);
@@ -943,9 +995,16 @@ void snippet4_3(Snippet& request){
     request.add_column_filtering("s_suppkey");
     request.add_column_filtering("s_nationkey");
   }
+  */
 }
 
-void snippet4_4(Snippet& request){
+void snippet4_4(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-4");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(0);
@@ -1040,9 +1099,16 @@ void snippet4_4(Snippet& request){
   // set group by
 
   // set order by
+  */
 }
 
-void snippet4_5(Snippet& request){
+void snippet4_5(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-5");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
+  /*
   // set snippet type
   {
     request.set_snippet_type(0);
@@ -1127,4 +1193,13 @@ void snippet4_5(Snippet& request){
   {
     request.add_column_filtering("r_regionkey");
   }
+  */
+}
+
+void snippet4_6(SnippetRequest& request){
+  std::string json_str;
+  read_json(json_str,"tpch05-6");
+  google::protobuf::util::JsonParseOptions options;
+  options.ignore_unknown_fields = true;
+  google::protobuf::util::JsonStringToMessage(json_str,&request,options);
 }

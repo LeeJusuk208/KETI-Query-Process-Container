@@ -57,9 +57,20 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # DB_Connector_Instance
-add_executable(db_connector_instance "db_connector_instance.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h")
+add_executable(db_connector_instance "DB_Connector_Instance_Main.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h" "DB_Connector_Instance.cpp" "DB_Connector_Instance.h" "stdafx.h")
+
+set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
+set(LINKING_LIBRARIES ${Casablanca_LIBRARIES})
+
+if (UNIX)
+	# Linking POSIX threads
+	find_package(Threads REQUIRED)
+	set(LINKING_LIBRARIES ${LINKING_LIBRARIES} Threads::Threads)
+endif (UNIX)
+
 target_link_libraries(db_connector_instance
   ss_grpc_proto
+  ${LINKING_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF})

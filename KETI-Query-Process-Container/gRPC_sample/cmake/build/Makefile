@@ -149,6 +149,60 @@ ss_grpc_proto/fast:
 	$(MAKE) -f CMakeFiles/ss_grpc_proto.dir/build.make CMakeFiles/ss_grpc_proto.dir/build
 .PHONY : ss_grpc_proto/fast
 
+DB_Connector_Instance.o: DB_Connector_Instance.cpp.o
+
+.PHONY : DB_Connector_Instance.o
+
+# target to build an object file
+DB_Connector_Instance.cpp.o:
+	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.o
+.PHONY : DB_Connector_Instance.cpp.o
+
+DB_Connector_Instance.i: DB_Connector_Instance.cpp.i
+
+.PHONY : DB_Connector_Instance.i
+
+# target to preprocess a source file
+DB_Connector_Instance.cpp.i:
+	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.i
+.PHONY : DB_Connector_Instance.cpp.i
+
+DB_Connector_Instance.s: DB_Connector_Instance.cpp.s
+
+.PHONY : DB_Connector_Instance.s
+
+# target to generate assembly for a file
+DB_Connector_Instance.cpp.s:
+	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/DB_Connector_Instance.cpp.s
+.PHONY : DB_Connector_Instance.cpp.s
+
+DB_Connector_Instance_Main.o: DB_Connector_Instance_Main.cc.o
+
+.PHONY : DB_Connector_Instance_Main.o
+
+# target to build an object file
+DB_Connector_Instance_Main.cc.o:
+	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.o
+.PHONY : DB_Connector_Instance_Main.cc.o
+
+DB_Connector_Instance_Main.i: DB_Connector_Instance_Main.cc.i
+
+.PHONY : DB_Connector_Instance_Main.i
+
+# target to preprocess a source file
+DB_Connector_Instance_Main.cc.i:
+	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.i
+.PHONY : DB_Connector_Instance_Main.cc.i
+
+DB_Connector_Instance_Main.s: DB_Connector_Instance_Main.cc.s
+
+.PHONY : DB_Connector_Instance_Main.s
+
+# target to generate assembly for a file
+DB_Connector_Instance_Main.cc.s:
+	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/DB_Connector_Instance_Main.cc.s
+.PHONY : DB_Connector_Instance_Main.cc.s
+
 Plan_Executer.o: Plan_Executer.cc.o
 
 .PHONY : Plan_Executer.o
@@ -175,33 +229,6 @@ Plan_Executer.s: Plan_Executer.cc.s
 Plan_Executer.cc.s:
 	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.s
 .PHONY : Plan_Executer.cc.s
-
-db_connector_instance.o: db_connector_instance.cc.o
-
-.PHONY : db_connector_instance.o
-
-# target to build an object file
-db_connector_instance.cc.o:
-	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.o
-.PHONY : db_connector_instance.cc.o
-
-db_connector_instance.i: db_connector_instance.cc.i
-
-.PHONY : db_connector_instance.i
-
-# target to preprocess a source file
-db_connector_instance.cc.i:
-	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.i
-.PHONY : db_connector_instance.cc.i
-
-db_connector_instance.s: db_connector_instance.cc.s
-
-.PHONY : db_connector_instance.s
-
-# target to generate assembly for a file
-db_connector_instance.cc.s:
-	$(MAKE) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/db_connector_instance.cc.s
-.PHONY : db_connector_instance.cc.s
 
 snippet_sample.grpc.pb.o: snippet_sample.grpc.pb.cc.o
 
@@ -295,12 +322,15 @@ help:
 	@echo "... storage_engine_instance"
 	@echo "... db_connector_instance"
 	@echo "... ss_grpc_proto"
+	@echo "... DB_Connector_Instance.o"
+	@echo "... DB_Connector_Instance.i"
+	@echo "... DB_Connector_Instance.s"
+	@echo "... DB_Connector_Instance_Main.o"
+	@echo "... DB_Connector_Instance_Main.i"
+	@echo "... DB_Connector_Instance_Main.s"
 	@echo "... Plan_Executer.o"
 	@echo "... Plan_Executer.i"
 	@echo "... Plan_Executer.s"
-	@echo "... db_connector_instance.o"
-	@echo "... db_connector_instance.i"
-	@echo "... db_connector_instance.s"
 	@echo "... snippet_sample.grpc.pb.o"
 	@echo "... snippet_sample.grpc.pb.i"
 	@echo "... snippet_sample.grpc.pb.s"
