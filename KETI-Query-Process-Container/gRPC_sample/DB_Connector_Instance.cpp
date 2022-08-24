@@ -42,71 +42,6 @@ void DB_Connector_Instance::handle_error(pplx::task<void>& t)
 //
 void DB_Connector_Instance::handle_get(http_request message)
 {
-    ucout <<  message.to_string() << endl;
-
-    /*
-    auto paths = http::uri::split_path(http::uri::decode(message.relative_uri().path()));
-
-    message.relative_uri().path();
-	//Dbms* d  = new Dbms();
-    //d->connect();
-
-      concurrency::streams::fstream::open_istream(U("static/index.html"), std::ios::in).then([=](concurrency::streams::istream is)
-    {
-        message.reply(status_codes::OK, is,  U("text/html"))
-		.then([](pplx::task<void> t)
-		{
-			try{
-				t.get();
-			}
-			catch(...){
-				//
-			}
-	});
-    }).then([=](pplx::task<void>t)
-	{
-		try{
-			t.get();
-		}
-		catch(...){
-			message.reply(status_codes::InternalError,U("INTERNAL ERROR "));
-		}
-	});
-    */
-	message.reply(status_codes::NotFound,U("SUPPORT ONLY PUT API"));
-    return;
-
-};
-
-//
-// A POST request
-//
-void DB_Connector_Instance::handle_post(http_request message)
-{
-    ucout <<  message.to_string() << endl;
-
-
-	message.reply(status_codes::NotFound,U("SUPPORT ONLY PUT API"));
-    return ;
-};
-
-//
-// A DELETE request
-//
-void DB_Connector_Instance::handle_delete(http_request message)
-{
-    ucout <<  message.to_string() << endl;
-
-	message.reply(status_codes::NotFound,U("SUPPORT ONLY PUT API"));
-    return;
-};
-
-
-//
-// A PUT request 
-//
-void DB_Connector_Instance::handle_put(http_request message)
-{
     auto body_json = message.extract_string();
     std::string json = utility::conversions::to_utf8string(body_json.get());
     
@@ -120,5 +55,41 @@ void DB_Connector_Instance::handle_put(http_request message)
     
     std::string rep = U("Query Result\n");
     message.reply(status_codes::OK,rep);
+    return;
+
+};
+
+//
+// A POST request
+//
+void DB_Connector_Instance::handle_post(http_request message)
+{
+    ucout <<  message.to_string() << endl;
+
+
+	message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    return ;
+};
+
+//
+// A DELETE request
+//
+void DB_Connector_Instance::handle_delete(http_request message)
+{
+    ucout <<  message.to_string() << endl;
+
+	message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    return;
+};
+
+
+//
+// A PUT request 
+//
+void DB_Connector_Instance::handle_put(http_request message)
+{
+    ucout <<  message.to_string() << endl;
+    
+	message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
     return;
 };

@@ -2840,39 +2840,9 @@ Storage_Engine_Interface.h
 Parsed_Query.h
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
 
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance_Main.cc
-iostream
--
-memory
--
-string
--
-stdafx.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/stdafx.h
-DB_Connector_Instance.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/DB_Connector_Instance.h
-Query_Planner.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Query_Planner.h
-Meta_Data_Manager.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Meta_Data_Manager.h
-Plan_Executer.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
-Storage_Engine_Interface.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h
-Parsed_Query.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
-
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Meta_Data_Manager.h
 
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Parsed_Query.h
-
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.cc
-Plan_Executer.h
-/root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
-iostream
--
-fstream
--
 
 /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
 Storage_Engine_Interface.h

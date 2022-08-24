@@ -10,10 +10,8 @@ public:
             parsed_query_ = "SELECT l_returnflag,\n\
        l_linestatus,\n\
        SUM(l_quantity)                                           AS sum_qty,\n\
-       SUM(l_extendedprice)                                      AS\n\
-       sum_base_price,\n\
-       SUM(l_extendedprice * ( 1 - l_discount ))                 AS\n\
-       sum_disc_price,\n\
+       SUM(l_extendedprice)                                      AS sum_base_price,\n\
+       SUM(l_extendedprice * ( 1 - l_discount ))                 AS sum_disc_price,\n\
        SUM(l_extendedprice * ( 1 - l_discount ) * ( 1 + l_tax )) AS sum_charge,\n\
        Avg(l_quantity)                                           AS avg_qty,\n\
        Avg(l_extendedprice)                                      AS avg_price,\n\
