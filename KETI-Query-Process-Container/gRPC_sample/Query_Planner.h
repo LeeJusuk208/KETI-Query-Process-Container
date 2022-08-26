@@ -69,6 +69,7 @@ order by \n\
     s_name, \n\
     p_partkey \n\
 limit 100;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_03"){ //TPC-H Query 3
             parsed_query.Set_Parsed_Query("SELECT   l_orderkey, \n\
          Sum(l_extendedprice * (1 - l_discount)) AS revenue,\n\
@@ -88,6 +89,7 @@ GROUP BY l_orderkey,\n\
 ORDER BY revenue DESC,\n\
          o_orderdate\n\
 LIMIT    10;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_04"){ //TPC-H Query 4
             parsed_query.Set_Parsed_Query("select \n\
     o_orderpriority, count(*) as order_count \n\
@@ -109,6 +111,7 @@ group by \n\
     o_orderpriority \n\
 order by \n\
     o_orderpriority;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_05"){ //TPC-H Query 5
             parsed_query.Set_Parsed_Query("select \n\
     n_name, \n\
@@ -185,6 +188,7 @@ order by \n\
     supp_nation, \n\
     cust_nation, \n\
     l_year;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_08"){ //TPC-H Query 8
             parsed_query.Set_Parsed_Query("select \n\
     o_year, \n\
@@ -219,6 +223,7 @@ group by \n\
     o_year \n\
 order by \n\
     o_year;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_09"){ //TPC-H Query 9
             parsed_query.Set_Parsed_Query("select \n\
     nation, \n\
@@ -251,6 +256,7 @@ group by \n\
 order by \n\
     nation, \n\
     o_year desc;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_10"){ //TPC-H Query 10
             parsed_query.Set_Parsed_Query("select c_custkey,\n\
 	c_name,\n\
@@ -283,6 +289,7 @@ group by\n\
 order by\n\
 	revenue desc\n\
 limit 20;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_11"){ //TPC-H Query 11
             parsed_query.Set_Parsed_Query("SELECT ps_partkey,\n\
        Sum(ps_supplycost * ps_availqty) AS value\n\
@@ -302,6 +309,7 @@ HAVING Sum(ps_supplycost * ps_availqty) > (SELECT\n\
                                                   AND s_nationkey = n_nationkey\n\
                                                   AND n_name = 'mozambique')\n\
 ORDER  BY value DESC;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_12"){ //TPC-H Query 12
             parsed_query.Set_Parsed_Query("SELECT l_shipmode,\n\
        SUM(CASE\n\
@@ -324,6 +332,7 @@ WHERE  o_orderkey = l_orderkey\n\
        AND l_receiptdate < DATE '1997-01-01' + interval '1' year\n\
 GROUP  BY l_shipmode\n\
 ORDER  BY l_shipmode; ");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_13"){ //TPC-H Query 13
             parsed_query.Set_Parsed_Query("SELECT c_count,\n\
        Count(*) AS custdist\n\
@@ -337,6 +346,7 @@ FROM   (SELECT c_custkey,\n\
 GROUP  BY c_count\n\
 ORDER  BY custdist DESC,\n\
           c_count DESC; ");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_14"){ //TPC-H Query 14
             parsed_query.Set_Parsed_Query("SELECT 100.00 * SUM(CASE\n\
                       WHEN p_type LIKE 'promo%' THEN l_extendedprice *\n\
@@ -349,6 +359,7 @@ FROM   lineitem,\n\
 WHERE  l_partkey = p_partkey\n\
        AND l_shipdate >= DATE '1996-12-01'\n\
        AND l_shipdate < DATE '1996-12-01' + interval '1' month;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_15"){ //TPC-H Query 15
             parsed_query.Set_Parsed_Query("CREATE VIEW revenue0\n\
 (supplier_no, total_revenue)\n\
@@ -371,6 +382,7 @@ WHERE  s_suppkey = supplier_no\n\
                             FROM   revenue0)\n\
 ORDER  BY s_suppkey;\n\
 DROP VIEW revenue0;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_16"){ //TPC-H Query 16
             parsed_query.Set_Parsed_Query("SELECT p_brand,\n\
        p_type,\n\
@@ -393,15 +405,16 @@ ORDER  BY supplier_cnt DESC,\n\
           p_brand,\n\
           p_type,\n\
           p_size;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_17"){ //TPC-H Query 17            
-            parsed_query.Set_Parsed_Query("SELECT SUM(l_extendedprice) / 7.0 AS avg_yearly \
-FROM   lineitem,\
-       part \
-WHERE  p_partkey = l_partkey \
-       AND p_brand = 'Brand#44' \
-       AND p_container = 'WRAP PKG' \
-       AND l_quantity < (SELECT 0.2 * AVG(l_quantity) \
-                         FROM   lineitem \
+            parsed_query.Set_Parsed_Query("SELECT SUM(l_extendedprice) / 7.0 AS avg_yearly \n\
+FROM   lineitem, \n\
+       part \n\
+WHERE  p_partkey = l_partkey \n\
+       AND p_brand = 'Brand#44' \n\
+       AND p_container = 'WRAP PKG' \n\
+       AND l_quantity < (SELECT 0.2 * AVG(l_quantity) \n\
+                         FROM   lineitem \n\
                          WHERE  l_partkey = p_partkey);");
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_18"){ //TPC-H Query 18
             parsed_query.Set_Parsed_Query("SELECT c_name,\n\
@@ -427,6 +440,7 @@ GROUP  BY c_name,\n\
 ORDER  BY o_totalprice DESC,\n\
           o_orderdate\n\
 LIMIT  100; ");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_19"){ //TPC-H Query 19
             parsed_query.Set_Parsed_Query("SELECT Sum(l_extendedprice * ( 1 - l_discount )) AS revenue\n\
 FROM   lineitem,\n\
@@ -455,6 +469,7 @@ WHERE  ( p_partkey = l_partkey\n\
              AND p_size BETWEEN 1 AND 15\n\
              AND l_shipmode IN ( 'air', 'air reg' )\n\
              AND l_shipinstruct = 'deliver in person' );");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_20"){ //TPC-H Query 20
             parsed_query.Set_Parsed_Query("SELECT s_name,\n\
        s_address\n\
@@ -479,6 +494,7 @@ WHERE  s_suppkey IN (SELECT ps_suppkey\n\
        AND s_nationkey = n_nationkey\n\
        AND n_name = 'algeria'\n\
 ORDER  BY s_name; ");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_21"){ //TPC-H Query 21
             parsed_query.Set_Parsed_Query("SELECT s_name,\n\
        Count(*) AS numwait\n\
@@ -505,6 +521,7 @@ GROUP  BY s_name\n\
 ORDER  BY numwait DESC,\n\
           s_name\n\
 LIMIT  100; ");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_22"){ //TPC-H Query 22
             parsed_query.Set_Parsed_Query("SELECT cntrycode,\n\
        Count(*)       AS numcust,\n\
@@ -525,8 +542,9 @@ FROM   (SELECT Substring(c_phone FROM 1 FOR 2) AS cntrycode,\n\
                                WHERE  o_custkey = c_custkey)) AS custsale\n\
 GROUP  BY cntrycode\n\
 ORDER  BY cntrycode;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else { //Other Query
-            ;
+            parsed_query.Set_Parsed_Query(parsed_query.Get_Ori_Query().c_str());
         }
     } 
 
