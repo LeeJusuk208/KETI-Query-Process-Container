@@ -17,7 +17,6 @@ DB_Connector_Instance::DB_Connector_Instance(utility::string_t url):m_listener(u
     m_listener.support(methods::PUT, std::bind(&DB_Connector_Instance::handle_put, this, std::placeholders::_1));
     m_listener.support(methods::POST, std::bind(&DB_Connector_Instance::handle_post, this, std::placeholders::_1));
     m_listener.support(methods::DEL, std::bind(&DB_Connector_Instance::handle_delete, this, std::placeholders::_1));
-
 }
 DB_Connector_Instance::~DB_Connector_Instance()
 {
@@ -45,13 +44,13 @@ void DB_Connector_Instance::handle_get(http_request message)
     auto body_json = message.extract_string();
     std::string json = utility::conversions::to_utf8string(body_json.get());
     
-	Document document;
-	document.Parse(json.c_str());
+    Document document;
+    document.Parse(json.c_str());
     
     Parsed_Query parsed_query(document["query"].GetString());
     
-	query_planner_.Parse(meta_data_manager_,parsed_query);
-	plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
+    query_planner_.Parse(meta_data_manager_,parsed_query);
+    plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
     
     std::string rep = U("Query Result\n");
     message.reply(status_codes::OK,rep);
@@ -65,9 +64,7 @@ void DB_Connector_Instance::handle_get(http_request message)
 void DB_Connector_Instance::handle_post(http_request message)
 {
     ucout <<  message.to_string() << endl;
-
-
-	message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
     return ;
 };
 
@@ -77,8 +74,7 @@ void DB_Connector_Instance::handle_post(http_request message)
 void DB_Connector_Instance::handle_delete(http_request message)
 {
     ucout <<  message.to_string() << endl;
-
-	message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
     return;
 };
 
@@ -89,7 +85,6 @@ void DB_Connector_Instance::handle_delete(http_request message)
 void DB_Connector_Instance::handle_put(http_request message)
 {
     ucout <<  message.to_string() << endl;
-    
-	message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
+    message.reply(status_codes::NotFound,U("SUPPORT ONLY GET API"));
     return;
 };

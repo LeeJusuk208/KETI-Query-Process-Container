@@ -1,0 +1,98 @@
+{
+    "type" : 0,
+    "snippet":
+    {
+      "qaueryID ":2,
+      "workID":0,
+      "tableName": ["customer"],
+      "tableCol":[
+        "c_custkey",
+        "c_name",
+        "c_address",
+        "c_nationkey",
+        "c_phone",
+        "c_acctbal",
+        "c_mktsegment",
+        "c_comment"
+      ],
+      "table_filter":[
+        {
+          "LV": {
+            "type": [10],
+            "value": ["c_mktsegment"]
+          },
+          "Operator" : 5,
+          "RV": {
+            "type": [9],
+            "value": ["automobile"]
+          },
+          "EXTRA": []
+        }
+      ],
+      "tableOffset": [
+        0,
+        4,
+        59,
+        84,
+        94,
+        119,
+        123,
+        133,
+        140
+      ],
+      "tableOfflen": [
+        4,
+        55,
+        25,
+        10,
+        25,
+        4,
+        10,
+        7,
+        23
+      ],
+      "tableDatatype": [
+        3,
+        254,
+        254,
+        254,
+        254,
+        3,
+        254,
+        246,
+        254
+      ],
+      "tableAlias": "snippet2-0",
+      "columnAlias": [
+        "p_partkey",
+        "p_mfgr"
+      ],
+      "columnProjection": [
+        {
+          "selectType": 0,
+          "value": [
+            "p_partkey"
+          ],
+          "valueType": [
+            10
+          ]
+        },
+        {
+          "selectType": 0,
+          "value": [
+            "p_mfgr"
+          ],
+          "valueType": [
+            10
+          ]
+        }
+      ],
+      "columnFiltering": [
+        "p_partkey",
+        "p_mfgr"
+      ],
+      "groupBy": [],
+      "orderBy": []
+    }
+  }
+        
