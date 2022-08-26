@@ -2,6 +2,13 @@
 #include <iostream>
 #include <fstream>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstring>
+#include <sql.h>
+#include <sqlext.h>
+#include "kodbc.h"
+
 void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name);
 
 void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query){
@@ -9,6 +16,28 @@ void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterfa
   std::cout << parsed_query.Get_Parsed_Query() << std::endl;
 
     if(parsed_query.isGenericQuery()){
+
+    char *szDSN = (char*)"myodbc5w";
+    char *szUID;
+    char *szPWD;
+    char *szSQL;
+    SQLHENV hEnv = SQL_NULL_HENV;
+    SQLHDBC hDbc = SQL_NULL_HDBC;
+    // SQLRETURN retcode;
+
+    //Open database
+    if(!OpenDatabase(&hEnv, &hDbc, szDSN, szUID, szPWD)){
+        return;
+    }
+
+    //Execute SQL
+    szSQL = strcpy(new char[parsed_query.Get_Parsed_Query().length() + 1], parsed_query.Get_Parsed_Query().c_str());
+    //szSQL = (char*)"SELECT SUM(l_extendedprice) / 7.0 AS avg_yearly FROM lineitem, part WHERE p_partkey = l_partkey AND p_brand = 'Brand#44' AND p_container = 'WRAP PKG' AND l_quantity < (SELECT 0.2 * AVG(l_quantity) FROM lineitem WHERE l_partkey = p_partkey);";
+    ExecuteSQL( hDbc, szSQL);
+    delete[] szSQL;
+
+    //Database Close
+    CloseDatabase(hEnv, hDbc);
 
     } else {
         int query_id = Set_Query_ID();

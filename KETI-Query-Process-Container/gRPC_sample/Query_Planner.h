@@ -23,6 +23,7 @@ GROUP  BY l_returnflag,\n\
           l_linestatus\n\
 ORDER  BY l_returnflag,\n\
           l_linestatus;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_02"){ //TPC-H Query 2
             parsed_query.Set_Parsed_Query("select \n\
     s_acctbal, \n\
@@ -133,6 +134,7 @@ group by \n\
     n_name \n\
 order by \n\
     revenue desc;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_06"){ //TPC-H Query 6
             parsed_query.Set_Parsed_Query("select\n\
 	sum(l_extendedprice * l_discount) as revenue\n\
@@ -143,6 +145,7 @@ where\n\
 	and l_shipdate < date ('1994-01-01') + interval '1' year\n\
 	and l_discount between 0.06 - 0.01 and 0.06 + 0.01\n\
 	and l_quantity < 24;");
+          parsed_query.Set_Query_Type_As_PushdownQuery();
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_07"){ //TPC-H Query 7
             parsed_query.Set_Parsed_Query("select \n\
     supp_nation, \n\
@@ -390,16 +393,16 @@ ORDER  BY supplier_cnt DESC,\n\
           p_brand,\n\
           p_type,\n\
           p_size;");
-        } else if(parsed_query.Get_Ori_Query() == "TPC-H_17"){ //TPC-H Query 17
-            parsed_query.Set_Parsed_Query("SELECT Sum(l_extendedprice) / 7.0 AS avg_yearly\n\
-FROM   lineitem,\n\
-       part\n\
-WHERE  p_partkey = l_partkey\n\
-       AND p_brand = 'brand#44'\n\
-       AND p_container = 'wrap pkg'\n\
-       AND l_quantity < (SELECT 0.2 * Avg(l_quantity)\n\
-                         FROM   lineitem\n\
-                         WHERE  l_partkey = p_partkey); ");
+        } else if(parsed_query.Get_Ori_Query() == "TPC-H_17"){ //TPC-H Query 17            
+            parsed_query.Set_Parsed_Query("SELECT SUM(l_extendedprice) / 7.0 AS avg_yearly \
+FROM   lineitem,\
+       part \
+WHERE  p_partkey = l_partkey \
+       AND p_brand = 'Brand#44' \
+       AND p_container = 'WRAP PKG' \
+       AND l_quantity < (SELECT 0.2 * AVG(l_quantity) \
+                         FROM   lineitem \
+                         WHERE  l_partkey = p_partkey);");
         } else if(parsed_query.Get_Ori_Query() == "TPC-H_18"){ //TPC-H Query 18
             parsed_query.Set_Parsed_Query("SELECT c_name,\n\
        c_custkey,\n\
@@ -525,7 +528,6 @@ ORDER  BY cntrycode;");
         } else { //Other Query
             ;
         }
-        parsed_query.Set_Query_Type_As_PushdownQuery();
     } 
 
 private:

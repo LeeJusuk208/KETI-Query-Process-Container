@@ -640,5 +640,6 @@ CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.o
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.cc
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Plan_Executer.h
  /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/Storage_Engine_Interface.h
+ /root/workspace/ljs/git/KETI-Query-Process-Container/gRPC_sample/kodbc.h
  snippet_sample.grpc.pb.h
  snippet_sample.pb.h
