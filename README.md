@@ -78,24 +78,24 @@ message Snippet {
 -------------
 ### OpenStream
 -------------
-The start point of gRPC
-Open Stream for repeated data transmission
+* The start point of gRPC
+* Open Stream for repeated data transmission
 
 ### SendSnippet
 -------------
-Snippet sending method
-Called repeatedly to perform a query
+* Snippet sending method
+* Called repeatedly to perform a query
 
 ### CloseStream
 -------------
-The end point of gRPC
-Close Stream
+* The end point of gRPC
+* Close Stream
 
 ## gRPC Server(storage_engine_instance.cc)
 -------------
 ### SetSnippet
 -------------
-Receive Snippet and convert to JSON
+* Receive Snippet and convert to JSON
 
 ## Governance
 -------------
