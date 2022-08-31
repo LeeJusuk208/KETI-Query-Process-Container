@@ -18,49 +18,85 @@ Developed by KETI
 
 ## Requirement
 -------------
->   MySQL 5.6(Storage Engine : MyROCSK by KETI-Version)
+>   gRPC
+
+>   cpprestSDK
 
 >   RapidJSON
 
 ## How To Install
 -------------
 # How To Build
-1. Clone Myrocks
+1. Clone KETI-Query-Process-Container
 ```bash
-git clone https://github.com/facebook/mysql-5.6.git
-cd myrocks
-```
-2. Query-Process-Container
-```bash
-git clone 'Query-Process-Container address'
+git clone https://github.com/opencsd/KETI-Query-Process-Container.git
+cd KETI-Query-Process-Container/gRPC-sample/cmake/build/
 ```
 
-3. Replace Source Code
-
-4. Build
+2. Build
 ```bash
-./build.sh
+cmake -DCMAKE_PREFIX_PATH=$MY_INSTALL_DIR ../..
+make -j
 ```
 
-## Handler APIs
+## gRPC Protobuf
 -------------
-### rnd_init
+### SnippetRequest
 -------------
-Initializes a handler for table scanning.
+```protobuf
+service SnippetSample {
+  rpc SetSnippet (stream SnippetRequest) returns (stream Result) {}
+}
+```
 
-Request a Scan operation to the Storage Engine Node and initialize the buffer
-
-### rnd_next
+### Snippet
 -------------
-Reads the next row from buffer and returns it to the server.
+```protobuf
+message Snippet {
+  int32 query_ID = 1;
+  int32 work_ID = 2;
+  repeated string table_name = 3;
+  repeated string table_col = 4;
+  repeated Filter table_filter = 5;
+  repeated int32 table_offset = 6;
+  repeated int32 table_offlen = 7;
+  repeated int32 table_datatype = 8;
+  string table_alias = 9;
+  repeated string column_alias = 10;
+  repeated Projection column_projection = 11;
+  repeated string column_filtering = 12;
+  repeated string group_by = 13;
+  repeated Order order_by = 14;
+}
+```
 
-### parse_cond
+## REST Server(DB_Connector_Instance.h DB_Connector_Instance.cpp)
 -------------
-Parsing Where clauses and performing arithmetic operations
 
-### req_scanned_block
+## gRPC Client(Storage_Engine_Interface.h)
+-------------
+### OpenStream
+-------------
+The start point of gRPC
+Open Stream for repeated data transmission
+
+### SendSnippet
+-------------
+Snippet sending method
+Called repeatedly to perform a query
+
+### CloseStream
+-------------
+The end point of gRPC
+Close Stream
+
+## gRPC Server(storage_engine_instance.cc)
 -------------
 Request Scanned Data Blocks to Storage Engine Nodes
+
+### SetSnippet
+-------------
+Parsing Where clauses and performing arithmetic operations
 
 ## Governance
 -------------
