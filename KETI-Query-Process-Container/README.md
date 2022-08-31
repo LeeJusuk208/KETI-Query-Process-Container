@@ -92,11 +92,9 @@ Close Stream
 
 ## gRPC Server(storage_engine_instance.cc)
 -------------
-Request Scanned Data Blocks to Storage Engine Nodes
-
 ### SetSnippet
 -------------
-Parsing Where clauses and performing arithmetic operations
+Receive snippets and convert JSON
 
 ## Governance
 -------------
