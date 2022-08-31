@@ -44,8 +44,9 @@ make -j
 ### SnippetRequest
 -------------
 ```protobuf
-service SnippetSample {
-  rpc SetSnippet (stream SnippetRequest) returns (stream Result) {}
+message SnippetRequest {
+  int32 type = 1;
+  Snippet snippet = 2;
 }
 ```
 
@@ -94,7 +95,7 @@ Close Stream
 -------------
 ### SetSnippet
 -------------
-Receive snippets and convert JSON
+Receive Snippet and convert to JSON
 
 ## Governance
 -------------
