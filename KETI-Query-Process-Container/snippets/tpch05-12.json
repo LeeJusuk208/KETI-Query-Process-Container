@@ -2,7 +2,7 @@
     "type" : 2,
     "snippet":
     {
-        "queryID " :4,
+        "queryID":4,
         "workID":12,
         "tableName": ["snippet4-11"],
         "tableCol":[
@@ -12,7 +12,7 @@
         "tableFilter":[],
         "tableOffset":[],
         "tableOfflen":[],
-        "tableDatatype":[],        
+        "tableDatatype":[],
         "tableAlias": "snippet4-12",
         "columnAlias": [
             "n_name",
@@ -25,18 +25,16 @@
                 "valueType": [10]
             },
             {
-                "selectType": 0,
+                "selectType": 1,
                 "value": ["revenue"],
                 "valueType": [10]
             }
         ],
         "columnFiltering": [],
-        "groupBy": [],
-        "orderBy": [
-            {
-              "direction": 1,
-              "column": "revenue"
-            }
-        ]
+        "groupBy": ["n_name"],
+        "orderBy": {
+            "ascending" : [1],
+            "columnName" : ["revenue"]
+        }
     }
 }

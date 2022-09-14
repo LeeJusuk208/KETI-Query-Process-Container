@@ -2,6 +2,7 @@
 #include <grpcpp/grpcpp.h>
 #include <google/protobuf/empty.pb.h>
 #include "snippet_sample.grpc.pb.h"
+#include "keti_util.h"
 
 using grpc::Channel;
 using grpc::ClientContext;
@@ -23,7 +24,7 @@ class Storage_Engine_Interface {
 		}
 		void SendSnippet(const SnippetRequest &snippet) {
       		stream->Write(snippet);
-			std::cout << "send snippet" << std::endl;
+			keti_log("Storage Engine Interface","Send Snippet (WorkID : " + std::to_string(snippet.snippet().work_id()) + ") to Storage Engine Instance");
 		}
 		void GetReturn(){		
 			Result result;		

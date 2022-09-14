@@ -8,14 +8,17 @@
 #include <sql.h>
 #include <sqlext.h>
 #include "kodbc.h"
+#include "keti_util.h"
 
 void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name);
 
 void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query){
-  std::cout << parsed_query.Get_Ori_Query() << std::endl;
-  std::cout << parsed_query.Get_Parsed_Query() << std::endl;
+  keti_log("Plan Executer","Analyzing Query ...");
+  //std::cout << parsed_query.Get_Ori_Query() << std::endl;
+  //std::cout << parsed_query.Get_Parsed_Query() << std::endl;
 
   if(parsed_query.isGenericQuery()){
+    keti_log("Plan Executer"," => Generic Query");
     char *szDSN = (char*)"myodbc5w";
     char *szUID;
     char *szPWD;
@@ -36,6 +39,7 @@ void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterfa
     //Database Close
     CloseDatabase(hEnv, hDbc);
   } else {
+    keti_log("Plan Executer"," => Pushdown Query");
     int query_id = Set_Query_ID();
     auto snippet_list = Gen_Snippet(parsed_query);
     std::list<SnippetRequest>::iterator iter = snippet_list->begin();
@@ -58,10 +62,42 @@ int Plan_Executer::Set_Query_ID(){ // test code
 std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Query &parsed_query){ // test code
     std::unique_ptr<std::list<SnippetRequest>> ret(new std::list<SnippetRequest>());
     std::string query_str = parsed_query.Get_Ori_Query();
+    
+    keti_log("Plan Executer","Creating Snippet ...");
 
     if (query_str == "TPC-H_01"){ //TPC-H Query 1
         load_snippet(*ret,"tpch01-0");
         load_snippet(*ret,"tpch01-1");
+    } else if (query_str == "TPC-H_02"){ //TPC-H Query 2
+        load_snippet(*ret,"tpch02-0");
+        load_snippet(*ret,"tpch02-1");
+        load_snippet(*ret,"tpch02-2");
+        load_snippet(*ret,"tpch02-3");
+        load_snippet(*ret,"tpch02-4");
+        load_snippet(*ret,"tpch02-5");
+        load_snippet(*ret,"tpch02-6");
+        load_snippet(*ret,"tpch02-7");
+        load_snippet(*ret,"tpch02-8");
+        load_snippet(*ret,"tpch02-9");
+        load_snippet(*ret,"tpch02-10");
+        load_snippet(*ret,"tpch02-11");
+        load_snippet(*ret,"tpch02-12");
+        load_snippet(*ret,"tpch02-13");
+        load_snippet(*ret,"tpch02-14");
+        load_snippet(*ret,"tpch02-15");
+        load_snippet(*ret,"tpch02-16");
+    } else if (query_str == "TPC-H_03"){ //TPC-H Query 3
+        load_snippet(*ret,"tpch03-0");
+        load_snippet(*ret,"tpch03-1");
+        load_snippet(*ret,"tpch03-2");
+        load_snippet(*ret,"tpch03-3");
+        load_snippet(*ret,"tpch03-4");
+        load_snippet(*ret,"tpch03-5");
+    } else if (query_str == "TPC-H_04"){ //TPC-H Query 4
+        load_snippet(*ret,"tpch04-0");
+        load_snippet(*ret,"tpch04-1");
+        load_snippet(*ret,"tpch04-2");
+        load_snippet(*ret,"tpch04-3");
     } else if(query_str == "TPC-H_05"){ //TPC-H Query 5
         load_snippet(*ret,"tpch05-0");
         load_snippet(*ret,"tpch05-1");
@@ -70,6 +106,169 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch05-4");
         load_snippet(*ret,"tpch05-5");
         load_snippet(*ret,"tpch05-6");
+        load_snippet(*ret,"tpch05-7");
+        load_snippet(*ret,"tpch05-8");
+        load_snippet(*ret,"tpch05-9");
+        load_snippet(*ret,"tpch05-10");
+        load_snippet(*ret,"tpch05-11");
+        load_snippet(*ret,"tpch05-12");
+    } else if (query_str == "TPC-H_06"){ //TPC-H Query 6
+        load_snippet(*ret,"tpch06-0");
+        load_snippet(*ret,"tpch06-1");
+    } else if(query_str == "TPC-H_07"){ //TPC-H Query 7
+        load_snippet(*ret,"tpch07-0");
+        load_snippet(*ret,"tpch07-1");
+        load_snippet(*ret,"tpch07-2");
+        load_snippet(*ret,"tpch07-3");
+        load_snippet(*ret,"tpch07-4");
+        load_snippet(*ret,"tpch07-5");
+        load_snippet(*ret,"tpch07-6");
+        load_snippet(*ret,"tpch07-7");
+        load_snippet(*ret,"tpch07-8");
+        load_snippet(*ret,"tpch07-9");
+        load_snippet(*ret,"tpch07-10");
+        load_snippet(*ret,"tpch07-11");
+        load_snippet(*ret,"tpch07-12");
+    } else if(query_str == "TPC-H_08"){ //TPC-H Query 8
+        load_snippet(*ret,"tpch08-0");
+        load_snippet(*ret,"tpch08-1");
+        load_snippet(*ret,"tpch08-2");
+        load_snippet(*ret,"tpch08-3");
+        load_snippet(*ret,"tpch08-4");
+        load_snippet(*ret,"tpch08-5");
+        load_snippet(*ret,"tpch08-6");
+        load_snippet(*ret,"tpch08-7");
+        load_snippet(*ret,"tpch08-8");
+        load_snippet(*ret,"tpch08-9");
+        load_snippet(*ret,"tpch08-10");
+        load_snippet(*ret,"tpch08-11");
+        load_snippet(*ret,"tpch08-12");
+        load_snippet(*ret,"tpch08-13");
+        load_snippet(*ret,"tpch08-14");
+        load_snippet(*ret,"tpch08-15");
+        load_snippet(*ret,"tpch08-16");
+        load_snippet(*ret,"tpch08-17");
+    } else if(query_str == "TPC-H_09"){ //TPC-H Query 9
+        load_snippet(*ret,"tpch09-0");
+        load_snippet(*ret,"tpch09-1");
+        load_snippet(*ret,"tpch09-2");
+        load_snippet(*ret,"tpch09-3");
+        load_snippet(*ret,"tpch09-4");
+        load_snippet(*ret,"tpch09-5");
+        load_snippet(*ret,"tpch09-6");
+        load_snippet(*ret,"tpch09-7");
+        load_snippet(*ret,"tpch09-8");
+        load_snippet(*ret,"tpch09-9");
+        load_snippet(*ret,"tpch09-10");
+        load_snippet(*ret,"tpch09-11");
+    } else if(query_str == "TPC-H_10"){ //TPC-H Query 10
+        load_snippet(*ret,"tpch10-0");
+        load_snippet(*ret,"tpch10-1");
+        load_snippet(*ret,"tpch10-2");
+        load_snippet(*ret,"tpch10-3");
+        load_snippet(*ret,"tpch10-4");
+        load_snippet(*ret,"tpch10-5");
+        load_snippet(*ret,"tpch10-6");
+        load_snippet(*ret,"tpch10-7");
+    } else if(query_str == "TPC-H_11"){ //TPC-H Query 11
+        load_snippet(*ret,"tpch11-0");
+        load_snippet(*ret,"tpch11-1");
+        load_snippet(*ret,"tpch11-2");
+        load_snippet(*ret,"tpch11-3");
+        load_snippet(*ret,"tpch11-4");
+        load_snippet(*ret,"tpch11-5");
+        load_snippet(*ret,"tpch11-6");
+        load_snippet(*ret,"tpch11-7");
+        load_snippet(*ret,"tpch11-8");
+        load_snippet(*ret,"tpch11-9");
+        load_snippet(*ret,"tpch11-10");
+        load_snippet(*ret,"tpch11-11");
+        load_snippet(*ret,"tpch11-12");
+    } else if(query_str == "TPC-H_12"){ //TPC-H Query 12
+        load_snippet(*ret,"tpch12-0");
+        load_snippet(*ret,"tpch12-1");
+        load_snippet(*ret,"tpch12-2");
+        load_snippet(*ret,"tpch12-3");
+    } else if(query_str == "TPC-H_13"){ //TPC-H Query 13
+        load_snippet(*ret,"tpch13-0");
+        load_snippet(*ret,"tpch13-1");
+        load_snippet(*ret,"tpch13-2");
+        load_snippet(*ret,"tpch13-3");
+        load_snippet(*ret,"tpch13-4");
+        load_snippet(*ret,"tpch13-5");
+    } else if(query_str == "TPC-H_14"){ //TPC-H Query 14
+        load_snippet(*ret,"tpch14-0");
+        load_snippet(*ret,"tpch14-1");
+        load_snippet(*ret,"tpch14-2");
+        load_snippet(*ret,"tpch14-3");
+        load_snippet(*ret,"tpch14-4");
+    } else if(query_str == "TPC-H_15"){ //TPC-H Query 15
+        load_snippet(*ret,"tpch15-0");
+        load_snippet(*ret,"tpch15-1");
+        load_snippet(*ret,"tpch15-2");
+        load_snippet(*ret,"tpch15-3");
+        load_snippet(*ret,"tpch15-4");
+    } else if(query_str == "TPC-H_16"){ //TPC-H Query 16
+        load_snippet(*ret,"tpch16-0");
+        load_snippet(*ret,"tpch16-1");
+        load_snippet(*ret,"tpch16-2");
+        load_snippet(*ret,"tpch16-3");
+        load_snippet(*ret,"tpch16-4");
+        load_snippet(*ret,"tpch16-5");
+    } else if(query_str == "TPC-H_17"){ //TPC-H Query 17
+        load_snippet(*ret,"tpch17-0");
+        load_snippet(*ret,"tpch17-1");
+        load_snippet(*ret,"tpch17-2");
+        load_snippet(*ret,"tpch17-3");
+        load_snippet(*ret,"tpch17-4");
+        load_snippet(*ret,"tpch17-5");
+    } else if(query_str == "TPC-H_18"){ //TPC-H Query 18
+        load_snippet(*ret,"tpch18-0");
+        load_snippet(*ret,"tpch18-1");
+        load_snippet(*ret,"tpch18-2");
+        load_snippet(*ret,"tpch18-3");
+        load_snippet(*ret,"tpch18-4");
+        load_snippet(*ret,"tpch18-5");
+        load_snippet(*ret,"tpch18-6");
+        load_snippet(*ret,"tpch18-7");
+        load_snippet(*ret,"tpch18-8");
+    } else if(query_str == "TPC-H_19"){ //TPC-H Query 19
+        load_snippet(*ret,"tpch19-0");
+        load_snippet(*ret,"tpch19-1");
+        load_snippet(*ret,"tpch19-2");
+        load_snippet(*ret,"tpch19-3");
+        load_snippet(*ret,"tpch19-4");
+    } else if(query_str == "TPC-H_20"){ //TPC-H Query 20
+        load_snippet(*ret,"tpch20-0");
+        load_snippet(*ret,"tpch20-1");
+        load_snippet(*ret,"tpch20-2");
+        load_snippet(*ret,"tpch20-3");
+        load_snippet(*ret,"tpch20-4");
+        load_snippet(*ret,"tpch20-5");
+        load_snippet(*ret,"tpch20-6");
+        load_snippet(*ret,"tpch20-7");
+        load_snippet(*ret,"tpch20-8");
+        load_snippet(*ret,"tpch20-9");
+    } else if(query_str == "TPC-H_21"){ //TPC-H Query 21
+        load_snippet(*ret,"tpch21-0");
+        load_snippet(*ret,"tpch21-1");
+        load_snippet(*ret,"tpch21-2");
+        load_snippet(*ret,"tpch21-3");
+        load_snippet(*ret,"tpch21-4");
+        load_snippet(*ret,"tpch21-5");
+        load_snippet(*ret,"tpch21-6");
+        load_snippet(*ret,"tpch21-7");
+        load_snippet(*ret,"tpch21-8");
+        load_snippet(*ret,"tpch21-9");
+        load_snippet(*ret,"tpch21-10");
+        load_snippet(*ret,"tpch21-11");
+    } else if(query_str == "TPC-H_22"){ //TPC-H Query 21
+        load_snippet(*ret,"tpch22-0");
+        load_snippet(*ret,"tpch22-1");
+        load_snippet(*ret,"tpch22-2");
+        load_snippet(*ret,"tpch22-3");
+        load_snippet(*ret,"tpch22-4");
+        load_snippet(*ret,"tpch22-5");
     }
 	
     return ret;
@@ -98,4 +297,5 @@ void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name){
   google::protobuf::util::JsonStringToMessage(json_str,&request,options);
 
   list.push_back(request);
+  keti_log("Plan Executer","Snippet WorkID : " + std::to_string(request.snippet().work_id()) + " ... done");
 }

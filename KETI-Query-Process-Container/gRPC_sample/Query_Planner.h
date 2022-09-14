@@ -1,11 +1,15 @@
 #pragma once
 #include "Meta_Data_Manager.h"
 #include "Parsed_Query.h"
+#include "keti_util.h"
 
 class Query_Planner {
 public:
 	Query_Planner() {}
     void Parse(Meta_Data_Manager &mata_data_manager,Parsed_Query &parsed_query){
+    keti_log("Query Planner","Start Query Processing");
+    keti_log("Query Planner","Parsing Query ...");
+
         if(parsed_query.Get_Ori_Query() == "TPC-H_01") { //TPC-H Query 1
             parsed_query.Set_Parsed_Query("SELECT l_returnflag,\n\
        l_linestatus,\n\

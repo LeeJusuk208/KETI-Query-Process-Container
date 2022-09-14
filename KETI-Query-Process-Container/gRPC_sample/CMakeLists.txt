@@ -57,7 +57,7 @@ target_link_libraries(ss_grpc_proto
   ${_PROTOBUF_LIBPROTOBUF})
 
 # DB_Connector_Instance
-add_executable(db_connector_instance "DB_Connector_Instance_Main.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h" "DB_Connector_Instance.cpp" "DB_Connector_Instance.h" "stdafx.h" "kodbc.h")
+add_executable(db_connector_instance "DB_Connector_Instance_Main.cc" "Storage_Engine_Interface.h" "Plan_Executer.cc" "Plan_Executer.h" "Query_Planner.h" "Meta_Data_Manager.h" "Parsed_Query.h" "DB_Connector_Instance.cpp" "DB_Connector_Instance.h" "stdafx.h" "kodbc.h" "keti_util.h")
 
 set(Casablanca_LIBRARIES "-lboost_system -lcrypto -lssl -lcpprest")
 set(KODBC_LLIBRARIES "-lodbc")
@@ -77,9 +77,10 @@ target_link_libraries(db_connector_instance
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Storage_Engine_Instance
-add_executable(storage_engine_instance "storage_engine_instance.cc")
+add_executable(storage_engine_instance "storage_engine_instance.cc" "WalManager.cc" "WalManager.h")
 target_link_libraries(storage_engine_instance
   ss_grpc_proto
+  ${LINKING_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF})

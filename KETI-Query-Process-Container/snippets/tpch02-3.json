@@ -1,77 +1,103 @@
 {
-  "type": 0,
-  "snippet": {
-    "queryID": 1,
-    "workID": 3,
-    "tableName": [
-      "nation"
-    ],
+  "type" : 0,
+  "snippet":
+  {
+    "queryID":1,
+    "workID":3,
+    "tableName": ["supplier"],
     "tableCol":[
-      "n_nationkey",  
-      "n_name",
-      "n_regionkey",
-      "n_comment"
+      "s_suppkey",
+      "s_name",
+      "s_address",
+      "s_nationkey",
+      "s_phone",
+      "s_acctbal",
+      "s_comment"
     ],
     "tableFilter":[],
-    "tableOffset": [
+    "tableOffset":[
       0,
       4,
       29,
-      32
+      69,
+      73,
+      88,
+      95
     ],
-    "tableOfflen": [
+    "tableOfflen":[
       4,
       25,
+      40,
       4,
-      152
+      15,
+      7,
+      101
     ],
-    "tableDatatype": [
+    "tableDatatype":[
       3,
       254,
+      15,
       3,
-      254
+      254,
+      246,
+      15
     ],
     "tableAlias": "snippet1-3",
     "columnAlias": [
-      "n_nationkey",
-      "n_name",
-      "n_regionkey"
+        "s_suppkey", 
+        "s_nationkey",
+        "s_acctbal",
+        "s_name",
+        "s_address",
+        "s_phone",
+        "s_comment"
     ],
     "columnProjection": [
       {
         "selectType": 0,
-        "value": [
-          "n_nationkey"
-        ],
-        "valueType": [
-          10
-        ]
+        "value": ["s_suppkey"],
+        "valueType": [10]
       },
       {
         "selectType": 0,
-        "value": [
-          "n_name"
-        ],
-        "valueType": [
-          10
-        ]
+        "value": ["s_nationkey"],
+        "valueType": [10]
       },
       {
         "selectType": 0,
-        "value": [
-          "n_regionkey"
-        ],
-        "valueType": [
-          10
-        ]
+        "value": ["s_acctbal"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_name"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_address"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_phone"],
+        "valueType": [10]
+      },
+      {
+        "selectType": 0,
+        "value": ["s_comment"],
+        "valueType": [10]
       }
     ],
-    "column_filtering": [
-      "n_nationkey",
-      "n_name",
-      "n_regionkey"
-    ],
-    "Group by": [],
-    "Order by": []
+    "columnFiltering": [
+        "s_suppkey", 
+        "s_nationkey",
+        "s_acctbal",
+        "s_name",
+        "s_address",
+        "s_phone",
+        "s_comment"
+      ],
+    "groupBy": []
   }
 }

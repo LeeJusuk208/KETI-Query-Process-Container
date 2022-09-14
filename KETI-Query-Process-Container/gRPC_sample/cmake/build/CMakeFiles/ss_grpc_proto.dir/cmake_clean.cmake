@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ss_grpc_proto.dir/snippet_sample.grpc.pb.cc.o"
+  "CMakeFiles/ss_grpc_proto.dir/snippet_sample.grpc.pb.cc.o.d"
   "CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o"
+  "CMakeFiles/ss_grpc_proto.dir/snippet_sample.pb.cc.o.d"
   "libss_grpc_proto.a"
   "libss_grpc_proto.pdb"
   "snippet_sample.grpc.pb.cc"

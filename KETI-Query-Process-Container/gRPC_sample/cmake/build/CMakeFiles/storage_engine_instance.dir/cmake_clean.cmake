@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/storage_engine_instance.dir/WalManager.cc.o"
+  "CMakeFiles/storage_engine_instance.dir/WalManager.cc.o.d"
   "CMakeFiles/storage_engine_instance.dir/storage_engine_instance.cc.o"
+  "CMakeFiles/storage_engine_instance.dir/storage_engine_instance.cc.o.d"
   "storage_engine_instance"
   "storage_engine_instance.pdb"
 )

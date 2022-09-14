@@ -7,6 +7,7 @@
 #include <grpcpp/grpcpp.h>
 #include <google/protobuf/empty.pb.h>
 #include "snippet_sample.grpc.pb.h"
+#include "WalManager.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -35,7 +36,13 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
       std::cout << "Recv Snippet to JSON" << std::endl;
       //std::cout << "Snippet Type : " << snippetrequest.type() << std::endl;
       std::cout << test_json << std::endl << std::endl;
+      
+      if(snippetrequest.type() == 0) {
+        WalManager test(snippetrequest.snippet());
+        test.run();
+      }
     }
+    
     return Status::OK;
   }
   Status Run(ServerContext* context, const Request* request, Result* result) override {
