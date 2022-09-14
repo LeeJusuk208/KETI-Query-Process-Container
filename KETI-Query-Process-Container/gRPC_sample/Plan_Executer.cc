@@ -262,7 +262,7 @@ std::unique_ptr<std::list<SnippetRequest>> Plan_Executer::Gen_Snippet(Parsed_Que
         load_snippet(*ret,"tpch21-9");
         load_snippet(*ret,"tpch21-10");
         load_snippet(*ret,"tpch21-11");
-    } else if(query_str == "TPC-H_22"){ //TPC-H Query 21
+    } else if(query_str == "TPC-H_22"){ //TPC-H Query 22
         load_snippet(*ret,"tpch22-0");
         load_snippet(*ret,"tpch22-1");
         load_snippet(*ret,"tpch22-2");
