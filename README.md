@@ -92,10 +92,6 @@ message SnippetRequest {
 ### Snippet
 -------------
 ```protobuf
-message SnippetRequest {
-  SnippetType type = 1;
-  Snippet snippet = 2;
-}
 message Snippet {
   int32 query_ID = 1;
   int32 work_ID = 2;
