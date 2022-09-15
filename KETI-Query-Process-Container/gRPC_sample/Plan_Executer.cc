@@ -30,9 +30,18 @@ void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterfa
     if(!OpenDatabase(&hEnv, &hDbc, szDSN, szUID, szPWD)){
       return;
     }
+    printf("[K-ODBC] K-OpenSource DB Connected!\n[K-ODBC] Using DBMS : \n");
+    // printf("[K-ODBC] Using DBMS : \n");
+    system("mysql --version");
+    // printf("\n");
+    printf("[K-ODBC] DSN : %s\n", szDSN);
+    printf("[K-ODBC] User ID : root\n");
+    printf("[K-ODBC] Using DataBase : tpch_small\n");
+    printf("[K-ODBC] Input Query : \n");
 
     //Execute SQL
     szSQL = strcpy(new char[parsed_query.Get_Parsed_Query().length() + 1], parsed_query.Get_Parsed_Query().c_str());
+    printf("%s\n", szSQL);
     ExecuteSQL( hDbc, szSQL);
     delete[] szSQL;
 
