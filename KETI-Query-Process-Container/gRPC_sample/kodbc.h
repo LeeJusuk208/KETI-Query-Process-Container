@@ -59,10 +59,16 @@ OpenDatabase( SQLHENV *phEnv, SQLHDBC *phDbc, char *szDSN, char *szUID, char *sz
         return 0;
     }
 
-    // printf("DB Connected!\n");
-    // printf("Using DBMS : ");
-    // system("mysql --version");
+    printf("[K-ODBC] K-OpenSource DB Connected!\n[K-ODBC] Using DBMS : \n");
+    // printf("[K-ODBC] Using DBMS : \n");
+    system("mysql --version");
     // printf("\n");
+    printf("[K-ODBC] DSN : myodbc5w\n");
+    printf("[K-ODBC] User ID : myodbc5w\n");
+    printf("[K-ODBC] Using DataBase : thch\n");
+    printf("[K-ODBC] Input Query : \n");
+    printf("CREATE TABLE nation  ( n_nationkey  INTEGER NOT NULL,\n                       n_name       CHAR(25) NOT NULL,\n                       n_regionkey  INTEGER NOT NULL,\n                       n_comment    VARCHAR(152));\n");
+
     
 
     /*
