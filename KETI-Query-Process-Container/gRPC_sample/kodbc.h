@@ -40,20 +40,20 @@ OpenDatabase( SQLHENV *phEnv, SQLHDBC *phDbc, char *szDSN, char *szUID, char *sz
 
     if ( SQLAllocEnv( phEnv ) != SQL_SUCCESS )
     {
-        fprintf( stderr, "[ISQL]ERROR: Could not SQLAllocEnv\n" );
+        fprintf( stderr, "[K-ODBC] ERROR: Could not SQLAllocEnv\n" );
         return 0;
     }
 
     if ( SQLAllocConnect( *phEnv, phDbc ) != SQL_SUCCESS )
     {
-        fprintf( stderr, "[ISQL]ERROR: Could not SQLAllocConnect\n" );
+        fprintf( stderr, "[K-ODBC] ERROR: Could not SQLAllocConnect\n" );
         SQLFreeEnv( *phEnv );
         return 0;
     }
 
     if ( !SQL_SUCCEEDED( SQLConnect( *phDbc, (SQLCHAR*)szDSN, SQL_NTS, (SQLCHAR*)szUID, 0, (SQLCHAR*)szPWD, 0)))
     {
-        fprintf( stderr, "[ISQL]ERROR: Could not SQLConnect\n" );
+        fprintf( stderr, "[K-ODBC] ERROR: Could not SQLConnect\n" );
         SQLFreeConnect( *phDbc );
         SQLFreeEnv( *phEnv );
         return 0;
@@ -89,7 +89,7 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
     {
         if ( SQLAllocHandle( SQL_HANDLE_STMT, hDbc, &hStmt ) != SQL_SUCCESS )
         {
-            fprintf( stderr, "[ISQL]ERROR: Could not SQLAllocHandle( SQL_HANDLE_STMT )\n" );
+            fprintf( stderr, "[K-ODBC] ERROR: Could not SQLAllocHandle( SQL_HANDLE_STMT )\n" );
             free(szSepLine);
             return 0;
         }
@@ -98,7 +98,7 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
     {
         if ( SQLAllocStmt( hDbc, &hStmt ) != SQL_SUCCESS )
         {
-            fprintf( stderr, "[ISQL]ERROR: Could not SQLAllocStmt\n" );
+            fprintf( stderr, "[K-ODBC] ERROR: Could not SQLAllocStmt\n" );
             free(szSepLine);
             return 0;
         }
@@ -108,7 +108,7 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
 
     if ( SQLPrepare( hStmt, (SQLCHAR*)szSQL, strlen( szSQL )) != SQL_SUCCESS )
     {
-        fprintf( stderr, "[ISQL]ERROR: Could not SQLPrepare\n" );
+        fprintf( stderr, "[K-ODBC] ERROR: Could not SQLPrepare\n" );
         SQLFreeStmt( hStmt, SQL_DROP );
         free(szSepLine);
         return 0;
@@ -118,15 +118,15 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
 
     if ( ret == SQL_NO_DATA )
     {
-        fprintf( stderr, "[ISQL]INFO: SQLExecute returned SQL_NO_DATA\n" );
+        fprintf( stderr, "[K-ODBC] INFO: SQLExecute returned SQL_NO_DATA\n" );
     }
     else if ( ret == SQL_SUCCESS_WITH_INFO )
     {
-        fprintf( stderr, "[ISQL]INFO: SQLExecute returned SQL_SUCCESS_WITH_INFO\n" );
+        fprintf( stderr, "[K-ODBC] INFO: SQLExecute returned SQL_SUCCESS_WITH_INFO\n" );
     }
     else if ( ret != SQL_SUCCESS )
     {
-        fprintf( stderr, "[ISQL]ERROR: Could not SQLExecute\n" );
+        fprintf( stderr, "[K-ODBC] ERROR: Could not SQLExecute\n" );
         SQLFreeStmt( hStmt, SQL_DROP );
         free(szSepLine);
         return 0;
@@ -145,11 +145,11 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
         {
             if ( ret == SQL_SUCCESS_WITH_INFO )
             {
-                fprintf( stderr, "[ISQL]INFO: SQLMoreResults returned SQL_SUCCESS_WITH_INFO\n" );
+                fprintf( stderr, "[K-ODBC] INFO: SQLMoreResults returned SQL_SUCCESS_WITH_INFO\n" );
             }
             else if ( ret == SQL_ERROR )
             {
-                fprintf( stderr, "[ISQL]ERROR: SQLMoreResults returned SQL_ERROR\n" );
+                fprintf( stderr, "[K-ODBC] ERROR: SQLMoreResults returned SQL_ERROR\n" );
             }
         }
         mr = 1;
@@ -161,7 +161,7 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
 
         if ( SQLNumResultCols( hStmt, &cols ) != SQL_SUCCESS )
         {
-            fprintf( stderr, "[ISQL]ERROR: Could not SQLNumResultCols\n" );
+            fprintf( stderr, "[K-ODBC] ERROR: Could not SQLNumResultCols\n" );
             SQLFreeStmt( hStmt, SQL_DROP );
             free(szSepLine);
             return 0;
@@ -384,7 +384,7 @@ WriteFooterNormal(SQLHSTMT hStmt, SQLCHAR *szSepLine, SQLLEN nRows)
     fputs((char *)szSepLine, stdout);
 
     SQLRowCount(hStmt, &nRowsAffected);
-    printf("SQLRowCount returns %ld\n", nRowsAffected);
+    printf("[K-ODBC] SQLRowCount returns %ld\n", nRowsAffected);
 
     if (nRows)
     {
@@ -395,7 +395,7 @@ WriteFooterNormal(SQLHSTMT hStmt, SQLCHAR *szSepLine, SQLLEN nRows)
 
 static void mem_error(int line)
 {
-    fprintf(stderr, "[ISQL]ERROR: memory allocation fail before line %d\n", line);
+    fprintf(stderr, "[K-ODBC] ERROR: memory allocation fail before line %d\n", line);
     exit(-1);
 }
 

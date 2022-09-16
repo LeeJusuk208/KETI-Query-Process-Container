@@ -8,11 +8,11 @@
 
 using namespace rapidjson;
 
-DB_Connector_Instance::DB_Connector_Instance() : storageEngineInterface_(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials())), meta_data_manager_("localhost:50052")
+DB_Connector_Instance::DB_Connector_Instance() : storageEngineInterface_(grpc::CreateChannel("10.0.5.122:50051", grpc::InsecureChannelCredentials())), meta_data_manager_("localhost:50052")
 {
     //ctor
 }
-DB_Connector_Instance::DB_Connector_Instance(utility::string_t url):m_listener(url), storageEngineInterface_(grpc::CreateChannel("localhost:50051", grpc::InsecureChannelCredentials())), meta_data_manager_("localhost:50052")
+DB_Connector_Instance::DB_Connector_Instance(utility::string_t url):m_listener(url), storageEngineInterface_(grpc::CreateChannel("10.0.5.122:50051", grpc::InsecureChannelCredentials())), meta_data_manager_("localhost:50052")
 {
     m_listener.support(methods::GET, std::bind(&DB_Connector_Instance::handle_get, this, std::placeholders::_1));
     m_listener.support(methods::PUT, std::bind(&DB_Connector_Instance::handle_put, this, std::placeholders::_1));
@@ -50,7 +50,7 @@ void DB_Connector_Instance::handle_get(http_request message)
     
     Parsed_Query parsed_query(document["query"].GetString());
     
-    std::cout << "------------------------------------:: STEP 1 ::------------------------------------" << std::endl;
+    //std::cout << "------------------------------------:: STEP 1 ::------------------------------------" << std::endl;
     keti_log("DB Connector Instance","Recv Query");
     query_planner_.Parse(meta_data_manager_,parsed_query);
     plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
