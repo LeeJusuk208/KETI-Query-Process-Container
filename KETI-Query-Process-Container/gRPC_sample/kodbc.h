@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sql.h>
 #include <sqlext.h>
+#include <string>
 
 #define MAX_DATA_WIDTH 300
 
@@ -26,9 +27,9 @@ static int OpenDatabase( SQLHENV *phEnv, SQLHDBC *phDbc, char *szDSN, char *szUI
 static int ExecuteSQL( SQLHDBC hDbc, char *szSQL );
 static int	CloseDatabase( SQLHENV hEnv, SQLHDBC hDbc );
 
-static void WriteHeaderNormal( SQLHSTMT hStmt, SQLCHAR	**szSepLine );
-static SQLLEN WriteBodyNormal( SQLHSTMT hStmt );
-static void WriteFooterNormal( SQLHSTMT hStmt, SQLCHAR	*szSepLine, SQLLEN nRows );
+static void WriteHeaderNormal( SQLHSTMT hStmt, SQLCHAR	**szSepLine ,std::string &res);
+static SQLLEN WriteBodyNormal( SQLHSTMT hStmt ,std::string &res);
+static void WriteFooterNormal( SQLHSTMT hStmt, SQLCHAR	*szSepLine, SQLLEN nRows ,std::string &res);
 
 static void mem_error( int line );
 static SQLUINTEGER OptimalDisplayWidth( SQLHSTMT hStmt, SQLINTEGER nCol, int nUserWidth );
@@ -74,7 +75,7 @@ OpenDatabase( SQLHENV *phEnv, SQLHDBC *phDbc, char *szDSN, char *szUID, char *sz
 
 //ExecuteSQL
 static int
-ExecuteSQL( SQLHDBC hDbc, char *szSQL)
+ExecuteSQL( SQLHDBC hDbc, char *szSQL, std::string &res)
 {
     SQLHSTMT        hStmt;
     SQLSMALLINT     cols;
@@ -172,19 +173,19 @@ ExecuteSQL( SQLHDBC hDbc, char *szSQL)
             /****************************
              * WRITE HEADER
              ***************************/
-             WriteHeaderNormal( hStmt, &szSepLine );
+             WriteHeaderNormal( hStmt, &szSepLine , res);
 
             /****************************
              * WRITE BODY
              ***************************/
-            nRows = WriteBodyNormal( hStmt );
+            nRows = WriteBodyNormal( hStmt , res);
             
         }
 
         /****************************
          * WRITE FOOTER
          ***************************/
-        WriteFooterNormal( hStmt, szSepLine, nRows );
+        WriteFooterNormal( hStmt, szSepLine, nRows , res);
     }
     while ( has_moreresults && ( ret = SQLMoreResults( hStmt )) != SQL_NO_DATA );
 
@@ -217,7 +218,7 @@ static int CloseDatabase( SQLHENV hEnv, SQLHDBC hDbc )
 }
 
 
-static void WriteHeaderNormal(SQLHSTMT hStmt, SQLCHAR **szSepLine)
+static void WriteHeaderNormal(SQLHSTMT hStmt, SQLCHAR **szSepLine, std::string &res)
 {
     SQLINTEGER nCol = 0;
     SQLSMALLINT nColumns = 0;
@@ -287,8 +288,11 @@ static void WriteHeaderNormal(SQLHSTMT hStmt, SQLCHAR **szSepLine)
     strcat((char *)szHdrLine, "|\n");
 
     fputs((char *)*szSepLine, stdout);
+    res += (char *)*szSepLine;
     fputs((char *)szHdrLine, stdout);
+    res += (char *)szHdrLine;
     fputs((char *)*szSepLine, stdout);
+    res += (char *)*szSepLine;
 
     free(szHdrLine);
     free(szColumnName);
@@ -296,7 +300,7 @@ static void WriteHeaderNormal(SQLHSTMT hStmt, SQLCHAR **szSepLine)
 }
 
 
-static SQLLEN WriteBodyNormal(SQLHSTMT hStmt)
+static SQLLEN WriteBodyNormal(SQLHSTMT hStmt, std::string &res)
 {
     SQLINTEGER nCol = 0;
     SQLSMALLINT nColumns = 0;
@@ -362,10 +366,12 @@ static SQLLEN WriteBodyNormal(SQLHSTMT hStmt)
                 sprintf((char *)szColumn, "| %-*s", (int)nOptimalDisplayWidth, "");
             }
             fputs((char *)szColumn, stdout);
+            res += (char *)szColumn;
         } /* for columns */
 
         nRows++;
         printf("|\n");
+        res += "|\n";
         nReturn = SQLFetch(hStmt);
     } /* while rows */
 
@@ -377,11 +383,12 @@ static SQLLEN WriteBodyNormal(SQLHSTMT hStmt)
 
 
 static void
-WriteFooterNormal(SQLHSTMT hStmt, SQLCHAR *szSepLine, SQLLEN nRows)
+WriteFooterNormal(SQLHSTMT hStmt, SQLCHAR *szSepLine, SQLLEN nRows, std::string &res)
 {
     SQLLEN nRowsAffected = -1;
 
     fputs((char *)szSepLine, stdout);
+    res += (char *)szSepLine;
 
     SQLRowCount(hStmt, &nRowsAffected);
     printf("[K-ODBC] SQLRowCount returns %ld\n", nRowsAffected);

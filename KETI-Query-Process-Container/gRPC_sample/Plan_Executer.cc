@@ -39,7 +39,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
     //Execute SQL
     szSQL = strcpy(new char[parsed_query.Get_Parsed_Query().length() + 1], parsed_query.Get_Parsed_Query().c_str());
     printf("%s\n", szSQL);
-    ExecuteSQL( hDbc, szSQL);
+    ExecuteSQL( hDbc, szSQL, res);
     delete[] szSQL;
 
     //Database Close
