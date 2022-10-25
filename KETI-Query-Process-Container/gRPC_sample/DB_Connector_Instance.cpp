@@ -50,7 +50,7 @@ void DB_Connector_Instance::handle_get(http_request message)
     
     Parsed_Query parsed_query(document["query"].GetString());
     
-    //std::cout << "------------------------------------:: STEP 1 ::------------------------------------" << std::endl;
+    keti_log("DB Connector Instance","\t------------:: STEP 1 ::------------");
     keti_log("DB Connector Instance","Recv Query");
     query_planner_.Parse(meta_data_manager_,parsed_query);
     plan_executer_.Execute_Query(storageEngineInterface_,parsed_query);
