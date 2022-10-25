@@ -30,9 +30,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
       return;
     }
     printf("[K-ODBC] K-OpenSource DB Connected!\n[K-ODBC] Using DBMS : \n");
-    // printf("[K-ODBC] Using DBMS : \n");
     system("mysql --version");
-    // printf("\n");
     printf("[K-ODBC] DSN : %s\n", szDSN);
     printf("[K-ODBC] User ID : root\n");
     printf("[K-ODBC] Using DataBase : tpch_small\n\n");
@@ -56,7 +54,6 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
     for(;iter != snippet_list->end();iter++){
       storageEngineInterface.SendSnippet(*iter);
     }
-    //storageEngineInterface.GetReturn();
     storageEngineInterface.CloseStream();
 
     res = storageEngineInterface.Run(query_id);
@@ -64,7 +61,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
   return res;
 }
 
-int Plan_Executer::Set_Query_ID(){ // test code
+int Plan_Executer::Set_Query_ID(){ 
     return 5;
 }
 
@@ -290,7 +287,6 @@ void read_json(std::string& request,std::string snippet_name){
 		std::string line;
 		while(getline(openFile, line)){
 			request += line;
-      //std::cout << line << std::endl;
 		}
 		openFile.close();
 	}

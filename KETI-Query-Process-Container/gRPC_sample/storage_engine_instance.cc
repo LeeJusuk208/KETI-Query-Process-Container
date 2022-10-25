@@ -26,14 +26,13 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
                    ServerReaderWriter<Result, SnippetRequest>* stream) override {
     SnippetRequest snippetrequest;
     while (stream->Read(&snippetrequest)) {
-      //Snippet snippet = snippetrequest.snippet();
       std::string test_json;
       google::protobuf::util::JsonPrintOptions options;
       options.always_print_primitive_fields = true;
       options.always_print_enums_as_ints = true;
       google::protobuf::util::MessageToJsonString(snippetrequest,&test_json,options);
       std::cout << "Recv Snippet to JSON" << std::endl;
-      //std::cout << "Snippet Type : " << snippetrequest.type() << std::endl;
+      
       std::cout << test_json << std::endl << std::endl;
       
       if(snippetrequest.type() == 0) {
