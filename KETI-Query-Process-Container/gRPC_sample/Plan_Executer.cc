@@ -59,7 +59,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
     //storageEngineInterface.GetReturn();
     storageEngineInterface.CloseStream();
 
-    storageEngineInterface.Run(query_id);
+    res = storageEngineInterface.Run(query_id);
   }
   return res;
 }

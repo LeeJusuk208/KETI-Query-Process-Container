@@ -41,7 +41,7 @@ class Storage_Engine_Interface {
 			}
 		}
 
-		void Run(int queryid) {
+		std::string Run(int queryid) {
 			Request request;
 			request.set_queryid(queryid);
     		ClientContext context;
@@ -49,12 +49,13 @@ class Storage_Engine_Interface {
 			
 			Status status = stub_->Run(&context, request, &result);
 
-			std::cout << std::endl << "result : " << result.value() << "\n";
+			keti_log("Storage Engine Interface","Query Result : \n" + result.value());
 			
 	  		if (!status.ok()) {
 				std::cout << status.error_code() << ": " << status.error_message() << std::endl;
 				std::cout << "RPC failed";
 			}
+			return result.value();
 		}
 
 	private:
