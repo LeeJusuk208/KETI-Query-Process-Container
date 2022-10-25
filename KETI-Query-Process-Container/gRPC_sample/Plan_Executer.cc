@@ -12,10 +12,9 @@
 
 void load_snippet(std::list<SnippetRequest> &list,std::string snippet_name);
 
-void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query){
+std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterface,Parsed_Query &parsed_query){
+    std::string res="";
   keti_log("Plan Executer","Analyzing Query ...");
-  //std::cout << parsed_query.Get_Ori_Query() << std::endl;
-  //std::cout << parsed_query.Get_Parsed_Query() << std::endl;
 
   if(parsed_query.isGenericQuery()){
     keti_log("Plan Executer"," => Generic Query");
@@ -62,6 +61,7 @@ void Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngineInterfa
 
     storageEngineInterface.Run(query_id);
   }
+  return res;
 }
 
 int Plan_Executer::Set_Query_ID(){ // test code
