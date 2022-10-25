@@ -27,7 +27,7 @@ std::string Plan_Executer::Execute_Query(Storage_Engine_Interface &storageEngine
 
     //Open database
     if(!OpenDatabase(&hEnv, &hDbc, szDSN, szUID, szPWD)){
-      return;
+      return "DB Open Error";
     }
     printf("[K-ODBC] K-OpenSource DB Connected!\n[K-ODBC] Using DBMS : \n");
     system("mysql --version");

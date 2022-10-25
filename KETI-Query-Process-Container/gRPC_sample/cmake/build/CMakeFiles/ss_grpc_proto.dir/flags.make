@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DCARES_STATICLIB
 
-CXX_INCLUDES = -I/root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build -isystem /include
+CXX_INCLUDES = -I/root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build
 
 CXX_FLAGS = -std=gnu++11
 

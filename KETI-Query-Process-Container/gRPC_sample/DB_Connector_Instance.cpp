@@ -55,7 +55,6 @@ void DB_Connector_Instance::handle_get(http_request message)
     query_planner_.Parse(meta_data_manager_,parsed_query);
     std::string rep = plan_executer_.Execute_Query(storageEngineInterface_,parsed_query) + "\n";
     
-    std::string rep = U("Query Result\n");
     message.reply(status_codes::OK,rep);
     return;
 

@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E rm -f
+RM = /usr/local/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample
+CMAKE_SOURCE_DIR = /root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build
+CMAKE_BINARY_DIR = /root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-P
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles /root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -227,30 +227,6 @@ Plan_Executer.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/db_connector_instance.dir/build.make CMakeFiles/db_connector_instance.dir/Plan_Executer.cc.s
 .PHONY : Plan_Executer.cc.s
 
-WalManager.o: WalManager.cc.o
-.PHONY : WalManager.o
-
-# target to build an object file
-WalManager.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/WalManager.cc.o
-.PHONY : WalManager.cc.o
-
-WalManager.i: WalManager.cc.i
-.PHONY : WalManager.i
-
-# target to preprocess a source file
-WalManager.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/WalManager.cc.i
-.PHONY : WalManager.cc.i
-
-WalManager.s: WalManager.cc.s
-.PHONY : WalManager.s
-
-# target to generate assembly for a file
-WalManager.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/storage_engine_instance.dir/build.make CMakeFiles/storage_engine_instance.dir/WalManager.cc.s
-.PHONY : WalManager.cc.s
-
 snippet_sample.grpc.pb.o: snippet_sample.grpc.pb.cc.o
 .PHONY : snippet_sample.grpc.pb.o
 
@@ -343,9 +319,6 @@ help:
 	@echo "... Plan_Executer.o"
 	@echo "... Plan_Executer.i"
 	@echo "... Plan_Executer.s"
-	@echo "... WalManager.o"
-	@echo "... WalManager.i"
-	@echo "... WalManager.s"
 	@echo "... snippet_sample.grpc.pb.o"
 	@echo "... snippet_sample.grpc.pb.i"
 	@echo "... snippet_sample.grpc.pb.s"

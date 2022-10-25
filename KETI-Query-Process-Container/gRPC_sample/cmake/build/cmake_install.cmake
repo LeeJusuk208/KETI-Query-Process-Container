@@ -1,4 +1,4 @@
-# Install script for directory: /root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample
+# Install script for directory: /root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/workspace/ljs/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/workspace/ljs/git/KETI-Query-Process-Container/KETI-Query-Process-Container/gRPC_sample/cmake/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
