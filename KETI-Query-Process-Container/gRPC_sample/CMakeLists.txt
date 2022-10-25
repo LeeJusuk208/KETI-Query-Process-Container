@@ -77,7 +77,7 @@ target_link_libraries(db_connector_instance
   ${_PROTOBUF_LIBPROTOBUF})
 
 # Storage_Engine_Instance
-add_executable(storage_engine_instance "storage_engine_instance.cc" "WalManager.cc" "WalManager.h")
+add_executable(storage_engine_instance "storage_engine_instance.cc")
 target_link_libraries(storage_engine_instance
   ss_grpc_proto
   ${LINKING_LIBRARIES}

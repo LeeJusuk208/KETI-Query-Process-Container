@@ -7,7 +7,6 @@
 #include <grpcpp/grpcpp.h>
 #include <google/protobuf/empty.pb.h>
 #include "snippet_sample.grpc.pb.h"
-#include "WalManager.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -38,8 +37,6 @@ class SnippetSampleServiceImpl final : public SnippetSample::Service {
       std::cout << test_json << std::endl << std::endl;
       
       if(snippetrequest.type() == 0) {
-        WalManager test(snippetrequest.snippet());
-        test.run();
       }
     }
     
